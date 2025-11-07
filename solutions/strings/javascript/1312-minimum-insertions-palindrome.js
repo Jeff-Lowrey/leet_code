@@ -1,96 +1,49 @@
 /**
- * # 1312. Minimum Insertions Palindrome
- *
- * Difficulty: Medium
- *
- *
- * Given a string s, return the minimum number of insertions needed to make s a palindrome.
- *
- * A palindrome is a string that reads the same forward and backward.
- *
- * Example:
- * Input: s = "zzazz"
- * Output: 0
- * Explanation: The string "zzazz" is already a palindrome.
- *
- * Example:
- * Input: s = "mbadm"
- * Output: 2
- * Explanation: String can be "mbdadbm" or "mdbabdm".
- *
- * Example:
- * Input: s = "leetcode"
- * Output: 5
- * Explanation: Inserting 5 characters the string becomes "leetcodocteel".
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "zzazz"</dd>
- * <dt>Output:</dt>
- * <dd>0</dd>
- * <dt>Explanation:</dt>
- * <dd>The string 'zzazz' requires 0 insertions because it's already a palindrome</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Greedy Algorithm, Dynamic Programming
- * **Time Complexity**: O(n²) - Nested iteration through input
- * **Space Complexity**: O(n²)
+### INTUITION:
+To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
 
- *
- * ### INTUITION:
- * To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
- *
- * ### APPROACH:
- * 1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
- * 2. **Calculate Insertions**: minimum insertions = string length - LPS length
- * 3. **DP Recurrence**:
- *    - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`
- *    - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
- *
- * ### WHY THIS WORKS:
- * The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "mbadm"
- * ```
- *
- * Steps:
- * Step 1: Find longest palindromic subsequence (LPS) using DP
- * Step 2: LPS of "mbadm" → "mam" (length 3)
- * Step 3: Minimum insertions = length of string - LPS length
- * Step 4: Result → 5 - 3 = 2 insertions needed
- *
- * Output:
- * ```
- * 2
- * ```
- *
- * ### TIME COMPLEXITY:
- * O(n²)
- * - Nested iteration through input
- * - Filling n×n DP table with constant work per cell
- *
- * ### SPACE COMPLEXITY:
- * O(n²)
- * - DP table storage, can be optimized to O(n)
- *
- * ### EDGE CASES:
- * - Already palindrome: return 0
- * - Single character: return 0
- * - All different characters: return n-1
- * - Empty string: return 0
- *
- * </details>
- */
+### APPROACH:
+1. **Find Longest Palindromic Subsequence**: Use DP to find the longest subsequence that reads the same forwards and backwards
+2. **Calculate Insertions**: minimum insertions = string length - LPS length
+3. **DP Recurrence**:
+   - If characters match: `dp[i][j] = dp[i+1][j-1] + 2`
+   - If not: `dp[i][j] = max(dp[i+1][j], dp[i][j-1])`
+
+### WHY THIS WORKS:
+The LPS represents the "skeleton" of characters we can keep without insertion. All other characters need to be "mirrored" by insertions. For example, in "mbadm", LPS is "mam" (length 3), so we need 5-3=2 insertions.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+s = "mbadm"
+```
+
+Steps:
+Step 1: Find longest palindromic subsequence (LPS) using DP
+Step 2: LPS of "mbadm" → "mam" (length 3)
+Step 3: Minimum insertions = length of string - LPS length
+Step 4: Result → 5 - 3 = 2 insertions needed
+
+Output:
+```
+2
+```
+
+### TIME COMPLEXITY:
+O(n²)**
+- Nested iteration through input
+- Filling n×n DP table with constant work per cell
+
+### SPACE COMPLEXITY:
+O(n²)**
+- DP table storage, can be optimized to **O(n)**
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 1312: Minimum Insertions Palindrome

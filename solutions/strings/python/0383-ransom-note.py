@@ -1,32 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0383. Ransom Note
-
-This problem demonstrates key concepts in Strings and Hash Tables.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>ransomNote = "aa", magazine = "aab"</dd>
-<dt>Output:</dt>
-<dd>True</dd>
-<dt>Explanation:</dt>
-<dd>The ransom note 'aa' cannot be constructed from magazine 'ab' (not enough 'a's)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(m + n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-To construct a ransom note from magazine letters, we need to ensure that the magazine contains
+The key insight is that to construct a ransom note from magazine letters, we need to ensure that the magazine contains
 at least as many of each character as required by the ransom note. This is essentially checking
 if one string's character frequencies are a subset of another's character frequencies.
 
@@ -64,22 +38,20 @@ False
 ```
 
 ### TIME COMPLEXITY:
-O(m + n)
+**O(m + n)**
 Where m is the length of magazine and n is the length of ransomNote. We iterate through both
 strings once.
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Although we use a hash map, since we're limited to lowercase English letters (26 characters),
 the space is bounded by a constant.
 
 ### EDGE CASES:
-- Empty ransom note: Always True (can construct nothing from anything)
-- Empty magazine: False if ransom note is non-empty, True if both empty
-- Magazine shorter than ransom note: Could still be False
-- Ransom note with characters not in magazine: False
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from collections import Counter

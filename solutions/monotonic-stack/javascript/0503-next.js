@@ -1,33 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0503. Next Greater Element II
- *
- *
- * Given a circular integer array nums (i.e., the next element of nums[nums.length - 1] is nums[0]), return the next greater number for every element in nums.
- *
- * The next greater number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn't exist, return -1 for this number.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1,2,1]</dd>
- * <dt>Output:</dt>
- * <dd>[2,-1,2]</dd>
- * <dt>Explanation:</dt>
- * <dd>In a circular array, the next greater elements are found by wrapping around: [2,2,1]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Stack Operations
- * **Data Structures**: Array, Stack, Linked List
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of monotonic stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -39,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages monotonic stack principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages monotonic stack principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -63,21 +36,20 @@
  * ```
  * [2,-1,2]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

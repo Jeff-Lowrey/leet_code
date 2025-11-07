@@ -1,31 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0416. Partition Equal Subset Sum
- *
- *
- * Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,5,11,5]</dd>
- * <dt>Output:</dt>
- * <dd>True (can partition into equal subsets)</dd>
- * <dt>Explanation:</dt>
- * <dd>Array [1,5,11,5] can be partitioned into [1,5,5] and [11] with equal sum 11</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array
- * **Patterns**: Hash Table Pattern, Dynamic Programming
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -37,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages dynamic programming principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages dynamic programming principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -63,21 +38,20 @@
  * ```
  * True (can partition into equal subsets)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

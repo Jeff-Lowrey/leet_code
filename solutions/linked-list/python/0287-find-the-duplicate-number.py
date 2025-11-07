@@ -1,36 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0287. Find The Duplicate Number
-
-Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
-
-There is only one repeated number in nums, return this repeated number.
-
-You must solve the problem without modifying the array nums and uses only constant extra space.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,3,4,2,2]</dd>
-<dt>Output:</dt>
-<dd>2 (duplicate number)</dd>
-<dt>Explanation:</dt>
-<dd>The duplicate number is 2, which appears twice in the array</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
+The key insight is that treat as cycle detection problem. Array indices are nodes, values are edges. Duplicate creates a cycle. Use Floyd's algorithm to find cycle entrance, which is the duplicate number.
 
 ### APPROACH:
 1. **Treat as linked list**: Consider array indices as linked list
@@ -78,21 +48,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

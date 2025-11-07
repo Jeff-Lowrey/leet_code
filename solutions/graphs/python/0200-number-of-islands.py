@@ -1,34 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0200. Number Of Islands
-
-Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
-
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>grid = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>There is 1 island (all connected 1's in top-left)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(M × N)
-**Space Complexity**: O(M × N)
-
 ### INTUITION:
-This is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
+The key insight is that this is a classic graph traversal problem where we need to find connected components. Each island is a connected component of '1's (land). We can use DFS or BFS to explore each island completely when we encounter it, then count how many separate islands we find.
 
 ### APPROACH:
 1. **Iterate through grid**: Check each cell in the grid
@@ -61,22 +33,24 @@ Step 1: - Continue scanning: (1,3) is unvisited land → start new DFS
 Step 2: - DFS from (1,3) only marks (1,3) as it's isolated
 Step 3: - Total islands found: 2
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-O(M × N)
+**O(M × N)**
 Where M and N are grid dimensions - we visit each cell at most once
 
 ### SPACE COMPLEXITY:
-O(M × N)
+**O(M × N)**
 For recursion stack in worst case (entire grid is one island) or visited array
 
 ### EDGE CASES:
-- Empty grid
-- All water ('0's)
-- All land ('1's) - single island
-- Single cell grid
-- Grid with no islands
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from collections import deque

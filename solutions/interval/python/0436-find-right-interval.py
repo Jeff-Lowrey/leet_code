@@ -1,36 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0436. Find Right Interval
-
-You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
-
-The right interval for an interval i is an interval j such that startj >= endi and startj is minimized. Note that i may equal j.
-
-Return an array of right interval indices for each interval i. If no right interval exists for interval i, then put -1 at index i.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>intervals = [[3,4],[2,3],[1,2]]</dd>
-<dt>Output:</dt>
-<dd>[-1,0,1]</dd>
-<dt>Explanation:</dt>
-<dd>For each interval [1,2], the right interval [2,3] has the smallest start ≥ 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Tree
-**Patterns**: Two Pointers Pattern, Binary Search Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
+The key insight is that sort intervals by start time. For each interval, binary search for the first interval whose start >= current interval's end. Store the index or -1 if not found.
 
 ### APPROACH:
 1. **Create index mapping**: Build dict mapping start to original index
@@ -42,11 +12,11 @@ Sort intervals by start time. For each interval, binary search for the first int
 7. **Return result**: Return list of right interval indices
 
 ### WHY THIS WORKS:
-- Binary search on sorted start times to find next interval
-- Store original indices before sorting to map back
-- For each interval's end, binary search for smallest start >= end
-- HashMap maps start value to original index
-- O(n log n) for sort + n binary searches, O(n) space
+- This ensures that binary search on sorted start times to find next interval
+- This ensures that store original indices before sorting to map back
+- This ensures that for each interval's end, binary search for smallest start >= end
+- This ensures that hashMap maps start value to original index
+- This ensures that o(n log n) for sort + n binary searches, O(n) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -71,21 +41,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

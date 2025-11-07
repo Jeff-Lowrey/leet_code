@@ -1,41 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0153. Find Minimum In Rotated Sorted Array
-
-Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
-
-- [4,5,6,7,0,1,2] if it was rotated 4 times.
-- [0,1,2,4,5,6,7] if it was rotated 7 times.
-
-Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
-
-Given the sorted rotated array nums of unique elements, return the minimum element of this array.
-
-You must write an algorithm that runs in O(log n) time.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[4,5,6,7,0,1,2]</dd>
-<dt>Output:</dt>
-<dd>0 (minimum element)</dd>
-<dt>Explanation:</dt>
-<dd>The minimum element is 0 in the rotated sorted array [4,5,6,7,0,1,2]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-The minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
+The key insight is that the minimum element is where the rotation occurs. Compare mid with right: if nums[mid] > nums[right], minimum is in the right half; otherwise it's in the left half (including mid). This handles both rotated and non-rotated cases.
 
 ### APPROACH:
 1. **Initialize pointers**: Set left = 0, right = len(nums) - 1
@@ -47,11 +12,11 @@ The minimum element is where the rotation occurs. Compare mid with right: if num
 7. **Return result**: Return nums[left] as the minimum element
 
 ### WHY THIS WORKS:
-- Binary search: minimum is at rotation point
-- If nums[mid] > nums[right], minimum in right half (left = mid + 1)
-- Else minimum in left half including mid (right = mid)
-- When left == right, found minimum
-- O(log n) time, O(1) space
+- This ensures that binary search: minimum is at rotation point
+- This ensures that if nums[mid] > nums[right], minimum in right half (left = mid + 1)
+- This ensures that else minimum in left half including mid (right = mid)
+- This ensures that when left == right, found minimum
+- This ensures that o(log n) time, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -79,21 +44,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

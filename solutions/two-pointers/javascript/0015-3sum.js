@@ -1,90 +1,54 @@
 /**
- * # 0015. 3sum
- *
- * Difficulty: Easy
- *
- *
- * Given an integer array `nums`, return all the triplets [`nums`[i], `nums`[j], `nums`[k]]
- * such that `i` != `j`, `i` != `k`, and `j` != `k`, and `nums`[i] + `nums`[j] + `nums`[k] == 0.
- *
- * Notice that the solution `set` must not contain duplicate triplets.
- *
- * Example:
- * Input: `nums` = [-1,0,1,2,-1,-4]
- * Output: [[-1,-1,2],[-1,0,1]]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums` = [-1,0,1,2,-1,-4]</dd>
- * <dt>Output:</dt>
- * <dd>[[-1,-1,2],[-1,0,1]]</dd>
- * <dt>Explanation:</dt>
- * <dd>3Sum: triplets summing to 0 in [-1,0,1,2,-1,-4] are [[-1,-1,2],[-1,0,1]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n²) - Nested iteration through input
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+The key insight is that convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
 
- *
- * ### INTUITION:
- * Convert the 3Sum problem into multiple 2Sum problems. For each number, find pairs in the remaining array that sum to the negative of that number. Sorting helps avoid duplicates and enables two-pointer technique.
- *
- * ### APPROACH:
- * 1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
- * 2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
- * 3. **Two Pointers**: Use left and right pointers to find the required sum
- * 4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values
- *
- * ### WHY THIS WORKS:
- * Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [-1,0,1,2,-1,-4]
- * ```
- *
- * Steps:
- * Step 1: Sort array → [-4,-1,-1,0,1,2]
- * Step 2: i=0, nums[i]=-4, target=4 → no valid pairs found
- * Step 3: i=1, nums[i]=-1, target=1 → left=2(-1), right=5(2) → sum=1 ✓ → triplet [-1,-1,2]
- * Step 4: i=2 → skip duplicate -1
- * Step 5: i=3, nums[i]=0, target=0 → no valid pairs found
- * Step 6: Return all unique triplets found
- *
- * Output:
- * ```
- * [[-1,-1,2],[-1,0,1]]
- * ```
- *
- * ### TIME COMPLEXITY:
- * O(n²)
- * - Nested iteration through input
- * - O(n log n) for sorting
- * - O(n²) for nested loops with two pointers
- * - Overall: O(n²)
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * - Excluding output space, only using constant extra space
- * - Sorting can be done in-place
- *
- * ### EDGE CASES:
- * - Array length < 3: return []
- * - All positive/negative numbers: return []
- * - Array with all zeros: return [[0,0,0]] if length ≥ 3
- *
- * </details>
- */
+### APPROACH:
+1. **Sort Array**: Enables two-pointer technique and easy duplicate handling
+2. **Fix First Element**: For each nums[i], find pairs that sum to -nums[i]
+3. **Two Pointers**: Use left and right pointers to find the required sum
+4. **Skip Duplicates**: Avoid duplicate triplets by skipping repeated values
+
+### WHY THIS WORKS:
+Sorting enables efficient duplicate skipping and the two-pointer technique. For each fixed first element, the problem reduces to finding two numbers that sum to a target, which is efficiently solved with two pointers.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [-1,0,1,2,-1,-4]
+```
+
+Steps:
+Step 1: Sort array → [-4,-1,-1,0,1,2]
+Step 2: i=0, nums[i]=-4, target=4 → no valid pairs found
+Step 3: i=1, nums[i]=-1, target=1 → left=2(-1), right=5(2) → sum=1 ✓ → triplet [-1,-1,2]
+Step 4: i=2 → skip duplicate -1
+Step 5: i=3, nums[i]=0, target=0 → no valid pairs found
+Step 6: Return all unique triplets found
+
+Output:
+```
+[[-1,-1,2],[-1,0,1]]
+```
+
+### TIME COMPLEXITY:
+O(n²)**
+- Nested iteration through input
+- **O(n log n)** for sorting
+- **O(n²)** for nested loops with two pointers
+- Overall: **O(n²)**
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+- Excluding output space, only using constant extra space
+- Sorting can be done in-place
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 015: 3Sum

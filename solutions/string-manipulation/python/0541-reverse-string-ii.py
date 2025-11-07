@@ -1,35 +1,4 @@
 """
-# 0541. Reverse String Ii
-
-# Difficulty: Easy
-
-Given a string s and an integer k, reverse the first k characters for every 2k
-characters counting from the start of the string.
-
-If there are fewer than k characters left, reverse all of them.
-If there are less than 2k but greater than or equal to k characters, then reverse
-the first k characters and leave the other as original.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "abcdefg", k = 2</dd>
-<dt>Output:</dt>
-<dd>bacdfeg"</dd>
-<dt>Explanation:</dt>
-<dd>Reverse first k=2 chars in each 2k group: 'abcdefg' becomes 'bacdfeg'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n)
-
 ### INTUITION:
 We need to process the string in chunks of 2k characters. For each chunk, we reverse
 the first k characters and leave the rest unchanged. This pattern repeats throughout
@@ -74,22 +43,20 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Visit each character once during iteration
-- Reversing k characters per 2k chunk is O(k) but amortized O(n)
+- Reversing k characters per 2k chunk is **O(k)** but amortized **O(n)**
 
 ### SPACE COMPLEXITY:
-O(n)
-- Converting string to list requires O(n) space
+**O(n)**
+- Converting string to list requires **O(n)** space
 - Python strings are immutable, so this is necessary
 
 ### EDGE CASES:
-- s length < k: Reverse entire string
-- s length = k: Reverse entire string
-- s length between k and 2k: Reverse first k only
-- k = 1: No actual reversal needed (each char is its own segment)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

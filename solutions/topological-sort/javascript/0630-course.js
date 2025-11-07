@@ -1,35 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0630. Course Schedule III
- *
- *
- * There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.
- *
- * You will start on the 1st day and you cannot take two or more courses simultaneously.
- *
- * Return the maximum number of courses that you can take.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]</dd>
- * <dt>Output:</dt>
- * <dd>3 (max courses)</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum courses you can take within time limit</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Sorting
- * **Data Structures**: Array, Queue, Heap
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -41,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages topological sort principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages topological sort principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -63,21 +34,20 @@
  * ```
  * 3 (max courses)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

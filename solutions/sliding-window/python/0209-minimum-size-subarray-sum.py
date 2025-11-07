@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0209. Minimum Size Subarray Sum
-
-Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>target = 7, nums = [2,3,1,2,4,3]</dd>
-<dt>Output:</dt>
-<dd>2 (minimum length)</dd>
-<dt>Explanation:</dt>
-<dd>The minimal length subarray with sum ≥ 7 is [4,3] with length 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Complement Search, Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use sliding window. Expand window until sum >= target. Then shrink from left while sum >= target. Track minimum length. This achieves O(n) time with single pass.
+The key insight is that use sliding window. Expand window until sum >= target. Then shrink from left while sum >= target. Track minimum length. This achieves O(n) time with single pass.
 
 ### APPROACH:
 1. **Initialize variables**: Set left = 0, min_len = float('inf'), current_sum = 0
@@ -39,11 +13,11 @@ Use sliding window. Expand window until sum >= target. Then shrink from left whi
 8. **Return result**: Return min_len if found, else 0
 
 ### WHY THIS WORKS:
-- Sliding window expands right until sum >= target, then contracts left
-- Greedy contraction: shrink window while maintaining sum >= target
-- Each element added once (right++) and removed once (left++)
-- Track minimum window size satisfying sum condition
-- O(n) time: two pointers scan array once, O(1) space
+- This ensures that sliding window expands right until sum >= target, then contracts left
+- This ensures that greedy contraction: shrink window while maintaining sum >= target
+- This ensures that each element added once (right++) and removed once (left++)
+- This ensures that track minimum window size satisfying sum condition
+- This ensures that o(n) time: two pointers scan array once, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,21 +41,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

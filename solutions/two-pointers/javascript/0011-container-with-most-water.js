@@ -1,37 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0011. Container With Most Water
- *
- *
- * You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
- *
- * Find two lines that together with the x-axis form a container, such that the container contains the most water.
- *
- * Return the maximum amount of water a container can store.
- *
- * Notice that you may not slant the container.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>height = [1, 8, 6, 2, 5, 4, 8, 3, 7]</dd>
- * <dt>Output:</dt>
- * <dd>49</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum water container area is 49 with heights [1,8,6,2,5,4,8,3,7]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Greedy Selection
- * **Data Structures**: Array, Tree
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -43,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages two pointers principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages two pointers principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -83,21 +52,20 @@
  * ```
  * 49
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

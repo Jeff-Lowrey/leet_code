@@ -1,39 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0018. 4Sum
- *
- *
- * Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
- *
- * - 0 <= a, b, c, d < n
- * - a, b, c, and d are distinct.
- * - nums[a] + nums[b] + nums[c] + nums[d] == target
- *
- * You may return the answer in any order.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,0,-1,0,-2,2], target = 0</dd>
- * <dt>Output:</dt>
- * <dd>[]</dd>
- * <dt>Explanation:</dt>
- * <dd>4Sum: quadruplets summing to target</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
+ * The key insight is that sort array first. Fix first two elements, use two pointers for remaining two. Skip duplicates at all four positions. Adjust pointers based on sum comparison to target.
  *
  * ### APPROACH:
  * 1. **Sort array**: Sort nums to enable two-pointer technique and skip duplicates
@@ -46,11 +16,11 @@
  * 8. **Return result**: Return list of all unique quadruplets
  *
  * ### WHY THIS WORKS:
- * - Sort array, fix two numbers with outer loops, two-pointer on remaining
- * - Skip duplicates at each level to avoid duplicate quadruplets
- * - Two pointers find pairs that sum to (target - num1 - num2)
- * - Same as 3sum with extra outer loop
- * - O(n^3) time: two nested loops + two pointers, O(1) space
+ * - This ensures that sort array, fix two numbers with outer loops, two-pointer on remaining
+ * - This ensures that skip duplicates at each level to avoid duplicate quadruplets
+ * - This ensures that two pointers find pairs that sum to (target - num1 - num2)
+ * - This ensures that same as 3sum with extra outer loop
+ * - This ensures that o(n^3) time: two nested loops + two pointers, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -69,23 +39,21 @@
  * ```
  * [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

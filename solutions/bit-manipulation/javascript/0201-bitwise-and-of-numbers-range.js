@@ -1,80 +1,57 @@
 /**
- * Difficulty: Medium
- *
- * Given two integers `left` and `right` that represent the range `[left, right]`, return the bitwise AND of all numbers in this range, inclusive.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>left = 5, right = 7</dd>
- * <dt>Output:</dt>
- * <dd>4</dd>
- * <dt>Explanation:</dt>
- * <dd>5 & 6 & 7 = 4 (binary: 101 & 110 & 111 = 100)</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
- * ### METADATA:
- * **Techniques**: Bit Shifting, Common Prefix Finding
- * **Data Structures**: Integer
- * **Patterns**: Bit Manipulation, Range Query Optimization
- * **Time Complexity**: O(log n) - Where n is the maximum value in range, we shift at most 32 times
- * **Space Complexity**: O(1) - Only using constant extra space for variables
- *
- * ### INTUITION:
- * The key insight is that ANDing all numbers in a range is equivalent to finding the common binary prefix of the left and right boundaries. Any bit position where left and right differ will become 0 in the final result because there will be at least one number in the range with a 0 at that position.
- *
- * ### APPROACH:
- * When we AND consecutive numbers, any bit that changes value within the range will become 0 in the final result. The only bits that remain 1 are those that form the common prefix of left and right when viewed in binary.
- *
- * We can find this common prefix by repeatedly right-shifting both numbers until they become equal. This effectively removes the differing suffix bits. Once left equals right, we've found the common prefix. We then left-shift this prefix back by the same number of positions to restore it to its original bit positions.
- *
- * The number of shifts needed represents how many rightmost bits differ between left and right. All these differing bits, plus any bits to their right, will be 0 in the final AND result.
- *
- * ### WHY THIS WORKS:
- * - Any complete range contains numbers with different bit patterns in the variable suffix
- * - When numbers differ at a bit position, ANDing them produces 0 at that position
- * - The common prefix bits never change within the range, so they survive the AND operation
- * - Right-shifting until equality finds exactly where the common prefix ends
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * left = 5, right = 7
- * ```
- *
- * **Step 1:** Convert to binary: left = 101, right = 111
- *
- * **Step 2:** First shift: left = 10, right = 11, shifts = 1
- *
- * **Step 3:** Second shift: left = 1, right = 1, shifts = 2 (now equal!)
- *
- * **Step 4:** Common prefix found: 1
- *
- * **Step 5:** Shift back left by 2: 1 << 2 = 100 (binary) = 4 (decimal)
- *
- * Output:
- * ```
- * 4
- * ```
- *
- * ### TIME COMPLEXITY:
- * **O(log n)** - Where n is the maximum value in the range. We perform at most 32 right shifts for 32-bit integers, which is O(log n) where n is the maximum representable value.
- *
- * ### SPACE COMPLEXITY:
- * **O(1)** - We only use a constant amount of extra space for the shift counter variable, regardless of input size.
- *
- * ### EDGE CASES:
- * - **Same numbers (left == right):** Returns left (or right), common prefix is the entire number
- * - **Powers of 2 range:** Correctly finds the highest common power of 2
- * - **Zero in range:** If range includes 0, result is 0 (but problem constraints ensure left >= 0)
- * - **Adjacent numbers:** Returns their AND, which zeros out any differing bits
- *
- * </details>
- */
+### INTUITION:
+The key insight is that ANDing all numbers in a range is equivalent to finding the common binary prefix of the left and right boundaries. Any bit position where left and right differ will become 0 in the final result because there will be at least one number in the range with a 0 at that position.
+
+### APPROACH:
+1. When we AND consecutive numbers, any bit that changes value within the range will become 0 in the final result.
+2. The only bits that remain 1 are those that form the common prefix of left and right when viewed in binary.
+3. We can find this common prefix by repeatedly right-shifting both numbers until they become equal.
+4. This effectively removes the differing suffix bits.
+5. Once left equals right, we've found the common prefix.
+6. We then left-shift this prefix back by the same number of positions to restore it to its original bit positions.
+7. The number of shifts needed represents how many rightmost bits differ between left and right.
+8. All these differing bits, plus any bits to their right, will be 0 in the final AND result.
+
+### WHY THIS WORKS:
+- Any complete range contains numbers with different bit patterns in the variable suffix
+- When numbers differ at a bit position, ANDing them produces 0 at that position
+- The common prefix bits never change within the range, so they survive the AND operation
+- Right-shifting until equality finds exactly where the common prefix ends
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+left = 5, right = 7
+```
+
+Step 1:** Convert to binary: left = 101, right = 111
+
+Step 2:** First shift: left = 10, right = 11, shifts = 1
+
+Step 3:** Second shift: left = 1, right = 1, shifts = 2 (now equal!)
+
+Step 4:** Common prefix found: 1
+
+Step 5:** Shift back left by 2: 1 << 2 = 100 (binary) = 4 (decimal)
+
+Output:
+```
+4
+```
+
+### TIME COMPLEXITY:
+O(log n)** - Where n is the maximum value in the range. We perform at most 32 right shifts for 32-bit integers, which is **O(log n)** where n is the maximum representable value.
+
+### SPACE COMPLEXITY:
+O(1)** - We only use a constant amount of extra space for the shift counter variable, regardless of input size.
+
+### EDGE CASES:
+- **Same numbers (left == right):** Returns left (or right), common prefix is the entire number
+- **Powers of 2 range:** Correctly finds the highest common power of 2
+- **Zero in range:** If range includes 0, result is 0 (but problem constraints ensure left >= 0)
+- **Adjacent numbers:** Returns their AND, which zeros out any differing bits
+
+*/
 
 class Solution {
   /**

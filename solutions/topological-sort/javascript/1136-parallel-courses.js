@@ -1,35 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 1136. Parallel Courses
- *
- *
- * You are given an integer n, which indicates that there are n courses labeled from 1 to n. You are also given an array relations where relations[i] = [prevCoursei, nextCoursei], representing a prerequisite relationship between course prevCoursei and course nextCoursei: course prevCoursei has to be taken before course nextCoursei.
- *
- * In one semester, you can take any number of courses as long as you have taken all the prerequisites in the previous semester for the courses you are taking.
- *
- * Return the minimum number of semesters needed to take all courses. If there is no way to take all the courses, return -1.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 3, relations = [[1,3],[2,3]]</dd>
- * <dt>Output:</dt>
- * <dd>2 (minimum semesters)</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum semesters to complete all courses</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Queue Operations
- * **Data Structures**: Array, Queue, Graph
- * **Patterns**: Graph Pattern, Tree Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of topological sort concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -41,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages topological sort principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages topological sort principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -61,21 +32,20 @@
  * ```
  * 2 (minimum semesters)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

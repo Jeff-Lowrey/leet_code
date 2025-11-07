@@ -1,32 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0028. Find The Index Of The First Occurrence In A String
-
-This problem demonstrates key concepts in String matching and pattern searching.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>haystack = "sadbutsad", needle = "sad"</dd>
-<dt>Output:</dt>
-<dd>0</dd>
-<dt>Explanation:</dt>
-<dd>Needle 'sad' occurs at index 0 in 'sadbutsad'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
-**Data Structures**: String, Stack
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n * m)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-This is the classic string matching problem (also known as finding a substring). We need to find
+The key insight is that this is the classic string matching problem (also known as finding a substring). We need to find
 the first position where the needle (pattern) appears in the haystack (text). The straightforward
 approach is to check each position in the haystack to see if the needle starts there.
 
@@ -38,10 +12,10 @@ approach is to check each position in the haystack to see if the needle starts t
 5. **Return -1 if not found**: If we complete the loop without finding needle
 
 ### WHY THIS WORKS:
-- We systematically check every possible position where needle could start
-- At each position, we verify if all characters of needle match
-- We stop early if we find a mismatch at any position within needle
-- The first match we find is guaranteed to be the earliest occurrence
+- This ensures that we systematically check every possible position where needle could start
+- This ensures that at each position, we verify if all characters of needle match
+- This ensures that we stop early if we find a mismatch at any position within needle
+- This ensures that the first match we find is guaranteed to be the earliest occurrence
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -63,25 +37,22 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n * m)
+**O(n * m)**
 Where n is the length of haystack and m is the length of needle. In the worst case, we check
 every position (n - m + 1) and for each position compare m characters.
 
-Note: More advanced algorithms like KMP or Rabin-Karp can achieve O(n + m), but for most
+Note: More advanced algorithms like KMP or Rabin-Karp can achieve **O(n + m)**, but for most
 practical purposes and typical inputs, the simple approach is sufficient and easier to understand.
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 We only use a few variables regardless of input size.
 
 ### EDGE CASES:
-- Empty needle: Return 0 (convention)
-- Needle longer than haystack: Return -1
-- Needle equals haystack: Return 0
-- Needle not in haystack: Return -1
-- Multiple occurrences: Return first one
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 import re

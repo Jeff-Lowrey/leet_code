@@ -1,34 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0130. Surrounded Regions
-
-Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
-
-A region is captured by flipping all 'O's into 'X's in that surrounded region.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</dd>
-<dt>Output:</dt>
-<dd>[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</dd>
-<dt>Explanation:</dt>
-<dd>Surrounded regions: 'X' regions surrounded by 'O' are captured</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to virtual border node. After processing, 'O' cells not connected to border should be flipped to 'X'.
+The key insight is that use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to virtual border node. After processing, 'O' cells not connected to border should be flipped to 'X'.
 
 ### APPROACH:
 1. **Initialize Union-Find**: Create parent array and find/union functions
@@ -40,11 +12,11 @@ Use Union-Find to connect adjacent 'X' cells. For border 'O' cells, connect to v
 7. **Modify in-place**: Update board directly
 
 ### WHY THIS WORKS:
-- Union-find or DFS from borders to mark unsurrounded regions
-- Start DFS/BFS from 'O' cells on borders (these can't be surrounded)
-- Mark all connected 'O' cells as safe (connected to border)
-- Flip all unmarked 'O' to 'X' (these are surrounded)
-- O(m*n) time: visit each cell once, O(m*n) space for visited/parent array
+- This ensures that union-find or DFS from borders to mark unsurrounded regions
+- This ensures that start DFS/BFS from 'O' cells on borders (these can't be surrounded)
+- This ensures that mark all connected 'O' cells as safe (connected to border)
+- This ensures that flip all unmarked 'O' to 'X' (these are surrounded)
+- This ensures that o(m*n) time: visit each cell once, O(m*n) space for visited/parent array
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -64,21 +36,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

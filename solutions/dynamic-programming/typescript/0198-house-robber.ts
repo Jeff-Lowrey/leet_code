@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0198. House Robber
- *
- *
- * You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
- *
- * Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [2,7,9,3,1]</dd>
- * <dt>Output:</dt>
- * <dd>12</dd>
- * <dt>Explanation:</dt>
- * <dd>Rob houses at indices 0, 2, 4 (values 2, 9, 1) for total 12</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm, Dynamic Programming
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * At each house, choose to rob it (take current + best from i-2) or skip it (take best from i-1). dp[i] = max(dp[i-1], nums[i] + dp[i-2]).
+ * The key insight is that at each house, choose to rob it (take current + best from i-2) or skip it (take best from i-1). dp[i] = max(dp[i-1], nums[i] + dp[i-2]).
  *
  * ### APPROACH:
  * 1. **Handle edge cases**: If empty array return 0, if single house return nums[0]
@@ -41,11 +15,11 @@
  * 7. **Return result**: Return prev1 as maximum money that can be robbed
  *
  * ### WHY THIS WORKS:
- * - DP recurrence: max(rob current + best from i-2, skip current and take best from i-1)
- * - Can't rob adjacent houses, so robbing house i means using result from i-2
- * - Optimal substructure: solution to i depends only on i-1 and i-2
- * - Space optimization: only need last two values, not entire DP array
- * - O(n) time single pass, O(1) space with two variables instead of array
+ * - This ensures that dP recurrence: max(rob current + best from i-2, skip current and take best from i-1)
+ * - This ensures that can't rob adjacent houses, so robbing house i means using result from i-2
+ * - This ensures that optimal substructure: solution to i depends only on i-1 and i-2
+ * - This ensures that space optimization: only need last two values, not entire DP array
+ * - This ensures that o(n) time single pass, O(1) space with two variables instead of array
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -67,21 +41,20 @@
  * ```
  * 12 (maximum money)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

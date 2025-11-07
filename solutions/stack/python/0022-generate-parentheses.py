@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0022. Generate Parentheses
-
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["()"]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Stack
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(4^n / √n)
-**Space Complexity**: O(n)
-
 ### INTUITION:
-Use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
+The key insight is that use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
 
 ### APPROACH:
 1. **Backtracking**: Build string character by character
@@ -69,20 +43,19 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(4^n / √n)
+**O(4^n / √n)**
 Catalan number: C(n) = (2n)! / ((n+1)! * n!)
-Approximately O(4^n / √n) valid combinations
+Approximately **O(4^n / √n)** valid combinations
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Recursion stack depth is 2n (building string of length 2n)
 
 ### EDGE CASES:
-- n = 0: return [""]
-- n = 1: return ["()"]
-- n = 2: return ["(())", "()()"]
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

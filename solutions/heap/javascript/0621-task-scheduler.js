@@ -1,109 +1,74 @@
 /**
- * # Difficulty: Medium
- *
- * # 0621. Task Scheduler
- *
- *
- * Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.
- *
- * However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter in the array), that is that there must be at least n units of time between any two same tasks.
- *
- * Return the least number of units of times that the CPU will take to finish all the given tasks.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>tasks = ["A", "A", "A", "B", "B", "B"], n = 2</dd>
- * <dt>Output:</dt>
- * <dd>8</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum intervals to schedule tasks 'AAABBB' with n=2 is 8</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern, Greedy Algorithm
- * **Time Complexity**: O(n × m)
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+The key insight is that schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
 
- *
- * ### INTUITION:
- * Schedule most frequent tasks first to minimize idle time. Use max-heap to always pick the task with highest frequency. Track cooldown with a queue.
- *
- * ### APPROACH:
- * **Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
- * 1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
- * 2. **Max-heap**: Store negative frequencies using heap data structure
- * 3. **Simulation with queue**: For each time unit using hash table lookup:
- *    - Pick most frequent available task from heap
- *    - Decrease its count and add to cooldown queue
- *    - Process cooldown queue to return tasks to heap
- * 4. **Math formula**: Can also calculate directly using formula based on most frequent task
- *
- * ### WHY THIS WORKS:
- * - Most frequent tasks create the most idle time
- * - By scheduling them first with optimal spacing, we minimize total idle time
- * - Cooldown queue ensures we respect the n interval
- *
- *
+### APPROACH:
+Data structures: Array (tasks input), Queue (cooldown tracking), Heap (max-heap for frequency), Hash Map (Counter for frequencies)**
+1. **Count frequencies**: Use hash map storage (Counter) with array traversal to get task frequencies
+2. **Max-heap**: Store negative frequencies using heap data structure
+3. **Simulation with queue**: For each time unit using hash table lookup:
+   - Pick most frequent available task from heap
+   - Decrease its count and add to cooldown queue
+   - Process cooldown queue to return tasks to heap
+4. **Math formula**: Can also calculate directly using formula based on most frequent task
+
+### WHY THIS WORKS:
+- Most frequent tasks create the most idle time
+- By scheduling them first with optimal spacing, we minimize total idle time
+- Cooldown queue ensures we respect the n interval
 
 This solution uses hash table lookup for efficient implementation.
 
 This solution uses hash map storage for efficient implementation.
 
 This solution uses array traversal for efficient implementation.
+
 ### EXAMPLE WALKTHROUGH:
-  * Input:
- * ```
- * tasks = ["A","A","A","B","B","B"], n = 2
- * ```
- *
- * **Step 1:** Count frequencies using hash map storage
- * - Hash map: {A: 3, B: 3}
- *
- * **Step 2:** Build max-heap with negative frequencies
- * - Heap: [-3, -3] (representing A and B)
- *
- * **Step 3:** Simulate timeline with queue for cooldown tracking
- * - Time 0: Pick A from heap (A left: 2, cooldown until time 3), queue: [(2, 3)]
- * - Time 1: Pick B from heap (B left: 2, cooldown until time 4), queue: [(2, 3), (2, 4)]
- * - Time 2: No tasks available (idle), queue processing
- *
- * **Step 4:** Continue simulation with hash table lookups
- * - Time 3: A returns from cooldown (A left: 1, cooldown until time 6)
- * - Time 4: B returns from cooldown (B left: 1, cooldown until time 7)
- * - Time 5: idle
- * - Time 6: A (A done)
- * - Time 7: B (B done)
- * - Total: 8 units
- *
- * Output:
- * ```
- * 8
- * ```
- *
- * ### TIME COMPLEXITY:
- * O(n × m)
- * Where n = cooldown, m = number of tasks (simulation approach)
- * Math approach: O(m) where m = number of tasks
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * At most 26 different tasks (letters)
- *
- * ### EDGE CASES:
- * - n = 0: tasks=["A","A","A"] → 3 (no cooldown, just len(tasks))
- * - All tasks same: tasks=["A","A","A","A"], n=2 → 10 (A _ _ A _ _ A _ _ A)
- * - All tasks different: tasks=["A","B","C","D"], n=2 → 4 (no waiting needed)
- * - n very large: tasks=["A","A"], n=100 → 102 (A, 100 idles, A)
- *
- * </details>
- */
+Input:
+```
+tasks = ["A","A","A","B","B","B"], n = 2
+```
+
+Step 1:** Count frequencies using hash map storage
+- Hash map: {A: 3, B: 3}
+
+Step 2:** Build max-heap with negative frequencies
+- Heap: [-3, -3] (representing A and B)
+
+Step 3:** Simulate timeline with queue for cooldown tracking
+- Time 0: Pick A from heap (A left: 2, cooldown until time 3), queue: [(2, 3)]
+- Time 1: Pick B from heap (B left: 2, cooldown until time 4), queue: [(2, 3), (2, 4)]
+- Time 2: No tasks available (idle), queue processing
+
+Step 4:** Continue simulation with hash table lookups
+- Time 3: A returns from cooldown (A left: 1, cooldown until time 6)
+- Time 4: B returns from cooldown (B left: 1, cooldown until time 7)
+- Time 5: idle
+- Time 6: A (A done)
+- Time 7: B (B done)
+- Total: 8 units
+
+Output:
+```
+8
+```
+
+### TIME COMPLEXITY:
+O(n × m)**
+Where n = cooldown, m = number of tasks (simulation approach)
+Math approach: **O(m)** where m = number of tasks
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+At most 26 different tasks (letters)
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * MaxHeap implementation for task frequencies

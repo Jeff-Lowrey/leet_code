@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0739. Daily Temperatures
-
-Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>temperatures = [73, 74, 75, 71, 69, 72, 76, 73]</dd>
-<dt>Output:</dt>
-<dd>[0,0,0,0,0,0,0,0]</dd>
-<dt>Explanation:</dt>
-<dd>For each day, count days until a warmer temperature: [1, 1, 4, 2, 1, 1, 0, 0]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Stack
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use monotonic decreasing stack storing indices. When current temperature > stack top temperature, pop and calculate days waited (current index - popped index). Remaining indices have no warmer day.
+The key insight is that use monotonic decreasing stack storing indices. When current temperature > stack top temperature, pop and calculate days waited (current index - popped index). Remaining indices have no warmer day.
 
 ### APPROACH:
 1. **Initialize result and stack**: result = [0] * len(temperatures), stack = []
@@ -37,11 +11,11 @@ Use monotonic decreasing stack storing indices. When current temperature > stack
 6. **Return result**: Return result array
 
 ### WHY THIS WORKS:
-- Monotonic decreasing stack stores indices of days waiting for warmer temperature
-- When warmer day found, pop all cooler days and calculate their wait times
-- Current index - popped index gives days waited
-- Days still in stack at end have answer 0 (no warmer day)
-- O(n) time: each element pushed/popped once, O(n) space for stack
+- This ensures that monotonic decreasing stack stores indices of days waiting for warmer temperature
+- This ensures that when warmer day found, pop all cooler days and calculate their wait times
+- This ensures that current index - popped index gives days waited
+- This ensures that days still in stack at end have answer 0 (no warmer day)
+- This ensures that o(n) time: each element pushed/popped once, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -92,21 +66,19 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-- Single pass through input
-
+**O(n)** where n is the number of days (length of temperatures array). Although we have a nested while loop, each index is pushed onto the stack exactly once and popped at most once. This means across the entire execution, we perform at most 2n stack operations (n pushes + at most n pops), giving us **O(2n)** = **O(n)** time complexity. The outer loop runs n times, and the total work done by the inner while loop across all iterations is bounded by n.
 
 ### SPACE COMPLEXITY:
-O(1)
-- Constant extra space
-
+**O(n)** - In the worst case, the stack can grow to size n. This happens when temperatures are in strictly decreasing order (e.g., [100, 90, 80, 70, 60]). In this case, we push all n indices onto the stack and never pop any until the end, requiring **O(n)** space. The result array also takes **O(n)** space, but since it's required for the output, the dominant auxiliary space is the stack: **O(n)**.
 
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty array**: temperatures = [] returns [] (no days to process)
+- **Single temperature**: temperatures = [75] returns [0] (no future day exists)
+- **Strictly increasing**: temperatures = [30,40,50,60] returns [1,1,1,0] (each day next day is warmer except last)
+- **Strictly decreasing**: temperatures = [60,50,40,30] returns [0,0,0,0] (no warmer days ahead)
+- **All same temperature**: temperatures = [70,70,70] returns [0,0,0] (never gets warmer)
+- **Large temperature spike**: One very high temperature causes many pops at once (e.g., [30,40,50,100,60] → stack empties when reaching 100)
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

@@ -1,33 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0056. Merge Intervals
- *
- *
- * Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[1,3], [2,6], [8,10], [15,18]]</dd>
- * <dt>Output:</dt>
- * <dd>[[1,6], [8,10], [15,18]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Merged intervals [[1,3],[2,6],[8,10],[15,18]] become [[1,6],[8,10],[15,18]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
+ * The key insight is that sort intervals by start time. Iterate through sorted intervals. If current overlaps with last merged interval, extend the end. Otherwise add current interval as new merged interval.
  *
  * ### APPROACH:
  * 1. **Sort intervals**: Sort intervals by start time
@@ -72,23 +48,21 @@
  * ```
  * [[1,6], [8,10], [15,18]]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

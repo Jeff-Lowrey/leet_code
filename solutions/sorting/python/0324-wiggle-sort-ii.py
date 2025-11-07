@@ -1,37 +1,6 @@
 """
-# 0324. Wiggle Sort II
-
-# Difficulty: Medium
-
-Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]...
-
-You may assume the input array always has a valid answer.
-
-Follow up: Can you do it in O(n) time and/or in-place with O(1) extra space?
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1, 5, 1, 1, 6, 4]</dd>
-<dt>Output:</dt>
-<dd>[1,6,1,5,1,4]</dd>
-<dt>Explanation:</dt>
-<dd>Wiggle sort II: nums[0] < nums[1] > nums[2] < nums[3]...</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Sorting, Median Finding, Virtual Indexing
-**Data Structures**: Array
-**Patterns**: Wiggle pattern, Interleaving
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional storage
- *
 ### INTUITION:
-Unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
+The key insight is that unlike Wiggle Sort I which allows equality, this requires strict inequality (<, >, <, >).
 We need to interleave smaller and larger halves to avoid adjacent equal elements.
 
 ### APPROACH:
@@ -74,20 +43,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log n)
-For sorting. Can be O(n) with median-finding algorithm.
+**O(n log n)**
+For sorting. Can be **O(n)** with median-finding algorithm.
 
 ### SPACE COMPLEXITY:
-O(n)
-For temporary sorted array. Can be O(1) with in-place virtual indexing.
+**O(n)**
+For temporary sorted array. Can be **O(1)** with in-place virtual indexing.
 
 ### EDGE CASES:
-- Array with many duplicate elements
-- All elements equal (impossible with strict inequality requirement)
-- Small arrays (length 2-3)
-- Even vs odd length arrays
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List

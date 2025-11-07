@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any
 from unittest.mock import MagicMock, mock_open, patch
 
-from src.leet_code.category_data import Category, CategoryManager, ProblemTags, Solution
+from src.leet_code.data.category_data import Category, CategoryManager, ProblemTags, Solution
 
 
 class TestSolution:
@@ -77,7 +77,7 @@ class TestCategory:
 class TestCategoryManager:
     """Test the CategoryManager class."""
 
-    @patch("src.leet_code.category_data.Path")
+    @patch("src.leet_code.data.category_data.Path")
     def test_initialization(self, mock_path_class: Any) -> None:
         """Test CategoryManager initialization."""
         mock_path = MagicMock()
@@ -87,9 +87,9 @@ class TestCategoryManager:
         assert manager.base_dir == Path("/test/dir")
         assert manager._categories is None
 
-    @patch("src.leet_code.category_data.Path.iterdir")
-    @patch("src.leet_code.category_data.Path.is_dir")
-    @patch("src.leet_code.category_data.Path.exists")
+    @patch("src.leet_code.data.category_data.Path.iterdir")
+    @patch("src.leet_code.data.category_data.Path.is_dir")
+    @patch("src.leet_code.data.category_data.Path.exists")
     def test_get_categories(self, mock_exists: Any, mock_is_dir: Any, mock_iterdir: Any) -> None:
         """Test getting categories."""
         # Setup mocks
@@ -149,8 +149,8 @@ class TestCategoryManager:
         result = manager.get_solution("non-existent", "001-two-sum.py")
         assert result is None
 
-    @patch("src.leet_code.category_data.Path.read_text")
-    @patch("src.leet_code.category_data.Path.exists")
+    @patch("src.leet_code.data.category_data.Path.read_text")
+    @patch("src.leet_code.data.category_data.Path.exists")
     def test_read_solution_content(self, mock_exists: Any, mock_read_text: Any) -> None:
         """Test reading solution content."""
         mock_exists.return_value = True
@@ -162,7 +162,7 @@ class TestCategoryManager:
         assert content == "def two_sum(): pass"
         mock_read_text.assert_called_once()
 
-    @patch("src.leet_code.category_data.Path.exists")
+    @patch("src.leet_code.data.category_data.Path.exists")
     def test_read_solution_content_not_found(self, mock_exists: Any) -> None:
         """Test reading non-existent solution."""
         mock_exists.return_value = False
@@ -172,8 +172,8 @@ class TestCategoryManager:
 
         assert content is None
 
-    @patch("src.leet_code.category_data.Path.read_text")
-    @patch("src.leet_code.category_data.Path.exists")
+    @patch("src.leet_code.data.category_data.Path.read_text")
+    @patch("src.leet_code.data.category_data.Path.exists")
     def test_read_documentation(self, mock_exists: Any, mock_read_text: Any) -> None:
         """Test reading documentation."""
         mock_exists.return_value = True
@@ -204,8 +204,8 @@ class TestCategoryManager:
         assert stats["total_solutions"] == 3
         assert stats["average_per_category"] == 1
 
-    @patch("src.leet_code.category_data.Path.iterdir")
-    @patch("src.leet_code.category_data.Path.exists")
+    @patch("src.leet_code.data.category_data.Path.iterdir")
+    @patch("src.leet_code.data.category_data.Path.exists")
     def test_refresh(self, mock_exists: Any, mock_iterdir: Any) -> None:
         """Test refreshing cached data."""
         mock_exists.return_value = False
@@ -249,9 +249,9 @@ class TestCategoryManager:
         assert tags["techniques"] == []
         assert tags["data_structures"] == []
 
-    @patch("src.leet_code.category_data.Path.exists")
-    @patch("src.leet_code.category_data.Path.open", new_callable=mock_open)
-    @patch("src.leet_code.category_data.Path.mkdir")
+    @patch("src.leet_code.data.category_data.Path.exists")
+    @patch("src.leet_code.data.category_data.Path.open", new_callable=mock_open)
+    @patch("src.leet_code.data.category_data.Path.mkdir")
     def test_get_problem_tags_from_cache(self, mock_mkdir: Any, mock_file: Any, mock_exists: Any) -> None:
         """Test getting problem tags from disk cache."""
         manager = CategoryManager()
@@ -265,7 +265,7 @@ class TestCategoryManager:
         mock_stat = MagicMock()
         mock_stat.st_mtime = 9999999999  # Very recent
         with (
-            patch("src.leet_code.category_data.Path.stat", return_value=mock_stat),
+            patch("src.leet_code.data.category_data.Path.stat", return_value=mock_stat),
             patch.object(manager, "get_categories", return_value=[]),
         ):
             tags = manager.get_problem_tags()

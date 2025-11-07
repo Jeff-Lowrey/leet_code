@@ -1,36 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0025. Reverse Nodes In K Group
-
-Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
-
-k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
-
-You may not alter the values in the list's nodes, only nodes themselves may be changed.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>head = [1,2,3,4,5], k = 2</dd>
-<dt>Output:</dt>
-<dd>[2,1,4,3,5]</dd>
-<dt>Explanation:</dt>
-<dd>Reversing nodes in k=2 groups: [1,2,3,4,5] becomes [2,1,4,3,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Graph Traversal
-**Data Structures**: Array, Linked List
-**Patterns**: Hash Table Pattern, Graph Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
+The key insight is that reverse k nodes at a time using standard reversal. Track previous group's tail and current group's head/tail. Connect groups after reversal. Stop if fewer than k nodes remain.
 
 ### APPROACH:
 1. **Check if k nodes exist**: Count k nodes ahead; if fewer than k, return head
@@ -69,21 +39,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

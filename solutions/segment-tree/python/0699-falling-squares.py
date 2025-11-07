@@ -1,38 +1,6 @@
 """
-# Difficulty: Hard
-
-# 0699. Falling Squares
-
-There are several squares being dropped onto the X-axis of a 2D plane.
-
-You are given a 2D integer array positions where positions[i] = [lefti, sideLengthi] represents the ith square with a side length of sideLengthi that is dropped with its left edge aligned with X-coordinate lefti.
-
-Each square is dropped one at a time from a height above any landed squares. It then falls downward (negative Y direction) until it either lands on the top side of another square or on the X-axis. A square brushing the left/right side of another square does not count as landing on it. Once it lands, it freezes in place and cannot be moved.
-
-Return an integer array ans where ans[i] represents the height of the tallest stack of squares after dropping the ith square.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2, 5, 5]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>After each square falls, the skyline heights are [2,5,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, Stack
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n² log n)
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
-This is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
+The key insight is that this is a range maximum query problem with updates. For each falling square, we need to find the maximum height in its range [left, right), then update that range with the new height. Segment trees with lazy propagation are perfect for this.
 
 ### APPROACH:
 1. **Coordinate compression**: Extract all left and right boundaries from positions, create sorted mapping to compress coordinates
@@ -58,22 +26,24 @@ Step 2: Square 2: [2,5) overlaps [2,3), max height 2 → lands at 2, new height 
 Step 3: Square 3: [6,7) no overlap → lands at 0, new height 1
 Step 4: Heights: [2, 5, 5]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-O(n² log n)
+**O(n² log n)**
 Due to coordinate compression and segment tree operations
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For coordinate mapping and tree structure
 
 ### EDGE CASES:
-- Single square
-- Non-overlapping squares
-- Completely overlapping squares
-- Squares with different sizes
-- Large coordinate values
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

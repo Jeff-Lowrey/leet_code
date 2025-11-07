@@ -1,48 +1,21 @@
 /**
- * # 0057. Insert Interval
- * 
- * # Difficulty: Medium
- * 
- * You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
- * represent the start and the end of the ith interval and intervals is sorted in
- * ascending order by starti. You are also given an interval newInterval = [`start`, end].
- * 
- * Insert newInterval into intervals such that intervals is still sorted and `non-overlapping`.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[1,3],[6,9]], newInterval = [2,5]</dd>
- * <dt>Output:</dt>
- * <dd>[[1,5],[6,9]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Insert [2,5] into [[1,2],[3,5],[6,7],[8,10]] results in [[1,5],[6,7],[8,10]]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, Heap
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(n) for result array
- * 
+ * ### METADATA:
+ *
+ *
  * ### INTUITION:
  * Since intervals are sorted and `non-overlapping`, we can process them in three phases:
  * 1. Add intervals that come before newInterval
  * 2. Merge overlapping intervals with newInterval
  * 3. Add intervals that come after newInterval
- * 
+ *
  * ### APPROACH:
  * 1. **Before Phase**: Add all intervals that `end` before newInterval starts
  * 2. **Merge Phase**: Merge all overlapping intervals with newInterval
  * 3. **After Phase**: Add all remaining intervals
- * 
+ *
  * ### WHY THIS WORKS:
  * The algorithm correctly solves the problem by systematically exploring all valid states while maintaining necessary invariants. Each step preserves correctness through careful state management, and the base cases handle edge conditions properly. The approach guarantees finding the solution (if one exists) by examining all possibilities or efficiently pruning invalid paths.
- * 
+ *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
@@ -55,26 +28,26 @@
  * Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
  * Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
  * Step 3: Result: [[1,5],[6,9]]
- * 
+ *
  * Output:
  * ```
  * [[1,5],[6,9]]
  * ```
- * 
+ *
  * ### TIME COMPLEXITY:
- * O(n) - Single pass through intervals array to find insertion point and merge overlaps
-
+ * O(n)** - Single pass through intervals array to find insertion point and merge overlaps
+ *
  * ### SPACE COMPLEXITY:
- * O(n) for result array
-
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
  * ### EDGE CASES:
  * - **Empty intervals list**: Return [newInterval]
  * - **No overlap**: Insert in correct sorted position
  * - **Complete overlap**: Merge all overlapping intervals
  * - **New interval at start**: Add before all existing
  * - **New interval at end**: Add after all existing
- * 
- * </details>
+ *
+ * *
  */
 
 class Solution {

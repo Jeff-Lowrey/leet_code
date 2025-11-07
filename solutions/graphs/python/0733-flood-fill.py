@@ -1,41 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0733. Flood Fill
-
-An image is represented by an m x n integer grid image where image[i][j] represents
-the pixel value of the image. You are also given three integers sr, sc, and color.
-You should perform a flood fill on the image starting from the pixel image[sr][sc].
-
-To perform a flood fill, consider the starting pixel, plus any pixels connected
-4-directionally to the starting pixel of the same color as the starting pixel,
-plus any pixels connected 4-directionally to those pixels (also with the same color),
-and so on. Replace the color of all of the aforementioned pixels with color.
-
-Return the modified image after performing the flood fill.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1,1,1]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Flood fill changes connected cells [1,1,1] from color 1 to 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Two Pointers, Stack Operations, Graph Traversal
-**Data Structures**: Array, Stack, Tree
-**Patterns**: Two Pointers Pattern, Graph Pattern
-**Time Complexity**: O(m×n)
-**Space Complexity**: O(m×n)
-
 ### INTUITION:
-Flood fill is a classic graph traversal problem similar to DFS. We start from
+The key insight is that flood fill is a classic graph traversal problem similar to DFS. We start from
 a pixel and spread to all connected pixels of the same color, changing them
 to the new color. It's like the paint bucket tool in image editors.
 
@@ -47,10 +12,10 @@ to the new color. It's like the paint bucket tool in image editors.
 5. **4-directional movement**: Check up, down, left, right neighbors
 
 ### WHY THIS WORKS:
-- DFS naturally explores all connected components
-- We change color as we visit to avoid revisiting
-- 4-directional connectivity mimics pixel adjacency
-- Recursion handles the spreading pattern automatically
+- This ensures that dFS naturally explores all connected components
+- This ensures that we change color as we visit to avoid revisiting
+- This ensures that 4-directional connectivity mimics pixel adjacency
+- This ensures that recursion handles the spreading pattern automatically
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -69,20 +34,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(m×n)
+**O(m×n)**
 Where m, n are image dimensions - worst case visit all pixels
 
 ### SPACE COMPLEXITY:
-O(m×n)
+**O(m×n)**
 For recursion stack in worst case (straight line of same color)
 
 ### EDGE CASES:
-- Starting pixel already has target color
-- Single pixel image
-- All pixels same color
-- Starting position out of bounds
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

@@ -1,33 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0643. Maximum Average Subarray I
- *
- *
- * You are given an integer array nums consisting of n elements, and an integer k.
- *
- * Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10^-5 will be accepted.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,12,-5,-6,50,3], k = 4</dd>
- * <dt>Output:</dt>
- * <dd>12.75 (maximum average)</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum average of subarray of length k=4 is 12.75</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Sliding Window
- * **Data Structures**: Array, Tree
- * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of sliding window concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -39,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages sliding window principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages sliding window principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -59,21 +32,20 @@
  * ```
  * 12.75 (maximum average)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

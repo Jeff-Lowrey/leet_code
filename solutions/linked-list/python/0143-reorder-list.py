@@ -1,40 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0143. Reorder List
-
-You are given the head of a singly linked-list. The list can be represented as:
-
-L0 → L1 → … → Ln - 1 → Ln
-
-Reorder the list to be on the following form:
-
-L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
-
-You may not modify the values in the list's nodes. Only nodes themselves may be changed.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,2,3,4]</dd>
-<dt>Output:</dt>
-<dd>[1,4,2,3]</dd>
-<dt>Explanation:</dt>
-<dd>The list is reordered by interleaving nodes from the start and end: 1->4->2->3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Single Pass
-**Data Structures**: Hash Set, Array, Linked List
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
+The key insight is that find middle using slow/fast pointers. Reverse second half. Merge by alternating nodes from first and second half. Weave them together to reorder the list.
 
 ### APPROACH:
 1. **Find middle**: Use slow/fast pointers to find middle of list
@@ -74,21 +40,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

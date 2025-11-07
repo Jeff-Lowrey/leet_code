@@ -1,36 +1,6 @@
 """
-# Difficulty: Easy
-
-# 1356. Sort Integers By The Number Of 1 Bits
-
-You are given an integer array arr. Sort the integers in the array in ascending order by the number
-of 1's in their binary representation and in case of two or more integers have the same number of 1's
-you have to sort them in ascending order.
-
-Return the array after sorting it.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[0, 1, 2, 4, 8, 3, 5, 6, 7]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Integers sorted by number of 1 bits</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Array Traversal, Sorting, Greedy Selection
-**Data Structures**: Array, Graph
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n)
-
 ### INTUITION:
-We need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
+The key insight is that we need a two-level sort: first by count of 1-bits, then by value. Python's sort is stable,
 so we can sort by value first, then by bit count. Or use a tuple key for simultaneous sorting.
 
 ### APPROACH:
@@ -78,22 +48,20 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log n)
-- Counting bits: O(log max_value) per number = O(n log max_value)
-- Sorting: O(n log n)
-- Total: O(n log n) dominates
+**O(n log n)**
+- Counting bits: **O(log max_value)** per number = **O(n log max_value)**
+- Sorting: **O(n log n)**
+- Total: **O(n log n)** dominates
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For the sorted result array
 
 ### EDGE CASES:
-- Array with single element
-- All numbers have same bit count
-- Array with zeros
-- Large numbers (up to 10^4)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

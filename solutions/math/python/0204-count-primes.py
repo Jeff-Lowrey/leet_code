@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0204. Count Primes
-
-Given an integer n, return the number of prime numbers that are strictly less than n.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 10:</dd>
-<dt>Output:</dt>
-<dd>Array: [2, 3, 4, 5, 6, 7, 8, 9]</dd>
-<dt>Explanation:</dt>
-<dd>Count of primes less than 10 is 4: [2,3,5,7]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal
-**Data Structures**: Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n log log n)
-**Space Complexity**: O(n)
-
 ### INTUITION:
-Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
+The key insight is that use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count remaining unmarked numbers.
 
 ### APPROACH:
 1. **Create boolean array**: is_prime[i] = True initially
@@ -34,9 +8,9 @@ Use Sieve of Eratosthenes: mark all multiples of each prime as composite. Count 
 3. **Count primes**: Count True values in array
 
 ### WHY THIS WORKS:
-- Every composite number has a prime factor ≤ √n
-- By marking multiples of each prime, we identify all composites
-- Remaining numbers must be prime
+- This ensures that every composite number has a prime factor ≤ √n
+- This ensures that by marking multiples of each prime, we identify all composites
+- This ensures that remaining numbers must be prime
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -58,19 +32,18 @@ Count = 4
 ```
 
 ### TIME COMPLEXITY:
-O(n log log n)
+**O(n log log n)**
 Sieve of Eratosthenes complexity
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Boolean array of size n
 
 ### EDGE CASES:
-- n ≤ 2: Return 0
-- n = 3: Return 1 (only 2)
-- Large n: Memory usage
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

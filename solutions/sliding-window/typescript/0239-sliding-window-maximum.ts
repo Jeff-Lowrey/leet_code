@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0239. Sliding Window Maximum
- *
- *
- * You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
- *
- * Return the max sliding window.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,3,-1,-3,5,3,6,7], k = 3</dd>
- * <dt>Output:</dt>
- * <dd>[]</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum value in each sliding window of size 3 is [3,3,5,5,6,7]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, Queue
- * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use deque to maintain indices of useful elements (potential maximums). Remove indices outside window. Remove indices with smaller values than current (they're never max). Front of deque is window maximum.
+ * The key insight is that use deque to maintain indices of useful elements (potential maximums). Remove indices outside window. Remove indices with smaller values than current (they're never max). Front of deque is window maximum.
  *
  * ### APPROACH:
  * 1. **Initialize deque**: Create deque to store indices of useful elements
@@ -66,21 +40,20 @@
  * ```
  * [3,3,5,5,6,7]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

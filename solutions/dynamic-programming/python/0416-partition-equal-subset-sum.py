@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0416. Partition Equal Subset Sum
-
-Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal or false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,5,11,5]</dd>
-<dt>Output:</dt>
-<dd>True (can partition into equal subsets)</dd>
-<dt>Explanation:</dt>
-<dd>Array [1,5,11,5] can be partitioned into [1,5,5] and [11] with equal sum 11</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Dynamic Programming
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-This is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to partition). Use DP to find if any subset sums to target. dp[i][j] = can we sum to j using first i elements.
+The key insight is that this is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to partition). Use DP to find if any subset sums to target. dp[i][j] = can we sum to j using first i elements.
 
 ### APPROACH:
 1. **Calculate total sum**: Compute total_sum = sum(nums)
@@ -39,11 +13,11 @@ This is 0/1 knapsack with target = sum/2. Check if sum is odd (impossible to par
 8. **Return result**: After processing all numbers, return target in dp
 
 ### WHY THIS WORKS:
-- Partition problem: find subset with sum = total_sum // 2
-- 0/1 knapsack DP: dp[i][j] = can we make sum j using first i elements
-- Transition: dp[i][j] = dp[i-1][j] (exclude) or dp[i-1][j-nums[i]] (include)
-- Space optimization: 1D DP array, iterate backwards to avoid overwriting
-- O(n * sum) time, O(sum) space
+- This ensures that partition problem: find subset with sum = total_sum // 2
+- This ensures that 0/1 knapsack DP: dp[i][j] = can we make sum j using first i elements
+- This ensures that transition: dp[i][j] = dp[i-1][j] (exclude) or dp[i-1][j-nums[i]] (include)
+- This ensures that space optimization: 1D DP array, iterate backwards to avoid overwriting
+- This ensures that o(n * sum) time, O(sum) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -69,21 +43,18 @@ True (can partition into equal subsets)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

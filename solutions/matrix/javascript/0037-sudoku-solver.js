@@ -1,38 +1,9 @@
 /**
- * # 0037. Sudoku Solver
- * Difficulty: Hard
- *
- *
- * # Difficulty:
- *
- * # 0037. Sudoku Solver
- * **Backtracking**
- *
- * Solve a Sudoku puzzle by filling the empty cells.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[["5", "3", ".", ".", "7", ".", ".", ".", "."]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Sudoku puzzle is solved by filling empty cells following rules</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations, Backtracking
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Backtracking
- * **Time Complexity**: O(9^(n*n)) worst case, where n=9
- * **Space Complexity**: O(n*n) for recursion stack
-
+ *
  *
  * ### INTUITION:
- * Use backtracking to try placing digits 1-9 in empty cells, validating each placement
+ * The key insight is that use backtracking to try placing digits 1-9 in empty cells, validating each placement
  * against Sudoku rules (no duplicates in row, column, or 3x3 box). Backtrack when no
  * valid digit can be placed.
  *
@@ -64,19 +35,19 @@
  * ```
  * Completed valid Sudoku board
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(9^(n*n)) worst case, where n=9
+ * O(9^(n*n)**) worst case, where n=9
  *
  * ### SPACE COMPLEXITY:
- * O(n*n) for recursion stack
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Board already solved
- * - Multiple solutions (return first found)
- * - Invalid input (unsolvable)
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

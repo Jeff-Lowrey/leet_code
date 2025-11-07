@@ -1,85 +1,58 @@
 /**
- * # 0930. Binary Subarrays With Sum
- *
- * Difficulty: Medium
- *
- *
- * Given a binary array nums and an integer goal, return the number of non-empty subarrays
- * with a sum equal to goal.
- *
- * A subarray is a contiguous part of the array.
- *
- * Example:
- * Input: nums = [1,0,1,0,1], goal = 2
- * Output: 4
- * Explanation: The 4 subarrays are [1,0,1], [1,0,1,0], [0,1,0,1], [1,0,1]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1,0,1,0,1], goal = 2</dd>
- * <dt>Output:</dt>
- * <dd>4</dd>
- * <dt>Explanation:</dt>
- * <dd>There are 4 binary subarrays with sum equal to goal</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional hash map storage
+### INTUITION:
+The key insight is that use prefix sum with hash map. For each position, count how many previous positions
+have prefix_sum = current_prefix_sum - goal. This gives us all subarrays ending at
+current position with sum equal to goal.
 
- *
- * ### INTUITION:
- * Use prefix sum with hash map. For each position, count how many previous positions
- * have prefix_sum = current_prefix_sum - goal. This gives us all subarrays ending at
- * current position with sum equal to goal.
- *
- * ### APPROACH:
- * 1. **Hash Map**: Store (prefix_sum → frequency) pairs
- * 2. **Prefix Sum**: Calculate cumulative sum
- * 3. **Count**: For each position, add count of (current_sum - goal) from map
- * 4. **Update**: Add current sum to map for future positions
- *
- * ### WHY THIS WORKS:
- * If prefix[j] - prefix[i] = goal, then sum(nums[i+1:j+1]) = goal.
- * For each j, count all i where prefix[i] = prefix[j] - goal.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,0,1,0,1], goal = 2
- * ```
- *
- * Prefix sums: [1, 1, 2, 2, 3]
- * Initialize: {0: 1}  # prefix sum 0 at position -1
- * Index 0: sum=1, need 1-2=-1 (not found), count=0, add {0:1, 1:1}
- * Index 1: sum=1, need 1-2=-1 (not found), count=0, add {0:1, 1:2}
- * Index 2: sum=2, need 2-2=0 (found 1), count=1, add {0:1, 1:2, 2:1}
- * Index 3: sum=2, need 2-2=0 (found 1), count=2, add {0:1, 1:2, 2:2}
- * Index 4: sum=3, need 3-2=1 (found 2), count=4
- * Total: 4
+### APPROACH:
+1. **Hash Map**: Store (prefix_sum → frequency) pairs
+2. **Prefix Sum**: Calculate cumulative sum
+3. **Count**: For each position, add count of (current_sum - goal) from map
+4. **Update**: Add current sum to map for future positions
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- *
- * ### EDGE CASES:
- * - goal = 0: Count subarrays with all zeros
- * - All zeros: Special handling needed if goal > array length
- * - No valid subarrays: Return 0
- *
- * </details>
- */
+### WHY THIS WORKS:
+If prefix[j] - prefix[i] = goal, then sum(nums[i+1:j+1]) = goal.
+For each j, count all i where prefix[i] = prefix[j] - goal.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [1,0,1,0,1], goal = 2
+```
+
+Prefix sums: [1, 1, 2, 2, 3]
+Initialize: {0: 1}  # prefix sum 0 at position -1
+Index 0: sum=1, need 1-2=-1 (not found), count=0, add {0:1, 1:1}
+Index 1: sum=1, need 1-2=-1 (not found), count=0, add {0:1, 1:2}
+Index 2: sum=2, need 2-2=0 (found 1), count=1, add {0:1, 1:2, 2:1}
+Index 3: sum=2, need 2-2=0 (found 1), count=2, add {0:1, 1:2, 2:2}
+Index 4: sum=3, need 3-2=1 (found 2), count=4
+Total: 4
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 930: Binary Subarrays With Sum

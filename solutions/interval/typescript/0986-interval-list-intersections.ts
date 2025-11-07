@@ -1,39 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0986. Interval List Intersections
- *
- *
- * You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.
- *
- * Return the intersection of these two interval lists.
- *
- * A closed interval [a, b] (with a <= b) denotes the set of real numbers x with a <= x <= b.
- *
- * The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of [1, 3] and [2, 4] is [2, 3].
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>firstList = [[0,2],[5,10]], secondList = [[1,5],[8,12]]</dd>
- * <dt>Output:</dt>
- * <dd>[[1,2],[5,5],[8,10]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Intersection of [[0,2],[5,10],[13,23],[24,25]] and [[1,5],[8,12],[15,24],[25,26]] is [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use two pointers, one for each sorted list. At each step, if intervals intersect, add intersection. Move pointer of interval with smaller end forward. Continue until either list is exhausted.
+ * The key insight is that use two pointers, one for each sorted list. At each step, if intervals intersect, add intersection. Move pointer of interval with smaller end forward. Continue until either list is exhausted.
  *
  * ### APPROACH:
  * 1. **Initialize pointers**: Set i = 0, j = 0, result = []
@@ -66,23 +36,21 @@
  * ```
  * [[1,2],[5,5],[8,10]]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

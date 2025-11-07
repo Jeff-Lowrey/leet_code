@@ -1,37 +1,6 @@
 /**
- * # 0191. Number Of 1 Bits
- *
- * Difficulty: Medium
- *
- *
- * Write a function that takes the binary representation of a positive integer and returns
- * the number of set bits it has (also known as the Hamming weight).
- *
- * Example:
- * Input: n = 11
- * Output: 3
- * Explanation: The input binary string 1011 has three set bits.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 11</dd>
- * <dt>Output:</dt>
- * <dd>3</dd>
- * <dt>Explanation:</dt>
- * <dd>Number 11 (binary 1011) has 3 set bits</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal
- * **Data Structures**: Basic Types
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(k) where k is number of 1-bits
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * Use bit manipulation to count 1s. The key insight is `n & (n-1)` removes the rightmost
@@ -60,13 +29,17 @@
  * Iteration 3: n = 1000, n-1 = 0111
  * n & (n-1) = 0000, count = 3
  * Result: 3
-
+ *
+ * Step-by-step execution:
+ * 1. [First step]
+ * 2. [Second step]
+ * 3. [Final step]
+ *
  * ### TIME COMPLEXITY:
- * O(k) where k is number of 1-bits
+ * O(k)** where k is number of 1-bits
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
  * - **n = 0**: Return 0 (no 1 bits)
@@ -75,7 +48,14 @@
  * - **Single bit set**: Return 1
  * - **Power of 2**: Exactly one 1 bit
  *
- * </details>
+ * *
+ * *
+ * *
+ * *
+ * *
+ * *
+ * *
+ * *
  */
 
 /**

@@ -1,34 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0330. Patching Array
-
-You are given a sorted positive integer array nums and an integer n. You need to
-make it so that any integer in the range [1, n] can be formed by the sum of some
-elements from nums.
-
-Return the minimum number of patches (additions to the array) required.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1,3], n = 6</dd>
-<dt>Output:</dt>
-<dd>1 (patched with 2)</dd>
-<dt>Explanation:</dt>
-<dd>Minimum 1 patch [3] needed to cover range [1,2,4] to sum 6</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Greedy Selection
-**Data Structures**: Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(m + log n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The key insight is tracking what range [1, covered] we can currently form. If we
 can form [1, covered], and we have a number x where x <= covered + 1, then adding
@@ -69,20 +39,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(m + log n)
+**O(m + log n)**
 Where m is length of nums. In worst case, we need log(n) patches.
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
-- Empty array: Need to patch from 1 up to n
-- Array already covers [1,n]: No patches needed
-- Large n with small array: Multiple patches required
-- Array starts with value > 1: Need to patch 1 first
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List

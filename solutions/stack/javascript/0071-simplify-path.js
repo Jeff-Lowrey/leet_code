@@ -1,42 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0071. Simplify Path
- *
- *
- * Given a string path, which is an absolute path (starting with a slash '/') to a file or directory in a Unix-style file system, convert it to the simplified canonical path.
- *
- * In a Unix-style file system, a period '.' refers to the current directory, a double period '..' refers to the directory up a level, and any multiple consecutive slashes (i.e. '//') are treated as a single slash '/'. For this problem, any other format of periods such as '...' are treated as file/directory names.
- *
- * The canonical path should have the following format:
- *
- * - The path starts with a single slash '/'.
- * - Any two directories are separated by a single slash '/'.
- * - The path does not end with a trailing '/'.
- * - The path only contains the directories on the path from the root directory to the target file or directory (i.e., no period '.' or double period '..')
- *
- * Return the simplified canonical path.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>path = "/a/./b/../../c/"</dd>
- * <dt>Output:</dt>
- * <dd>"/c"</dd>
- * <dt>Explanation:</dt>
- * <dd>Simplified path '/a/./b/../../c/' is '/c'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of stack concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -48,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages stack principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages stack principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -72,21 +36,20 @@
  * ```
  * "/c"
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

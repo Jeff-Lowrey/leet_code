@@ -1,39 +1,6 @@
 /**
- * # 0057. Insert Interval
- *
- * Difficulty: Easy
- *
- *
- * You are given an array of `non-overlapping` intervals where intervals[i] = [starti, endi]
- * represent the start and the end of the ith interval and intervals is sorted in
- * ascending order by starti. You are also given an interval newInterval = [`start`, end].
- *
- * Insert newInterval into intervals such that intervals is still sorted and `non-overlapping`.
- *
- * Example:
- * Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
- * Output: [[1,5],[6,9]]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>intervals = [[1,3],[6,9]], newInterval = [2,5]</dd>
- * <dt>Output:</dt>
- * <dd>[[1,5],[6,9]]</dd>
- * <dt>Explanation:</dt>
- * <dd>Insert [2,5] into [[1,2],[3,5],[6,7],[8,10]] results in [[1,5],[6,7],[8,10]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Greedy Selection
- * **Data Structures**: Array, String
- * **Patterns**: Greedy Algorithm, Divide and Conquer
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) for result array
-
+ *
  *
  * ### INTUITION:
  * Since intervals are sorted and `non-overlapping`, we can process them in three phases:
@@ -61,19 +28,19 @@
  * Step 1: Phase 2: Merge [1,3] and [2,5] → [1,5]
  * Step 2: Phase 3: [6,9] doesn't overlap (`6 > 5`) → add `as-is`
  * Step 3: Result: [[1,5],[6,9]]
- * 
+ *
  * Output:
  * ```
  * [[1,5],[6,9]]
  * ```
- * 
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(n) for result array
-
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
  * ### EDGE CASES:
  * - **Empty intervals list**: Return [newInterval]
  * - **No overlap**: Insert in correct sorted position
@@ -81,7 +48,7 @@
  * - **New interval at start**: Add before all existing
  * - **New interval at end**: Add after all existing
  *
- * </details>
+ * *
  */
 
 /**

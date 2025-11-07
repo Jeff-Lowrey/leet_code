@@ -1,97 +1,58 @@
 /**
- * # Difficulty: Medium
- *
- * # 0150. Evaluate Reverse Polish Notation
- *
- *
- * You are given an array of strings tokens that represents an arithmetic expression
- * in Reverse Polish Notation.
- *
- * Evaluate the expression. Return an integer that represents the value of the expression.
- *
- * Note that:
- * - The valid operators are '+', '-', '*', and '/'.
- * - Each operand may be an integer or another expression.
- * - The division between two integers always truncates toward zero.
- * - There will not be any division by zero.
- * - The input represents a valid arithmetic expression in reverse polish notation.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>["2","1","+","3","*"]</dd>
- * <dt>Output:</dt>
- * <dd>9</dd>
- * <dt>Explanation:</dt>
- * <dd>Postfix '2 1 + 3 *' evaluates to 9</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Stack Operations
- * **Data Structures**: Hash Set, Array, String
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional set storage
+### INTUITION:
+The key insight is that reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
+operators come after their operands, so we can process left-to-right:
+push numbers onto stack, and when we see an operator, pop two operands,
+compute, and push result back.
 
- *
- * ### INTUITION:
- * Reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
- * operators come after their operands, so we can process left-to-right:
- * push numbers onto stack, and when we see an operator, pop two operands,
- * compute, and push result back.
- *
- * ### APPROACH:
- * 1. **Initialize stack**: Empty stack to store operands
- * 2. **Process tokens**: Iterate through each token
- * 3. **Handle numbers**: Push numbers onto stack
- * 4. **Handle operators**: Pop two operands, compute, push result
- * 5. **Return result**: Final stack should have one element (the answer)
- *
- * ### WHY THIS WORKS:
- * - RPN guarantees operators have their operands available on stack
- * - Stack's LIFO property matches RPN's evaluation order
- * - Each operator consumes exactly two operands and produces one result
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * ["2","1","+","3","*"]
- * ```
- *
- * Stack operations:
- *
- * Steps:
- * Step 1: "2" -> [2]
- * Step 2: "1" -> [2,1]
- * Step 3: "+" -> [3]        (pop 1,2; compute 2+1=3; push 3)
- * Step 4: "3" -> [3,3]
- * Step 5: "*" -> [9]        (pop 3,3; compute 3*3=9; push 9)
- *
- * Output:
- * ```
- * 9
- * ```
+### APPROACH:
+1. **Initialize stack**: Empty stack to store operands
+2. **Process tokens**: Iterate through each token
+3. **Handle numbers**: Push numbers onto stack
+4. **Handle operators**: Pop two operands, compute, push result
+5. **Return result**: Final stack should have one element (the answer)
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Where n is the number of tokens - process each token once
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- * Stack can hold up to n/2 operands in worst case
- *
- * ### EDGE CASES:
- * - Single number: return that number
- * - Division truncating toward zero
- * - Negative operands and results
- *
- * </details>
- */
+### WHY THIS WORKS:
+- RPN guarantees operators have their operands available on stack
+- Stack's LIFO property matches RPN's evaluation order
+- Each operator consumes exactly two operands and produces one result
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+["2","1","+","3","*"]
+```
+
+Stack operations:
+
+Steps:
+Step 1: "2" -> [2]
+Step 2: "1" -> [2,1]
+Step 3: "+" -> [3]        (pop 1,2; compute 2+1=3; push 3)
+Step 4: "3" -> [3,3]
+Step 5: "*" -> [9]        (pop 3,3; compute 3*3=9; push 9)
+
+Output:
+```
+9
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+Where n is the number of tokens - process each token once
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+Stack can hold up to n/2 operands in worst case
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 150: Evaluate Reverse Polish Notation

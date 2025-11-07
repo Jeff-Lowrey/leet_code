@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0316. Remove Duplicate Letters
-
-Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"bcabc"</dd>
-<dt>Output:</dt>
-<dd>"abc"</dd>
-<dt>Explanation:</dt>
-<dd>After removing duplicate letters while maintaining lexicographical order, result is 'abc'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Set, Array, String
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use monotonic increasing stack. For each character, while stack top > current character, pop if we can remove it (count > 0 and appears later). This ensures lexicographically smallest result.
+The key insight is that use monotonic increasing stack. For each character, while stack top > current character, pop if we can remove it (count > 0 and appears later). This ensures lexicographically smallest result.
 
 ### APPROACH:
 1. **Count occurrences**: Create counter for each character's frequency
@@ -67,21 +41,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

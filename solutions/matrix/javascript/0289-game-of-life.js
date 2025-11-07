@@ -1,51 +1,9 @@
 /**
- * # 0289. Game Of Life
- *
- * Difficulty: Medium
- *
- *
- * According to Wikipedia's article: "The Game of Life, also known simply as Life,
- * is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
- *
- * The board is made up of an m x `n` `grid` of cells, where each cell has an initial
- * state: live (represented by a 1) or dead (represented by a 0). Each cell interacts
- * with its eight neighbors (horizontal, vertical, diagonal) using the following four rules:
- *
- * 1. Any live cell with fewer than two live neighbors dies (underpopulation)
- * 2. Any live cell with two or three live neighbors lives on to the next generation
- * 3. Any live cell with more than three live neighbors dies (overpopulation)
- * 4. Any dead cell with exactly three live neighbors becomes a live cell (reproduction)
- *
- * The next state is created by applying the above rules simultaneously to every cell
- * in the current state, where births and deaths occur simultaneously.
- *
- * Example:
- * Input: `board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
- * Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>board` = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]</dd>
- * <dt>Output:</dt>
- * <dd>[[0,0,0],[1,0,1],[0,1,1],[0,1,0]]</dd>
- * <dt>Explanation:</dt>
- * <dd>After one step of Game of Life, the board state updates based on neighbor counts</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal
- * **Data Structures**: Array, String, Matrix
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(m × n)
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
- * The challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
+ * The key insight is that the challenge is applying rules simultaneously to all cells. Use state encoding to track both current and next states in-place, avoiding extra space while ensuring all decisions are based on the original state.
  *
  * ### APPROACH:
  * 1. **State Encoding**: Use 4 states instead of 2
@@ -95,16 +53,14 @@
  * ```
  * [[0,0,0],[0,0,1],[0,1,1],[0,1,0]]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(m × n)
-
+ * O(m × n)**
+ *
  * - Based on input size and operations
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
  * - **All dead cells**: Remain dead if no neighbors
@@ -113,7 +69,14 @@
  * - **Stable patterns**: Some configurations don't change
  * - **In-place update**: Use encoding to track current and next state
  *
- * </details>
+ * *
+ * *
+ * *
+ * *
+ * *
+ * *
+ * *
+ * *
  */
 
 /**

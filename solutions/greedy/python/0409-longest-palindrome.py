@@ -1,34 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0409. Longest Palindrome
-
-Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
-
-Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Input: "abccccdd"</dd>
-<dt>Output:</dt>
-<dd>Character counts:</dd>
-<dt>Explanation:</dt>
-<dd>Longest palindrome that can be built is 7 from letters 'abccccdd'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-A palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
+The key insight is that a palindrome reads the same forwards and backwards. To maximize the palindrome length, we should use as many character pairs as possible, plus at most one character with odd count (which goes in the center).
 
 ### APPROACH:
 1. **Count character frequencies**: Count how many times each character appears
@@ -59,20 +31,24 @@ Can use one character in center: +1
 Result: 6 + 1 = 7
 Possible palindrome: "dccaccd"
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass to count characters
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 At most 128 ASCII characters or 52 letters (constant space)
 
 ### EDGE CASES:
-- Empty string: length 0
-- All characters have even counts: use all characters
-- All characters have count 1: length = 1 (any single character)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from collections import Counter

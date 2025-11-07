@@ -1,78 +1,49 @@
 /**
- * # 0014. Longest Common Prefix
- * 
- * # Difficulty: Easy
- * 
- * Write a function to find the longest common prefix string amongst an array of strings.
- * If there is no common prefix, return an empty string "".
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>strs = ["flower","flow","flight"]</dd>
- * <dt>Output:</dt>
- * <dd>fl"</dd>
- * <dt>Explanation:</dt>
- * <dd>Longest common prefix of ['flower','flow','flight'] is 'fl'</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: O(S)
- * **Space Complexity**: O(1) - Constant extra space
- * 
- * ### INTUITION:
- * The longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
- * 
- * ### APPROACH:
- * 1. **Vertical Scanning**: Compare characters at the same position across all strings
- * 2. Start from position 0 and check if all strings have the same character at that position
- * 3. Continue until we find a mismatch or reach the end of any string
- * 4. Return the prefix found so far
- * 
- * ### WHY THIS WORKS:
- * Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * strs = ["flower","flow","flight"]
- * ```
- *
- * Steps:
- * Step 1: Position 0 → compare 'f', 'f', 'f' → all match
- * Step 2: Position 1 → compare 'l', 'l', 'l' → all match
- * Step 3: Position 2 → compare 'o', 'o', 'i' → mismatch found
- * Step 4: Return prefix up to position 2 → "fl"
- *
- * Output:
- * ```
- * "fl"
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(S)
- * - S is the sum of all characters in all strings
- * - In worst case, we examine every character once
- * 
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * - Only using constant extra space for variables
- * 
- * ### EDGE CASES:
- * - Empty array: return ""
- * - Empty string in array: return ""
- * - Single string: return the string itself
- * - No common prefix: return ""
- * 
- * </details>
- */
+### INTUITION:
+The key insight is that the longest common prefix is the sequence of characters that all strings share from the beginning. We can find this by comparing characters at each position across all strings until we find a mismatch.
+
+### APPROACH:
+1. **Vertical Scanning**: Compare characters at the same position across all strings
+2. Start from position 0 and check if all strings have the same character at that position
+3. Continue until we find a mismatch or reach the end of any string
+4. Return the prefix found so far
+
+### WHY THIS WORKS:
+Since we're looking for a common prefix, all strings must have identical characters at each position from the start. The moment any string differs or ends, we've found the longest possible common prefix.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+strs = ["flower","flow","flight"]
+```
+
+Steps:
+Step 1: Position 0 → compare 'f', 'f', 'f' → all match
+Step 2: Position 1 → compare 'l', 'l', 'l' → all match
+Step 3: Position 2 → compare 'o', 'o', 'i' → mismatch found
+Step 4: Return prefix up to position 2 → "fl"
+
+Output:
+```
+"fl"
+```
+
+### TIME COMPLEXITY:
+O(S)**
+- S is the sum of all characters in all strings
+- In worst case, we examine every character once
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+- Only using constant extra space for variables
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 class Solution {
   /**

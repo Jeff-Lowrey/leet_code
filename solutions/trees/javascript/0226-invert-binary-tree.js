@@ -1,31 +1,6 @@
 /**
- * # Difficulty: Easy
- *
- * # 0226. Invert Binary Tree
- *
- *
- * Given the root of a binary tree, invert the tree, and return its root.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[4,2,7,1,3,6,9]</dd>
- * <dt>Output:</dt>
- * <dd>[4,7,2,9,6,3,1] (inverted tree)</dd>
- * <dt>Explanation:</dt>
- * <dd>After inverting, left and right subtrees are swapped recursively: left child 4 becomes right child</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -37,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages trees principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages trees principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -56,21 +31,20 @@
  * ```
  * [4,7,2,9,6,3,1] (inverted tree)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

@@ -1,91 +1,61 @@
 /**
- * # Difficulty: Medium
- *
- * # 0216. Combination Sum III
- *
- *
- * This problem demonstrates key concepts in Recursion.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>k = 3, n = 7</dd>
- * <dt>Output:</dt>
- * <dd>[[1,2,4]]</dd>
- * <dt>Explanation:</dt>
- * <dd>All 3-number combinations from 1-9 that sum to 7 are [[1,2,4]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Sorting
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Backtracking
- * **Time Complexity**: O(C(9,k)) - choosing k numbers from 9 options
- * **Space Complexity**: O(k) - recursion depth and combination size
+### INTUITION:
+The key insight is that find all valid combinations of k numbers that sum to n, using only numbers 1-9,
+where each number can be used at most once. This is a backtracking problem with
+multiple constraints: combination size and target sum.
 
- *
- * ### INTUITION:
- * Find all valid combinations of k numbers that sum to n, using only numbers 1-9,
- * where each number can be used at most once. This is a backtracking problem with
- * multiple constraints: combination size and target sum.
- *
- * ### APPROACH:
- * 1. **Backtracking with constraints**:
- *    - Start from number 1 and try each number up to 9
- *    - For each number, decide to include it or skip it
- *    - Track current sum and count of numbers used
- *    - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
- * 2. **Pruning optimizations**:
- *    - Stop if current sum exceeds target
- *    - Stop if remaining numbers can't possibly reach target
- *    - Early exit when constraints violated
- * 3. **Edge cases**: k > 9, n too large, n too small
- *
- * ### WHY THIS WORKS:
- * - Backtracking systematically explores all valid combinations
- * - Pruning reduces unnecessary exploration
- * - Starting number parameter prevents duplicate combinations
- * - Multiple constraints (count and sum) guide the search
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * k = 3, n = 7
- * ```
- *
- * Try combinations of 3 numbers from 1-9 that sum to 7:
- *
- * Steps:
- * Step 1: [1,2,3] -> sum = 6 (not valid)
- * Step 2: [1,2,4] -> sum = 7 (valid!)
- * Step 3: [1,3,3] -> can't reuse 3
- * Step 4: [2,2,3] -> can't reuse 2
- * Step 5: Other combinations either don't sum to 7 or don't have exactly 3 numbers
- *
- * Output:
- * ```
- * [[1,2,4]]
- * ```
+### APPROACH:
+1. **Backtracking with constraints**:
+   - Start from number 1 and try each number up to 9
+   - For each number, decide to include it or skip it
+   - Track current sum and count of numbers used
+   - Base cases: reached k numbers (check if sum equals n), or exceeded constraints
+2. **Pruning optimizations**:
+   - Stop if current sum exceeds target
+   - Stop if remaining numbers can't possibly reach target
+   - Early exit when constraints violated
+3. **Edge cases**: k > 9, n too large, n too small
 
- * ### TIME COMPLEXITY:
- * O(C(9,k))
- * - choosing k numbers from 9 options
- *
- * ### SPACE COMPLEXITY:
- * O(k)
- * - recursion depth and combination size
- *
- * ### EDGE CASES:
- * - k > 9 (impossible - return empty array)
- * - n > 45 (sum of 1-9, impossible - return empty array)
- * - k = 1 (return [n] if 1 <= n <= 9)
- * - Minimum sum for k numbers: 1+2+...+k = k(k+1)/2
- *
- * </details>
- */
+### WHY THIS WORKS:
+- Backtracking systematically explores all valid combinations
+- Pruning reduces unnecessary exploration
+- Starting number parameter prevents duplicate combinations
+- Multiple constraints (count and sum) guide the search
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+k = 3, n = 7
+```
+
+Try combinations of 3 numbers from 1-9 that sum to 7:
+
+Steps:
+Step 1: [1,2,3] -> sum = 6 (not valid)
+Step 2: [1,2,4] -> sum = 7 (valid!)
+Step 3: [1,3,3] -> can't reuse 3
+Step 4: [2,2,3] -> can't reuse 2
+Step 5: Other combinations either don't sum to 7 or don't have exactly 3 numbers
+
+Output:
+```
+[[1,2,4]]
+```
+
+### TIME COMPLEXITY:
+O(C(9,k)**)
+- choosing k numbers from 9 options
+
+### SPACE COMPLEXITY:
+O(k)**
+- recursion depth and combination size
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 216: Combination Sum III

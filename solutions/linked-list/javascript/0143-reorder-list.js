@@ -1,39 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0143. Reorder List
- *
- *
- * You are given the head of a singly linked-list. The list can be represented as:
- *
- * L0 → L1 → … → Ln - 1 → Ln
- *
- * Reorder the list to be on the following form:
- *
- * L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
- *
- * You may not modify the values in the list's nodes. Only nodes themselves may be changed.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1,2,3,4]</dd>
- * <dt>Output:</dt>
- * <dd>[1,4,2,3]</dd>
- * <dt>Explanation:</dt>
- * <dd>The list is reordered by interleaving nodes from the start and end: 1->4->2->3</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Divide and Conquer
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -45,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages linked list principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages linked list principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -68,21 +35,20 @@
  * ```
  * [1,4,2,3]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

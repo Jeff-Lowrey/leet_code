@@ -1,34 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0110. Balanced Binary Tree
-
-Given a binary tree, determine if it is height-balanced.
-
-A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than 1.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3,9,20,null,null,15,7]</dd>
-        ("Alternative recursive", solution.isBalancedAlternative),
-        ("Iterative", solution.isBalancedIterative)]</dd>
-<dt>Output:</dt>
-<dd>True</dd>
-<dt>Explanation:</dt>
-<dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Sliding Window
-**Data Structures**: Array, Stack, Queue
-**Patterns**: Two Pointers Pattern, Sliding Window Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(h)
-
 ### INTUITION:
 A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
 
@@ -67,11 +37,11 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Each node is visited exactly once
 
 ### SPACE COMPLEXITY:
-O(h)
+**O(h)**
 Where h is height of tree (recursion stack)
 
 ### EDGE CASES:
@@ -81,7 +51,6 @@ Where h is height of tree (recursion stack)
 - **Linear tree (skewed)**: Height difference > 1, return False
 - **Subtree unbalanced**: Early termination returns -1 immediately
 
-</details>
 """
 
 from typing import Any

@@ -1,33 +1,6 @@
 /**
- * # 0342. Power of Four
- *
- * Difficulty: Medium
- *
- *
- * Given an integer n, return true if it is a power of four. Otherwise, return false.
- *
- * An integer n is a power of four, if there exists an integer x such that n == 4^x.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 16</dd>
- * <dt>Output:</dt>
- * <dd>true</dd>
- * <dt>Explanation:</dt>
- * <dd>4^2 = 16</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
  * ### METADATA:
- * **Techniques**: Recursion, Bit Manipulation
- * **Data Structures**: None
- * **Patterns**: Divide and Conquer, Mathematical
- * **Time Complexity**: O(log₄ n) for recursion
- * **Space Complexity**: O(log₄ n) for recursion stack
+ *
  *
  * ### INTUITION:
  * A power of four must be a power of two with the bit set at an even position.
@@ -57,24 +30,24 @@
  * Step 2: isPowerOfFour(4)  → 4 % 4 == 0, check isPowerOfFour(1)
  * Step 3: isPowerOfFour(1)  → return True
  * Step 4: Result: True
- * 
+ *
  * Output:
  * ```
  * True
  * ```
- * 
+ *
  * ### TIME COMPLEXITY:
- * O(log₄ n) for recursion
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** time.
  *
  * ### SPACE COMPLEXITY:
- * O(log₄ n) for recursion stack
+ * O(log₄ n)** for recursion stack
  *
  * ### EDGE CASES:
- * - n ≤ 0: return False
- * - n = 1: return True (4^0)
- * - Powers of 2 that aren't powers of 4 (e.g., 2, 8, 32)
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

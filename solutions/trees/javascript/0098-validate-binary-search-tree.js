@@ -1,37 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0098. Validate Binary Search Tree
- *
- *
- * Given the root of a binary tree, determine if it is a valid binary search tree (BST).
- *
- * A valid BST is defined as follows:
- *
- * - The left subtree of a node contains only nodes with keys less than the node's key.
- * - The right subtree of a node contains only nodes with keys greater than the node's key.
- * - Both the left and right subtrees must also be binary search trees.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[2,1,3]</dd>
- * <dt>Output:</dt>
- * <dd>True (valid BST)</dd>
- * <dt>Explanation:</dt>
- * <dd>Tree is valid BST if all nodes satisfy left < node < right</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Stack Operations
- * **Data Structures**: Array, Stack, Tree
- * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -43,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages trees principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages trees principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -63,21 +32,20 @@
  * ```
  * True (valid BST)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

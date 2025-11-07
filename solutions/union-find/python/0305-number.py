@@ -1,38 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0305. Number of Islands II
-
-You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
-
-We may perform an add land operation which turns the water at position into a land. You are given an array positions where positions[i] = [ri, ci] is the position (ri, ci) at which we should operate the ith operation.
-
-Return an array of integers answer where answer[i] is the number of islands after turning the cell (ri, ci) into a land.
-
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[0, 0]]</dd>
-<dt>Output:</dt>
-<dd>"Test 1 Result: {result1}"</dd>
-<dt>Explanation:</dt>
-<dd>Number of islands after adding positions: [1,1,2,3]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Divide and Conquer
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
+The key insight is that maintain Union-Find of islands. For each land operation, union with adjacent land cells (4 directions). Track number of connected components. Component count after each operation is island count.
 
 ### APPROACH:
 1. **Initialize Union-Find**: Create parent and rank arrays
@@ -77,21 +45,18 @@ Output:
 Output: "Test 1 Result: {result1}"
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

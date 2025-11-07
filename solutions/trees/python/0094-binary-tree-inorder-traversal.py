@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0094. Binary Tree Inorder Traversal
-
-Given the root of a binary tree, return the inorder traversal of its nodes' values.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[1, 3, 2]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>In-order traversal of tree [1,null,2,3] is [1,3,2]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Array, Stack, Tree
-**Patterns**: Two Pointers Pattern, Backtracking
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: - Recursive: O(h) where h is tree height (call stack)
-
 ### INTUITION:
 Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for Binary Search Trees. The key is to implement this pattern using recursion or iteration with a stack.
 
@@ -34,10 +8,10 @@ Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives u
 3. **Morris traversal**: O(1) space using threading technique
 
 ### WHY THIS WORKS:
-- Inorder traversal naturally follows left-root-right pattern
-- For BSTs, this produces sorted output
-- Stack-based approach simulates the call stack of recursion
-- Morris traversal modifies tree temporarily to avoid extra space
+- This ensures that inorder traversal naturally follows left-root-right pattern
+- This ensures that for BSTs, this produces sorted output
+- This ensures that stack-based approach simulates the call stack of recursion
+- This ensures that morris traversal modifies tree temporarily to avoid extra space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -61,13 +35,13 @@ Inorder traversal steps:
 Result: [1, 3, 2]
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 We visit each node exactly once
 
 ### SPACE COMPLEXITY:
-- Recursive: O(h) where h is tree height (call stack)
-- Iterative: O(h) for explicit stack
-- Morris: O(1) constant space
+- Recursive: **O(h)** where h is tree height (call stack)
+- Iterative: **O(h)** for explicit stack
+- Morris: **O(1)** constant space
 
 ### EDGE CASES:
 - **Empty tree**: Return empty list immediately
@@ -76,7 +50,6 @@ We visit each node exactly once
 - **Right-skewed tree**: Traversal order is root-to-leaf path
 - **BST**: Inorder gives sorted sequence of values
 
-</details>
 """
 
 from typing import Any

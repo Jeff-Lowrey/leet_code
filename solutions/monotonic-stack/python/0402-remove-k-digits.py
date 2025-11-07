@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0402. Remove K Digits
-
-Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>num = "1432219", k = 3</dd>
-<dt>Output:</dt>
-<dd>"1219"</dd>
-<dt>Explanation:</dt>
-<dd>By greedily removing k digits to make the smallest number, '1432219' becomes '1219' after removing 3 digits</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Stack
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
+The key insight is that use monotonic increasing stack. Remove k digits greedily by popping larger digits when a smaller digit is found. If k removals not reached, remove from end. Handle leading zeros.
 
 ### APPROACH:
 1. **Initialize stack**: Create empty stack to build result
@@ -66,21 +40,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

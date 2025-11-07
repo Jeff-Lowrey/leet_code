@@ -1,30 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0232. Implement Queue using Stacks
-
-Implement a first-in-first-out (FIFO) queue using only two stacks.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>push(1): input=[1], output=[]</dd>
-<dt>Output:</dt>
-<dd>push(2): input=[1,2], output=[]</dd>
-<dt>Explanation:</dt>
-<dd>After pushing 1 and 2, both values are in the input stack with 2 on top, while the output stack remains empty until a pop or peek operation is performed</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Stack Operations, Queue Operations
-**Data Structures**: Array, Stack, Queue
-**Patterns**: Iterative Solution
-**Time Complexity**: - push: O(1)
-**Space Complexity**: O(n) for storing n elements
-
 ### INTUITION:
 A queue follows FIFO (First In First Out), while a stack follows LIFO (Last In First Out).
 We can simulate queue behavior using two stacks - one for input and one for output.
@@ -60,20 +34,23 @@ Step 2: pop(): output=[2,1], return 1, output=[2]
 Step 3: push(3): input=[3], output=[2]
 Step 4: pop(): output=[2], return 2
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-- push: O(1)
-- pop: Amortized O(1)
-- peek: Amortized O(1)
-- empty: O(1)
+- push: **O(1)**
+- pop: Amortized **O(1)**
+- peek: Amortized **O(1)**
+- empty: **O(1)**
 
 ### SPACE COMPLEXITY:
-O(n) for storing n elements
+**O(n)** for storing n elements
 
 ### EDGE CASES:
-- Empty queue
-- Single element
-- Multiple operations
-- Alternating push/pop
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """

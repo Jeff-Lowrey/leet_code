@@ -1,38 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0011. Container With Most Water
-
-You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
-
-Find two lines that together with the x-axis form a container, such that the container contains the most water.
-
-Return the maximum amount of water a container can store.
-
-Notice that you may not slant the container.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>height = [1, 8, 6, 2, 5, 4, 8, 3, 7]</dd>
-<dt>Output:</dt>
-<dd>49</dd>
-<dt>Explanation:</dt>
-<dd>Maximum water container area is 49 with heights [1,8,6,2,5,4,8,3,7]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Binary Search
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use two pointers from both ends. Calculate area = min(height[left], height[right]) * width. Move pointer with smaller height inward (moving taller pointer can't increase area). Track maximum.
+The key insight is that use two pointers from both ends. Calculate area = min(height[left], height[right]) * width. Move pointer with smaller height inward (moving taller pointer can't increase area). Track maximum.
 
 ### APPROACH:
 1. **Initialize pointers**: Set left = 0, right = len(height) - 1
@@ -44,11 +12,11 @@ Use two pointers from both ends. Calculate area = min(height[left], height[right
 7. **Return result**: Return max_area as maximum water container
 
 ### WHY THIS WORKS:
-- Two pointers: left at start, right at end
-- Area = min(height[left], height[right]) * (right - left)
-- Move pointer with shorter height: taller height won't improve area until we find taller opposite
-- Track maximum area seen
-- O(n) time: single pass, O(1) space
+- This ensures that two pointers: left at start, right at end
+- This ensures that area = min(height[left], height[right]) * (right - left)
+- This ensures that move pointer with shorter height: taller height won't improve area until we find taller opposite
+- This ensures that track maximum area seen
+- This ensures that o(n) time: single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -88,21 +56,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

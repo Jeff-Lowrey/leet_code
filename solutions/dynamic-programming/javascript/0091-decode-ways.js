@@ -1,37 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0091. Decode Ways
- *
- *
- * A message containing letters from A-Z can be encoded into numbers using the following mapping:
- *
- * 'A' -> "1", 'B' -> "2", ..., 'Z' -> "26"
- *
- * To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways).
- *
- * Given a string s containing only digits, return the number of ways to decode it.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"226"</dd>
- * <dt>Output:</dt>
- * <dd>3 (number of ways to decode)</dd>
- * <dt>Explanation:</dt>
- * <dd>String '226' decodes 3 ways: '2-2-6', '22-6', '2-26'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Memoization
- * **Data Structures**: Array, String, Linked List
- * **Patterns**: Dynamic Programming
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of dynamic programming concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -43,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages dynamic programming principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages dynamic programming principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -73,21 +42,20 @@
  * ```
  * 3 (number of ways to decode)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

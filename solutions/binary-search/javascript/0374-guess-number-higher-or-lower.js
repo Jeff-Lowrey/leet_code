@@ -1,100 +1,56 @@
 /**
- * # Difficulty: Easy
- *
- * # 0374. Guess Number Higher Or Lower
- *
- *
- * We are playing the Guess Game. The game is as follows:
- *
- * I pick a number from 1 to n. You have to guess which number I picked.
- *
- * Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
- *
- * You call a pre-defined API int guess(int num), which returns three possible results:
- * - -1: Your guess is higher than the number I picked (i.e. num > pick).
- * - 1: Your guess is lower than the number I picked (i.e. num < pick).
- * - 0: Your guess is correct (i.e. num == pick).
- *
- * Return the number that I picked.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 10, pick = 6
- * n = 1, pick = 1
- * n = 2, pick = 1</dd>
- * <dt>Output:</dt>
- * <dd>* 6
- * 1
- * 1</dd>
- * <dt>Explanation:</dt>
- * <dd>Target number is guessed using binary search strategy</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Binary Search
- * **Data Structures**: Tree
- * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: O(1) - Constant extra space
+### INTUITION:
+This is a classic binary search problem where we need to find a target number using feedback from a guess API. The key insight is to use the API response to narrow down the search space by half in each iteration.
 
- *
- * ### INTUITION:
- * This is a classic binary search problem where we need to find a target number using feedback from a guess API. The key insight is to use the API response to narrow down the search space by half in each iteration.
- *
- * ### APPROACH:
- * 1. **Binary search**: Use binary search on the range [1, n]
- * 2. **API feedback**: Use guess() API response to adjust search bounds
- * 3. **Boundary adjustment**: Move left/right pointers based on feedback
- * 4. **Termination**: Continue until API returns 0 (correct guess)
- *
- * ### WHY THIS WORKS:
- * - Binary search optimally reduces search space by half each iteration
- * - API feedback provides perfect direction information
- * - Guaranteed to find the answer in O(log n) time
- * - Similar to searching in a sorted array but using API instead of direct comparison
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 10, pick = 6
- * n = 1, pick = 1
- * n = 2, pick = 1
- * ```
- *
- * Step 1: guess(5) returns 1 (pick > 5), so left = 6
- * Step 2: guess(8) returns -1 (pick < 8), so right = 7
- * Step 3: guess(6) returns 0 (correct!)
- * Step 1: guess(1) returns 0 (correct!)
- * Step 1: guess(1) returns 0 (correct!)
- *
- * Output:
- * ```
- * 6
- * 1
- * 1
- * ```
+### APPROACH:
+1. **Binary search**: Use binary search on the range [1, n]
+2. **API feedback**: Use guess() API response to adjust search bounds
+3. **Boundary adjustment**: Move left/right pointers based on feedback
+4. **Termination**: Continue until API returns 0 (correct guess)
 
- * ### TIME COMPLEXITY:
- * O(log n)
- * - Binary search or tree height
- * Binary search through range [1, n]
- *
- * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * Only using constant extra space
- *
- * ### EDGE CASES:
- * - Single number (n = 1): return 1
- * - Pick at boundaries (pick = 1 or pick = n)
- * - Large n values: use overflow-safe mid calculation
- *
- * </details>
- */
+### WHY THIS WORKS:
+- This ensures that binary search optimally reduces search space by half each iteration
+- This ensures that aPI feedback provides perfect direction information
+- This ensures that guaranteed to find the answer in O(log n) time
+- This ensures that similar to searching in a sorted array but using API instead of direct comparison
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+n = 10, pick = 6
+n = 1, pick = 1
+n = 2, pick = 1
+```
+
+Step 1: guess(5) returns 1 (pick > 5), so left = 6
+Step 2: guess(8) returns -1 (pick < 8), so right = 7
+Step 3: guess(6) returns 0 (correct!)
+Step 1: guess(1) returns 0 (correct!)
+Step 1: guess(1) returns 0 (correct!)
+
+Output:
+```
+6
+1
+1
+```
+
+### TIME COMPLEXITY:
+O(log n)**
+- Binary search or tree height
+Binary search through range [1, n]
+
+### SPACE COMPLEXITY:
+O(1)**
+- Constant extra space
+Only using constant extra space
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 374: Guess Number Higher Or Lower

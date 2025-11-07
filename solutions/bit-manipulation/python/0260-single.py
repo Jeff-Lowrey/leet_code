@@ -1,34 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0260. Single Number III
-
-Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
-
-You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,2,1,3,2,5]</dd>
-<dt>Output:</dt>
-<dd>[3, 5] (two single numbers)</dd>
-<dt>Explanation:</dt>
-<dd>Two numbers [3,5] appear once in [1,2,1,3,2,5]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Sorting
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Divide and Conquer
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-XOR all numbers - pairs cancel leaving x^y. Find any set bit in x^y to distinguish them. Partition numbers by this bit and XOR each partition separately to get x and y.
+The key insight is that xOR all numbers - pairs cancel leaving x^y. Find any set bit in x^y to distinguish them. Partition numbers by this bit and XOR each partition separately to get x and y.
 
 ### APPROACH:
 1. **XOR all numbers**: Compute xor_all = 0, then xor_all ^= num for each num (pairs cancel, leaving two singles XORed)
@@ -40,11 +12,11 @@ XOR all numbers - pairs cancel leaving x^y. Find any set bit in x^y to distingui
 7. **Return both singles**: Return [num1, num2] as the two numbers appearing once
 
 ### WHY THIS WORKS:
-- XOR all numbers: duplicates cancel, left with xor = a ^ b
-- Find any set bit in xor (rightmost set bit: xor & -xor)
-- Split numbers into two groups by this bit (one has a, other has b)
-- XOR each group separately to find a and b
-- O(n) time: two passes, O(1) space
+- This ensures that xOR all numbers: duplicates cancel, left with xor = a ^ b
+- This ensures that find any set bit in xor (rightmost set bit: xor & -xor)
+- This ensures that split numbers into two groups by this bit (one has a, other has b)
+- This ensures that xOR each group separately to find a and b
+- This ensures that o(n) time: two passes, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -68,21 +40,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

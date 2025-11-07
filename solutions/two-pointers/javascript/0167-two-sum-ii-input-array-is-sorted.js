@@ -1,37 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0167. Two Sum Ii Input Array Is Sorted
- *
- *
- * Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
- *
- * Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.
- *
- * The tests are generated such that there is exactly one solution. You may not use the same element twice.
- *
- * Your solution must use only constant extra space.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>numbers = [2, 7, 11, 15], target = 9</dd>
- * <dt>Output:</dt>
- * <dd>[1, 2] (1-indexed positions)</dd>
- * <dt>Explanation:</dt>
- * <dd>Two numbers [2,7] at indices [1,2] sum to target 9</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of two pointers concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -43,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages two pointers principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages two pointers principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -76,21 +45,20 @@
  * ```
  * [1, 2] (1-indexed positions)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

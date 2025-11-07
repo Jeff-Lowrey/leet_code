@@ -4,18 +4,18 @@
 
 ---
 
+> **📌 Note**: This document covers **Jinja2 HTML templates** for the web interface. For **code generation and skeleton creation**, see [Code Generation Module](module-structure/05-code-generation-module.md).
+
 ## Table of Contents
 
 - [Overview](#overview)
-- [Python Solution Template](#python-solution-template)
-- [JavaScript Solution Template](#javascript-solution-template)
-- [Skeleton Generation](#skeleton-generation)
+- [Jinja2 Template Components](#jinja2-template-components)
+- [Solution Card Partial](#solution-card-partial)
 - [Template Validation](#template-validation)
-- [Adding New Templates](#adding-new-templates)
 
 ## Overview
 
-The template system provides standardized solution formats and generates skeleton code for practice. It supports both Python and JavaScript with consistent structure across all solutions.
+The template system uses Jinja2 to render HTML pages for the web interface. It includes reusable components for displaying solutions, categories, and search results.
 
 ### Reusable Template Components
 

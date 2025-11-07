@@ -1,86 +1,57 @@
 /**
- * # Difficulty: Medium
- *
- * # 0022. Generate Parentheses
- *
- *
- * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>["()"]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>All combinations of n=3 parentheses: ['((()))','(()())','(())()','()(())','()()()']</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Sorting, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Backtracking
- * **Time Complexity**: O(4^n / √n)
- * **Space Complexity**: O(n)
+### INTUITION:
+The key insight is that use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
 
- *
- * ### INTUITION:
- * Use backtracking to build valid parentheses strings. At each step, we can add '(' if we haven't used all n opening brackets, or ')' if it won't make the string invalid (closing count < opening count).
- *
- * ### APPROACH:
- * 1. **Backtracking**: Build string character by character
- * 2. **Valid Rules**:
- *    - Can add '(' if open_count < n
- *    - Can add ')' if close_count < open_count
- * 3. **Base Case**: When string length = 2n, add to result
- * 4. **Recursive Exploration**: Try adding '(' and ')' at each step
- *
- * ### WHY THIS WORKS:
- * - Opening bracket can be added anytime until we reach n
- * - Closing bracket can only be added if it doesn't exceed opening count
- * - These rules guarantee valid parentheses strings
- * - Backtracking explores all valid combinations
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 3:
- * ```
- *
- * Start: ""
- *
- * Steps:
- * Step 1: ├─ "(" → "(("  → "(((" → "((())" → "((()))"
- * Step 2: │                      → "(()"   → "(()())"
- * Step 3: │                                → "(())()"
- * Step 4: │      → "("   → "()"   → "()((" → "()(())"
- * Step 5: │                       → "()("  → "()()()"
- * Step 6: Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
- * 
- * Output:
- * ```
- * ["((()))", "(()())", "(())()", "()(())", "()()()"]
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(4^n / √n)
- * Catalan number: C(n) = (2n)! / ((n+1)! * n!)
- * Approximately O(4^n / √n) valid combinations
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * Recursion stack depth is 2n (building string of length 2n)
- *
- * ### EDGE CASES:
- * - n = 0: return [""]
- * - n = 1: return ["()"]
- * - n = 2: return ["(())", "()()"]
- *
- * </details>
- */
+### APPROACH:
+1. **Backtracking**: Build string character by character
+2. **Valid Rules**:
+   - Can add '(' if open_count < n
+   - Can add ')' if close_count < open_count
+3. **Base Case**: When string length = 2n, add to result
+4. **Recursive Exploration**: Try adding '(' and ')' at each step
+
+### WHY THIS WORKS:
+- Opening bracket can be added anytime until we reach n
+- Closing bracket can only be added if it doesn't exceed opening count
+- These rules guarantee valid parentheses strings
+- Backtracking explores all valid combinations
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+n = 3:
+```
+
+Start: ""
+
+Steps:
+Step 1: ├─ "(" → "(("  → "(((" → "((())" → "((()))"
+Step 2: │                      → "(()"   → "(()())"
+Step 3: │                                → "(())()"
+Step 4: │      → "("   → "()"   → "()((" → "()(())"
+Step 5: │                       → "()("  → "()()()"
+Step 6: Result: ["((()))", "(()())", "(())()", "()(())", "()()()"]
+
+Output:
+```
+["((()))", "(()())", "(())()", "()(())", "()()()"]
+```
+
+### TIME COMPLEXITY:
+O(4^n / √n)**
+Catalan number: C(n) = (2n)! / ((n+1)! * n!)
+Approximately **O(4^n / √n)** valid combinations
+
+### SPACE COMPLEXITY:
+O(n)**
+Recursion stack depth is 2n (building string of length 2n)
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 022: Generate Parentheses

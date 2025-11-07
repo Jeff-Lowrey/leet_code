@@ -1,38 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0227. Basic Calculator Ii
-
-Given a string s which represents an expression, evaluate this expression and return its value.
-
-The integer division should truncate toward zero.
-
-You may assume that the given expression is always valid. All intermediate results will be in the range of [-2^31, 2^31 - 1].
-
-Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"3+2*2"</dd>
-<dt>Output:</dt>
-<dd>7</dd>
-<dt>Explanation:</dt>
-<dd>Expression '3+2*2' evaluates to 7</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
-**Data Structures**: Hash Set, Array, String
-**Patterns**: Iterative Solution
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
+The key insight is that use stack to handle operators. Scan number by number. For +/- push to stack. For *// pop, compute with previous, push result. Finally sum stack for result.
 
 ### APPROACH:
 1. **Initialize variables**: Set stack = [], num = 0, sign = '+'
@@ -44,12 +12,12 @@ Use stack to handle operators. Scan number by number. For +/- push to stack. For
 7. **Sum stack**: Return sum(stack) as final result
 
 ### WHY THIS WORKS:
-- Stack handles operator precedence: */ evaluated immediately, +- pushed to stack
-- Track last operator, current number being built
-- When + or -, push to stack (signed number)
-- When * or /, pop and compute with current number, push result
-- Sum stack at end for final result
-- O(n) time: single pass, O(n) space for stack
+- This ensures that stack handles operator precedence: */ evaluated immediately, +- pushed to stack
+- This ensures that track last operator, current number being built
+- This ensures that when + or -, push to stack (signed number)
+- This ensures that when * or /, pop and compute with current number, push result
+- This ensures that sum stack at end for final result
+- This ensures that o(n) time: single pass, O(n) space for stack
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -70,23 +38,20 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 
 - Single pass through the input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

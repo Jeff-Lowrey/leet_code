@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0076. Minimum Window Substring
- *
- *
- * Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
- *
- * The testcases will be generated such that the answer is unique.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"ADOBECODEBANC", t = "ABC"</dd>
- * <dt>Output:</dt>
- * <dd>"BANC"</dd>
- * <dt>Explanation:</dt>
- * <dd>Minimum window containing all chars of t='ABC' is 'BANC'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Sliding Window Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use sliding window with character counts. Expand right until window contains all t characters. Then shrink left while maintaining validity. Track minimum window. Use two frequency maps for comparison.
+ * The key insight is that use sliding window with character counts. Expand right until window contains all t characters. Then shrink left while maintaining validity. Track minimum window. Use two frequency maps for comparison.
  *
  * ### APPROACH:
  * 1. **Count target characters**: Use Counter(t) to get required character frequencies
@@ -42,11 +16,11 @@
  * 8. **Return result**: Return s[min_start:min_start+min_len] if found, else empty string
  *
  * ### WHY THIS WORKS:
- * - Expanding window until all t chars included, then contract to minimize
- * - Two frequency maps: need (from t) and window (current counts)
- * - Have/need counters track how many unique chars satisfy frequency
- * - When have == need, try contracting left to find minimum
- * - O(m + n) time: scan s once, O(1) space for fixed alphabet
+ * - This ensures that expanding window until all t chars included, then contract to minimize
+ * - This ensures that two frequency maps: need (from t) and window (current counts)
+ * - This ensures that have/need counters track how many unique chars satisfy frequency
+ * - This ensures that when have == need, try contracting left to find minimum
+ * - This ensures that o(m + n) time: scan s once, O(1) space for fixed alphabet
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -67,23 +41,21 @@
  * ```
  * "BANC"
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

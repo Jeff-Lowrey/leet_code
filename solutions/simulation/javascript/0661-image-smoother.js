@@ -1,104 +1,66 @@
 /**
- * # Difficulty: Easy
- *
- * # 0661. Image Smoother
- *
- *
- * An image smoother is a filter of the size 3 x 3 that can be applied to each cell of an
- * image by rounding down the average of the cell and the eight surrounding cells (or as
- * many as there are if the cell is on an edge or corner).
- *
- * Given an m x n integer matrix img representing the grayscale of an image, return the
- * image after applying the smoother on each cell of it.
- *
- * Example 1:
- * Input: img = [[1,1,1],[1,0,1],[1,1,1]]
- * Output: [[0,0,0],[0,0,0],[0,0,0]]
- *
- * Example 2:
- * Input: img = [[100,200,100],[200,50,200],[100,200,100]]
- * Output: [[137,141,137],[141,138,141],[137,141,137]]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[1, 1, 1]]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Image smoother replaces each cell with average of itself and 8 neighbors</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal
- * **Data Structures**: Hash Map, Array, String
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(m × n)
- * **Space Complexity**: O(m × n)
+### INTUITION:
+The key insight is that for each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
+The challenge is to use original values for all calculations, not partially smoothed values.
 
- *
- * ### INTUITION:
- * For each cell, compute the average of itself and its 8 neighbors (or fewer if on edge).
- * The challenge is to use original values for all calculations, not partially smoothed values.
- *
- * ### APPROACH:
- * 1. **Create Result Matrix**: Store smoothed values separately to avoid using partial results
- * 2. **For Each Cell**: Calculate average of valid neighbors
- * 3. **Neighbor Counting**: Check all 8 directions, count only valid cells
- * 4. **Floor Division**: Use integer division for rounding down
- *
- * **Key Pattern**: 3×3 filter with boundary handling
- * - Center cell + up to 8 neighbors
- * - Edge cells have fewer neighbors
- * - Corner cells have only 3 neighbors
- *
- * ### WHY THIS WORKS:
- * - Separate result matrix ensures we always use original values
- * - Direction array simplifies checking all 8 neighbors
- * - Boundary checks handle edges and corners automatically
- * - Integer division naturally floors the average
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * img = [[100,200,100],
- * ```
- *
- * [200,50,200],
- * [100,200,100]]
- * Cell [0,0] (corner, 4 cells):
- * Neighbors: [0,0], [0,1], [1,0], [1,1]
- * Sum: 100 + 200 + 200 + 50 = 550
- * Average: 550 // 4 = 137
- * Cell [1,1] (center, 9 cells):
- * Neighbors: all 9 cells
- * Sum: 100+200+100+200+50+200+100+200+100 = 1250
- * Average: 1250 // 9 = 138
- * Cell [0,1] (edge, 6 cells):
- * Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
- * Sum: 100+200+100+200+50+200 = 850
- * Average: 850 // 6 = 141
- * Result: [[137,141,137],[141,138,141],[137,141,137]]
+### APPROACH:
+1. **Create Result Matrix**: Store smoothed values separately to avoid using partial results
+2. **For Each Cell**: Calculate average of valid neighbors
+3. **Neighbor Counting**: Check all 8 directions, count only valid cells
+4. **Floor Division**: Use integer division for rounding down
 
- * ### TIME COMPLEXITY:
- * O(m × n)
- * - Visit each cell once, check constant number of neighbors
- *
- * ### SPACE COMPLEXITY:
- * O(m × n)
- * - Need separate result matrix (or O(1) with bit manipulation)
- *
- * ### EDGE CASES:
- * - Single cell: [[5]] → [[5]]
- * - Single row/column: Only horizontal/vertical neighbors
- * - All same values: Output same as input
- * - Large values: Ensure no overflow (Python handles this)
- *
- * </details>
- */
+Key Pattern**: 3×3 filter with boundary handling
+- Center cell + up to 8 neighbors
+- Edge cells have fewer neighbors
+- Corner cells have only 3 neighbors
+
+### WHY THIS WORKS:
+- Separate result matrix ensures we always use original values
+- Direction array simplifies checking all 8 neighbors
+- Boundary checks handle edges and corners automatically
+- Integer division naturally floors the average
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+img = [[100,200,100],
+```
+
+[200,50,200],
+[100,200,100]]
+Cell [0,0] (corner, 4 cells):
+Neighbors: [0,0], [0,1], [1,0], [1,1]
+Sum: 100 + 200 + 200 + 50 = 550
+Average: 550 // 4 = 137
+Cell [1,1] (center, 9 cells):
+Neighbors: all 9 cells
+Sum: 100+200+100+200+50+200+100+200+100 = 1250
+Average: 1250 // 9 = 138
+Cell [0,1] (edge, 6 cells):
+Neighbors: [0,0], [0,1], [0,2], [1,0], [1,1], [1,2]
+Sum: 100+200+100+200+50+200 = 850
+Average: 850 // 6 = 141
+Result: [[137,141,137],[141,138,141],[137,141,137]]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+O(m × n)**
+- Visit each cell once, check constant number of neighbors
+
+### SPACE COMPLEXITY:
+O(m × n)**
+- Need separate result matrix (or **O(1)** with bit manipulation)
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 661: Image Smoother

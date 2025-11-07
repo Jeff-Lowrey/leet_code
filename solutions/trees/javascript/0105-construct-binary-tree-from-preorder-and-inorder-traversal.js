@@ -1,31 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0105. Construct Binary Tree From Preorder And Inorder Traversal
- *
- *
- * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]</dd>
- * <dt>Output:</dt>
- * <dd>Tree with root 3</dd>
- * <dt>Explanation:</dt>
- * <dd>The tree is uniquely constructed from preorder [3,9,20,15,7] and inorder [9,3,15,20,7] traversals</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of trees concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -37,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages trees principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages trees principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -60,23 +35,21 @@
  * ```
  * Tree with root 3
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

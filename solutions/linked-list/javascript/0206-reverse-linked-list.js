@@ -1,31 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0206. Reverse Linked List
- *
- *
- * Given the head of a singly linked list, reverse the list, and return the reversed list.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>1 → 2 → 3 → 4 → 5 → null</dd>
- * <dt>Output:</dt>
- * <dd>5 → 4 → 3 → 2 → 1 → null</dd>
- * <dt>Explanation:</dt>
- * <dd>The list is reversed so that the last node becomes the first: 5->4->3->2->1</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of linked list concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -37,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages linked list principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages linked list principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -82,23 +57,21 @@
  * ```
  * 5 → 4 → 3 → 2 → 1 → null
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

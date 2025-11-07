@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0503. Next Greater Element II
- *
- *
- * Given a circular integer array nums (i.e., the next element of nums[nums.length - 1] is nums[0]), return the next greater number for every element in nums.
- *
- * The next greater number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn't exist, return -1 for this number.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [1,2,1]</dd>
- * <dt>Output:</dt>
- * <dd>[2,-1,2]</dd>
- * <dt>Explanation:</dt>
- * <dd>In a circular array, the next greater elements are found by wrapping around: [2,2,1]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Process array circularly (use index % n twice). Use decreasing monotonic stack. For each element, pop smaller elements and set their result to current. Elements remaining have no greater element.
+ * The key insight is that process array circularly (use index % n twice). Use decreasing monotonic stack. For each element, pop smaller elements and set their result to current. Elements remaining have no greater element.
  *
  * ### APPROACH:
  * 1. **Initialize result**: Set result = [-1] * len(nums)
@@ -41,11 +15,11 @@
  * 7. **Return result**: Return result array
  *
  * ### WHY THIS WORKS:
- * - Process array twice (2n) to handle circular: element can have next greater after wraparound
- * - Monotonic decreasing stack stores indices waiting for next greater
- * - Use i % n to wrap indices in second pass
- * - When greater element found, pop smaller elements and record their answers
- * - O(n) time: despite 2n iterations, each element pushed/popped once
+ * - This ensures that process array twice (2n) to handle circular: element can have next greater after wraparound
+ * - This ensures that monotonic decreasing stack stores indices waiting for next greater
+ * - This ensures that use i % n to wrap indices in second pass
+ * - This ensures that when greater element found, pop smaller elements and record their answers
+ * - This ensures that o(n) time: despite 2n iterations, each element pushed/popped once
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -67,21 +41,20 @@
  * ```
  * [2,-1,2]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

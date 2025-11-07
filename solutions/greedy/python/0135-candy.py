@@ -1,38 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0135. Candy
-
-There are n children standing in a line. Each child is assigned a rating value given
-in the integer array ratings.
-
-You are giving candies to these children subjected to the following requirements:
-- Each child must have at least one candy.
-- Children with a higher rating get more candies than their neighbors.
-
-Return the minimum number of candies you need to have to distribute the candies to
-the children.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Input: ratings = [1,0,2]</dd>
-<dt>Output:</dt>
-<dd>See walkthrough</dd>
-<dt>Explanation:</dt>
-<dd>Minimum candies to distribute is 5 following the rules</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Map Storage, Array Traversal, Two Pointers
-**Data Structures**: Array, Tree, Trie
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
 This is a classic greedy problem requiring two passes. The key insight is that we
 need to satisfy both left and right neighbor constraints independently, then take
@@ -71,23 +37,30 @@ i=0: ratings[0]=1 > ratings[1]=0, candies[0] = max(1, 1+1) = 2
 candies = [2,1,2]
 Total: 2 + 1 + 2 = 5
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-O(n)
-Two passes through the array
+**O(n)** where n is the number of children. We make exactly two passes through the ratings array: one left-to-right and one right-to-left. Each pass processes each element once, giving us **O(n)** + **O(n)** = **O(2n)** = **O(n)**.
 
 ### SPACE COMPLEXITY:
-O(n)
-Array to store candy counts (can be optimized to O(1) with complex logic)
+**O(n)** - We allocate a candies array of size n to track how many candies each child receives. This auxiliary space is required to store the intermediate results from the left pass while we perform the right pass. While it's theoretically possible to optimize to **O(1)** space with complex single-pass logic tracking peaks and valleys, the two-pass **O(n)** approach is clearer and still optimal in time complexity.
 
 ### EDGE CASES:
-- Single child: Return 1
-- All same rating: Each gets 1 candy
-- Strictly increasing: [1,2,3,...,n]
-- Strictly decreasing: [n,n-1,...,2,1]
-- Valley pattern: [2,1,2] → [2,1,2]
-- Peak pattern: [1,2,1] → [1,2,1]
+- **Empty array**: ratings = [] returns 0 (no children, no candies needed)
+- **Single child**: ratings = [5] returns 1 (one child gets minimum 1 candy)
+- **All equal ratings**: ratings = [3,3,3] returns 3 (each gets 1 candy, no neighbor constraint violations)
+- **Strictly increasing**: ratings = [1,2,3,4] returns 10 (1+2+3+4 candies needed)
+- **Strictly decreasing**: ratings = [4,3,2,1] returns 10 (need to give 4+3+2+1 from right to left)
+- **Peak pattern**: ratings = [1,3,2] requires careful handling where middle child needs more than both neighbors
 
-</details>
 """
 
 from typing import List

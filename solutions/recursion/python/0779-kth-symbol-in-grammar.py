@@ -1,41 +1,4 @@
 """
-# 0779. K-th Symbol in Grammar
-
-# Difficulty: Medium
-
-We build a table of n rows (1-indexed). We start by writing 0 in the 1st row.
-Now in every subsequent row, we look at the previous row and replace each occurrence of 0 with 01,
-and each occurrence of 1 with 10.
-
-For example, for n = 3, the 1st row is 0, the 2nd row is 01, and the 3rd row is 0110.
-
-Given two integer n and k, return the kth (1-indexed) symbol in the nth row of a table of n rows.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 2, k = 1</dd>
-<dt>Output:</dt>
-<dd>0</dd>
-<dt>Explanation:</dt>
-<dd>
-Row 1: 0
-Row 2: 01
-The 1st symbol in row 2 is 0
-</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Binary Tree, Bit Manipulation
-**Data Structures**: None (pure recursion)
-**Patterns**: Divide and Conquer, Parent-Child Relationship
-**Time Complexity**: O(n)
-**Space Complexity**: O(n) for recursion stack
-
 ### INTUITION:
 The rows form a binary tree pattern:
 - Row 1: 0
@@ -56,10 +19,10 @@ Key observation: Each symbol at position k in row n is derived from position ⌈
 4. **Recursive call**: kthGrammar(n-1, (k+1)//2)
 
 ### WHY THIS WORKS:
-- The pattern follows a binary tree structure
-- Left child (odd k) inherits parent's value
-- Right child (even k) gets flipped value
-- We recursively trace back to row 1
+- This ensures that the pattern follows a binary tree structure
+- This ensures that left child (odd k) inherits parent's value
+- This ensures that right child (even k) gets flipped value
+- This ensures that we recursively trace back to row 1
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -89,17 +52,16 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n) - we recurse up to n times
+**O(n)** - we recurse up to n times
 
 ### SPACE COMPLEXITY:
-O(n) - recursion stack depth
+**O(n)** - recursion stack depth
 
 ### EDGE CASES:
-- n = 1: always returns 0
-- k = 1: always returns 0 (first element of any row)
-- k = last position: depends on pattern
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

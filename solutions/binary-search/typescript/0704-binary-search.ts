@@ -1,37 +1,9 @@
 /**
- * # Difficulty: Easy
+ * ### METADATA:
  *
- * # 0704. Binary Search
- *
- *
- * Given an array of integers nums which is sorted in ascending order,
- * and an integer target, write a function to search target in nums.
- * If target exists, then return its index. Otherwise, return -1.
- *
- * You must write an algorithm with O(log n) runtime complexity.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[-1,0,3,5,9,12], target = 9</dd>
- * <dt>Output:</dt>
- * <dd>-1</dd>
- * <dt>Explanation:</dt>
- * <dd>Target 9 is at index 4 in sorted array [-1,0,3,5,9,12]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, Tree
- * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: O(log n) - Binary search or tree height
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Binary search is the classic divide-and-conquer algorithm for searching
+ * The key insight is that binary search is the classic divide-and-conquer algorithm for searching
  * in sorted arrays. We repeatedly divide the search space in half by
  * comparing the target with the middle element.
  *
@@ -62,22 +34,20 @@
  * ```
  * 4
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(log n)
+ * O(log n)**
  * - Binary search or tree height
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty array: return -1
- * - Single element: check if it equals target
- * - Target not in array: return -1
- * - Target at boundaries: first or last element
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

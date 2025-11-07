@@ -1,35 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0274. H Index
-
-Given an array of integers citations where citations[i] is the number of citations a researcher
-received for their ith paper, return the researcher's h-index.
-
-According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value
-of h such that the given researcher has published at least h papers that have each been cited at
-least h times.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>citations = [3,0,6,1,5]</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>H-index for citations [3,0,6,1,5] is 3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 The h-index is the largest number h where at least h papers have h or more citations.
 Sorting helps us find this threshold efficiently. We can also use counting for O(n) solution.
@@ -41,10 +10,10 @@ Sorting helps us find this threshold efficiently. We can also use counting for O
 4. **Alternative**: Count papers with at least k citations for each k
 
 ### WHY THIS WORKS:
-- After sorting in descending order, citations[i] is the (i+1)th highest citation count
-- If citations[i] >= i+1, we have at least i+1 papers with i+1+ citations
-- The h-index is the maximum such i+1 value
-- Counting approach: For each h, count papers with >= h citations
+- This ensures that after sorting in descending order, citations[i] is the (i+1)th highest citation count
+- This ensures that if citations[i] >= i+1, we have at least i+1 papers with i+1+ citations
+- This ensures that the h-index is the maximum such i+1 value
+- This ensures that counting approach: For each h, count papers with >= h citations
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -71,21 +40,24 @@ Output:
 3
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-O(n log n)
-For sorting approach. Counting approach is O(n).
+**O(n log n)**
+For sorting approach. Counting approach is **O(n)**.
 
 ### SPACE COMPLEXITY:
-O(1)
-If sorting in place, O(n) for sorting with extra space
+**O(1)**
+If sorting in place, **O(n)** for sorting with extra space
 
 ### EDGE CASES:
-- All zeros (h-index = 0)
-- All citations > n (h-index = n)
-- Single paper
-- Empty array
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

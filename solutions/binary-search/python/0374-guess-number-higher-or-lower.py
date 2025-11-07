@@ -1,45 +1,4 @@
 """
-# Difficulty: Easy
-
-# 0374. Guess Number Higher Or Lower
-
-We are playing the Guess Game. The game is as follows:
-
-I pick a number from 1 to n. You have to guess which number I picked.
-
-Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
-
-You call a pre-defined API int guess(int num), which returns three possible results:
-- -1: Your guess is higher than the number I picked (i.e. num > pick).
-- 1: Your guess is lower than the number I picked (i.e. num < pick).
-- 0: Your guess is correct (i.e. num == pick).
-
-Return the number that I picked.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 10, pick = 6
-n = 1, pick = 1
-n = 2, pick = 1</dd>
-<dt>Output:</dt>
-<dd>6
-1
-1</dd>
-<dt>Explanation:</dt>
-<dd>Target number is guessed using binary search strategy</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Array, Stack, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(log n) - Binary search or tree height
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
 This is a classic binary search problem where we need to find a target number using feedback from a guess API. The key insight is to use the API response to narrow down the search space by half in each iteration.
 
@@ -50,10 +9,10 @@ This is a classic binary search problem where we need to find a target number us
 4. **Termination**: Continue until API returns 0 (correct guess)
 
 ### WHY THIS WORKS:
-- Binary search optimally reduces search space by half each iteration
-- API feedback provides perfect direction information
-- Guaranteed to find the answer in O(log n) time
-- Similar to searching in a sorted array but using API instead of direct comparison
+- This ensures that binary search optimally reduces search space by half each iteration
+- This ensures that aPI feedback provides perfect direction information
+- This ensures that guaranteed to find the answer in O(log n) time
+- This ensures that similar to searching in a sorted array but using API instead of direct comparison
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -77,19 +36,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(log n)
+**O(log n)**
 Binary search through range [1, n]
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space
 
 ### EDGE CASES:
-- Single number (n = 1): return 1
-- Pick at boundaries (pick = 1 or pick = n)
-- Large n values: use overflow-safe mid calculation
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

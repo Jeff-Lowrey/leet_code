@@ -1,97 +1,68 @@
 /**
- * 0110. Balanced Binary Tree
- *
- * Difficulty: Easy
- * 
- * Given a binary tree, determine if it is height-balanced.
- * 
- * A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than 1.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3,9,20,null,null,15,7]</dd>
- * <dt>Output:</dt>
- * <dd>True</dd>
- * <dt>Explanation:</dt>
- * <dd>The tree is balanced because the height difference between left and right subtrees is at most 1 at every node</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: **Depth-First** Search (DFS), Recursion, Height Calculation
- * **Data Structures**: Binary Tree
- * **Patterns**: Tree Traversal, Post-order Traversal, Recursion
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(h)
- *
- * ### INTUITION:
- * A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
- *
- * ### APPROACH:
- * **Data structures: Binary Tree with DFS (**Depth-First** Search) traversal**
- * 1. **Recursive Height Calculation**: Calculate height of each subtree recursively using DFS
- * 2. **Balance Check**: For each node, check if |left_height - right_height| ≤ 1
- * 3. **Early Termination**: If any subtree is unbalanced, immediately return -1 as sentinel value
- * 4. **Bottom-Up (Post-order)**: Check balance condition while returning heights from leaves to root
- *
- * ### WHY THIS WORKS:
- * - Height-balanced property must hold for ALL nodes, not just root
- * - DFS recursion naturally checks every node in post-order (children before parent)
- * - Bottom-up approach avoids redundant height calculations
- * - Early termination with sentinel value (-1) optimizes for unbalanced trees
- * - Binary Tree structure enables efficient recursive height computation
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * [3,9,20,null,null,15,7]
- * ```
- *
- * 3
- * / \
- * 9  20
- * /  \
- * 15   7
- *
- * **Step 1:** Check leaf nodes
- * - Node 9: height = 1, balanced ✓
- * - Node 15: height = 1, balanced ✓
- * - Node 7: height = 1, balanced ✓
- *
- * **Step 2:** Check node 20 (parent of 15 and 7)
- * - left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
- *
- * **Step 3:** Check node 3 (root)
- * - left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
- *
- * **Step 4:** Return result
- *
- * Output:
- * ```
- * true
- * ```
+### INTUITION:
+A balanced binary tree requires that for every node, the heights of its left and right subtrees differ by at most 1. The key insight is to check this condition recursively while computing heights bottom-up.
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * Each node is visited exactly once
- * 
- * ### SPACE COMPLEXITY:
- * O(h)
- * Where h is height of tree (recursion stack)
- * 
- * ### EDGE CASES:
- * - **Empty tree**: Return True (null tree is balanced)
- * - **Single node**: Return True (height-balanced by definition)
- * - **Perfect binary tree**: All levels completely filled, always balanced
- * - **Linear tree (skewed)**: Height difference > 1, return False
- * - **Subtree unbalanced**: Early termination returns -1 immediately
- * 
- * </details>
- */
+### APPROACH:
+Data structures: Binary Tree with DFS (**Depth-First** Search) traversal**
+1. **Recursive Height Calculation**: Calculate height of each subtree recursively using DFS
+2. **Balance Check**: For each node, check if |left_height - right_height| ≤ 1
+3. **Early Termination**: If any subtree is unbalanced, immediately return -1 as sentinel value
+4. **Bottom-Up (Post-order)**: Check balance condition while returning heights from leaves to root
+
+### WHY THIS WORKS:
+- Height-balanced property must hold for ALL nodes, not just root
+- DFS recursion naturally checks every node in post-order (children before parent)
+- Bottom-up approach avoids redundant height calculations
+- Early termination with sentinel value (-1) optimizes for unbalanced trees
+- Binary Tree structure enables efficient recursive height computation
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+[3,9,20,null,null,15,7]
+```
+
+3
+/ \
+9  20
+/  \
+15   7
+
+Step 1:** Check leaf nodes
+- Node 9: height = 1, balanced ✓
+- Node 15: height = 1, balanced ✓
+- Node 7: height = 1, balanced ✓
+
+Step 2:** Check node 20 (parent of 15 and 7)
+- left_height = 1, right_height = 1, |1-1| = 0 ≤ 1 ✓
+
+Step 3:** Check node 3 (root)
+- left_height = 1, right_height = 2, |1-2| = 1 ≤ 1 ✓
+
+Step 4:** Return result
+
+Output:
+```
+true
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+Each node is visited exactly once
+
+### SPACE COMPLEXITY:
+O(h)**
+Where h is height of tree (recursion stack)
+
+### EDGE CASES:
+- **Empty tree**: Return True (null tree is balanced)
+- **Single node**: Return True (height-balanced by definition)
+- **Perfect binary tree**: All levels completely filled, always balanced
+- **Linear tree (skewed)**: Height difference > 1, return False
+- **Subtree unbalanced**: Early termination returns -1 immediately
+
+*/
 
 // TreeNode class definition
 class TreeNode {

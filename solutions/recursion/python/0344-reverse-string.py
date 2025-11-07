@@ -1,35 +1,6 @@
 """
-# 0344. Reverse String
-
-# Difficulty: Easy
-
-Write a function that reverses a string. The input string is given as an array of characters s.
-
-You must do this by modifying the input array in-place with O(1) extra memory.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = ["h","e","l","l","o"]</dd>
-<dt>Output:</dt>
-<dd>["o","l","l","e","h"]</dd>
-<dt>Explanation:</dt>
-<dd>The string "hello" is reversed to "olleh"</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Two Pointers
-**Data Structures**: Array
-**Patterns**: In-place Modification, Divide and Conquer
-**Time Complexity**: O(n)
-**Space Complexity**: O(n) for recursion stack (or O(1) for iterative)
-
 ### INTUITION:
-Reversing a string recursively involves swapping characters at opposite ends and recursively
+The key insight is that reversing a string recursively involves swapping characters at opposite ends and recursively
 reversing the middle portion. The base case is when pointers meet or cross.
 
 ### APPROACH:
@@ -61,17 +32,16 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n) - visit each character once
+**O(n)** - visit each character once
 
 ### SPACE COMPLEXITY:
-O(n) - recursion stack depth
+**O(n)** - recursion stack depth
 
 ### EDGE CASES:
-- Empty array: no change
-- Single character: no change
-- Two characters: swap them
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

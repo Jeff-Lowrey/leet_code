@@ -1,37 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0648. Replace Words
- *
- *
- * In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
- *
- * Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
- *
- * Return the sentence after the replacement.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"</dd>
- * <dt>Output:</dt>
- * <dd>"the cat was rat by the bat"</dd>
- * <dt>Explanation:</dt>
- * <dd>Words are replaced by their shortest root: 'cattle' becomes 'cat', 'ratt' becomes 'rat'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
+ * The key insight is that build Trie of dictionary words. For each word in sentence, find shortest prefix in Trie. If found, replace with shortest; otherwise keep original word.
  *
  * ### APPROACH:
  * 1. **Build trie**: Insert all dictionary words into trie
@@ -68,23 +40,21 @@
  * ```
  * "the cat was rat by the bat"
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

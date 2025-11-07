@@ -1,40 +1,19 @@
-"""
-# 1041. Robot Bounded In Circle
+"""### METADATA:
 
-# Difficulty: Medium
-
-Solve the Robot Bounded In Circle problem as described.
-
-**Example:**
- *
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>```</dd>
-<dt>Output:</dt>
-<dd>```</dd>
-<dt>Explanation:</dt>
-<dd>Processing input produces the expected output</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- *
-### METADATA:
-**Techniques**: Simulation, Direction tracking, Mathematical analysis
-**Data Structures**: String
-**Patterns**: Cycle detection, State analysis
-**Time Complexity**: **O(n²)**
-**Space Complexity**: **O(1)**
- *
 ### INTUITION:
 The key insight is to solve this problem efficiently.
  *
+
 ### APPROACH:
-We solve this problem by implementing the required algorithm.
- *
+1. **Initialize data structures**: Set up the required data structures for the algorithm
+2. **Process input**: Iterate through the input applying the core technique
+3. **Track state**: Maintain necessary state information during processing
+4. **Return result**: Construct and return the final solution
+
 ### WHY THIS WORKS:
 This approach works because it correctly implements the problem requirements.
  *
+
 ### EXAMPLE WALKTHROUGH:
 Input:
 ```
@@ -46,17 +25,24 @@ Output:
 example output
 ```
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
 **O(n²)** - Analysis of time complexity
- *
+ * - [Add explanation of why this complexity]
+
 ### SPACE COMPLEXITY:
 **O(1)** - Analysis of space complexity
- *
+ * - [Add explanation of why this complexity]
+
 ### EDGE CASES:
-- Handle empty input
-- Handle boundary conditions
- *
-</details>
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
 """
 
 

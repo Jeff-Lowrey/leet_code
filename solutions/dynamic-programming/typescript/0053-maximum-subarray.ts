@@ -1,33 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0053. Maximum Subarray
- *
- *
- * Given an integer array nums, find the subarray with the largest sum, and return its sum.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[-2, 1, -3, 4, -1, 2, 1, -5, 4]</dd>
- * <dt>Output:</dt>
- * <dd>6</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum subarray sum of [-2,1,-3,4,-1,2,1,-5,4] is 6 from [4,-1,2,1]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
+ * The key insight is that use Kadane's algorithm: track the maximum sum ending at current position. At each step, either extend the previous subarray or start fresh. Keep global maximum throughout.
  *
  * ### APPROACH:
  * 1. **Initialize variables**: Set current_sum = max_sum = nums[0]
@@ -82,21 +58,20 @@
  * ```
  * 6 (subarray [4, -1, 2, 1])
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

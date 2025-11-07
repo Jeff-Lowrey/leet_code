@@ -1,33 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0421. Maximum XOR of Two Numbers in an Array
- *
- *
- * Given an integer array nums, return the maximum result of nums[i] XOR nums[j], where 0 <= i <= j < n.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[3,10,5,25,2,8]</dd>
- * <dt>Output:</dt>
- * <dd>28 (5 XOR 25)</dd>
- * <dt>Explanation:</dt>
- * <dd>The maximum XOR of two numbers is 28, formed by 5 XOR 25 = 28</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass with O(1) hash lookups
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
+ * The key insight is that build Trie of all numbers. For each number, traverse Trie greedily choosing opposite bit when possible (to maximize XOR). This finds best XOR partner for each number in O(32n).
  *
  * ### APPROACH:
  * 1. **Build trie**: Insert all numbers into trie as binary representations
@@ -39,11 +15,11 @@
  * 7. **Return result**: Return max_xor
  *
  * ### WHY THIS WORKS:
- * - Trie with bit-level representation: each node has 0/1 children
- * - For each number, try to take opposite bit path (maximize XOR)
- * - If opposite bit exists, go there (XOR will be 1); else take same bit
- * - Build trie with all numbers, then query each number for max XOR
- * - O(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
+ * - This ensures that trie with bit-level representation: each node has 0/1 children
+ * - This ensures that for each number, try to take opposite bit path (maximize XOR)
+ * - This ensures that if opposite bit exists, go there (XOR will be 1); else take same bit
+ * - This ensures that build trie with all numbers, then query each number for max XOR
+ * - This ensures that o(n * 32) time: n numbers, 32 bits each, O(n * 32) space for trie
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -63,21 +39,20 @@
  * ```
  * 28 (5 XOR 25)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass with O(1) hash lookups
+ * O(n)**
+ * - Single pass with **O(1)** hash lookups
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

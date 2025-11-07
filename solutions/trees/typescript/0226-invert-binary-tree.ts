@@ -1,33 +1,9 @@
 /**
- * # Difficulty: Easy
+ * ### METADATA:
  *
- * # 0226. Invert Binary Tree
- *
- *
- * Given the root of a binary tree, invert the tree, and return its root.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[4,2,7,1,3,6,9]</dd>
- * <dt>Output:</dt>
- * <dd>[4,7,2,9,6,3,1] (inverted tree)</dd>
- * <dt>Explanation:</dt>
- * <dd>After inverting, left and right subtrees are swapped recursively: left child 4 becomes right child</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Two Pointers, Stack Operations, Graph Traversal
- * **Data Structures**: Stack, Tree, Trie
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
+ * The key insight is that recursively swap left and right children of each node. Base case: null returns null. Post-order: invert both subtrees, then swap them at current node.
  *
  * ### APPROACH:
  * 1. **Base case**: If root is None, return None
@@ -58,21 +34,20 @@
  * ```
  * [4,7,2,9,6,3,1] (inverted tree)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class TreeNode {

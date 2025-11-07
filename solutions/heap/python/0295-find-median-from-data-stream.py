@@ -1,37 +1,6 @@
 """
-# Difficulty: Hard
-
-# 0295. Find Median from Data Stream
-
-The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
-
-Implement the MedianFinder class:
-- MedianFinder() initializes the MedianFinder object.
-- void addNum(int num) adds the integer num from the data stream to the data structure.
-- double findMedian() returns the median of all elements so far.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>addNum(1):</dd>
-<dt>Output:</dt>
-<dd>left=[1], right=[]</dd>
-<dt>Explanation:</dt>
-<dd>Median after adding [1,2] is 1.5, after [1,2,3] is 2</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Two Pointers
-**Data Structures**: Array, Heap, Tree
-**Patterns**: Two Pointers Pattern, Divide and Conquer
-**Time Complexity**: - addNum(): O(log n) - heap operations
-**Space Complexity**: O(n)
-
 ### INTUITION:
-Use two heaps to divide numbers into two halves: max-heap for smaller half, min-heap for larger half. The median is always at the top of one or both heaps.
+The key insight is that use two heaps to divide numbers into two halves: max-heap for smaller half, min-heap for larger half. The median is always at the top of one or both heaps.
 
 ### APPROACH:
 1. **Two heaps**: max-heap (left half), min-heap (right half)
@@ -67,22 +36,24 @@ addNum(4):
 left=[2,1], right=[3,4]
 median = (2+3)/2 = 2.5
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-- addNum(): O(log n) - heap operations
-- findMedian(): O(1) - just access heap tops
+- addNum(): **O(log n)** - heap operations
+- findMedian(): **O(1)** - just access heap tops
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Store all n numbers across two heaps
 
 ### EDGE CASES:
-- Single element
-- Two elements
-- Negative numbers
-- Duplicate values
-- Large data stream
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 import re

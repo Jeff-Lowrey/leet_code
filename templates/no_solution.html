@@ -2,6 +2,10 @@
 
 {% block title %}{{ problem_name }} - No Solution Available{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/no-solution.css') }}">
+{% endblock %}
+
 {% block content %}
 <header class="page-header">
     <nav class="breadcrumb">
@@ -85,126 +89,4 @@
         <a href="/" class="btn btn-secondary">Home</a>
     </div>
 </section>
-
-<style>
-.no-solution-message {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.info-box {
-    background: #f8f9fa;
-    border-left: 4px solid #ffc107;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 4px;
-}
-
-.info-box h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.contribute-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    margin-bottom: 2rem;
-}
-
-.contribute-section h3 {
-    margin-top: 0;
-    color: #333;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 0.5rem;
-}
-
-.steps {
-    margin-top: 2rem;
-}
-
-.step {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.step:last-child {
-    border-bottom: none;
-}
-
-.step h4 {
-    color: #007bff;
-    margin-bottom: 0.5rem;
-}
-
-.language-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-.language-list li {
-    background: #f0f0f0;
-    padding: 0.5rem;
-    border-radius: 4px;
-    text-align: center;
-}
-
-pre {
-    background: #2d2d2d;
-    color: #f8f8f2;
-    padding: 1rem;
-    border-radius: 4px;
-    overflow-x: auto;
-}
-
-pre code {
-    font-family: 'Courier New', monospace;
-}
-
-.example {
-    font-style: italic;
-    color: #666;
-    margin-top: 0.5rem;
-}
-
-.action-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s;
-}
-
-.btn-primary {
-    background: #007bff;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #0056b3;
-}
-
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background: #545b62;
-}
-</style>
 {% endblock %}

@@ -1,49 +1,17 @@
 """
-# 0008. String to Integer (atoi)
-
-# Difficulty: Medium
-
-Implement the `myAtoi(string s)` function, which converts a string to a 32-bit signed integer (similar to C/C++'s `atoi` function).
-
-The algorithm for `myAtoi(string s)` is as follows:
-
-1. Read in and ignore any leading whitespace.
-2. Check if the next character is '-' or '+'. Read this character if it is either.
-3. Read in next characters until the next non-digit character or end of input. The rest of the string is ignored.
-4. Convert these digits into an integer. If no digits were read, the integer is 0.
-5. If the integer is out of the 32-bit signed integer range [-2^31, 2^31 - 1], clamp it to the range.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "42"</dd>
-<dt>Output:</dt>
-<dd>42</dd>
-<dt>Explanation:</dt>
-<dd>The underlined characters are what is read in, the caret is the current reader position: "42" → 42</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: String Parsing, State Machine, Bounds Checking
-**Data Structures**: String
-**Patterns**: String Processing, Input Validation
-**Time Complexity**: **O(n)** - Single pass through the string
-**Space Complexity**: **O(1)** - Only using constant extra space
-
 ### INTUITION:
-Process the string character by character following a strict sequence: skip whitespace, read optional sign, accumulate digits until non-digit found, handle overflow by clamping to 32-bit integer range.
+The key insight is that process the string character by character following a strict sequence: skip whitespace, read optional sign, accumulate digits until non-digit found, handle overflow by clamping to 32-bit integer range.
 
 ### APPROACH:
-We use a state machine approach to parse the string step by step. First, we skip any leading whitespace characters. Next, we check for an optional sign character ('+' or '-') and record whether the result should be negative.
-
-Then, we iterate through the remaining characters, processing only digits. For each digit character, we multiply our current result by 10 and add the digit value. Before each multiplication, we check if the operation would cause overflow beyond the 32-bit signed integer range (INT_MIN = -2^31, INT_MAX = 2^31 - 1). If overflow would occur, we immediately return the clamped value.
-
-We stop processing as soon as we encounter a non-digit character or reach the end of the string. If no digits were processed, we return 0.
+1. We use a state machine approach to parse the string step by step.
+2. First, we skip any leading whitespace characters.
+3. Next, we check for an optional sign character ('+' or '-') and record whether the result should be negative.
+4. Then, we iterate through the remaining characters, processing only digits.
+5. For each digit character, we multiply our current result by 10 and add the digit value.
+6. Before each multiplication, we check if the operation would cause overflow beyond the 32-bit signed integer range (INT_MIN = -2^31, INT_MAX = 2^31 - 1).
+7. If overflow would occur, we immediately return the clamped value.
+8. We stop processing as soon as we encounter a non-digit character or reach the end of the string.
+9. If no digits were processed, we return 0.
 
 ### WHY THIS WORKS:
 - Sequential processing handles all required steps in correct order
@@ -86,7 +54,6 @@ Output:
 - **Words with numbers:** "words and 987" → 0 (stops at 'w')
 - **Empty string:** "" → 0
 
-</details>
 """
 
 from typing import Any
