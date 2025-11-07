@@ -29,6 +29,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Reorganized developer guide with cross-references and proper TOC navigation
   - Added Table of Contents to all documentation files following Document Hub format
   - Updated architecture documentation for task-oriented approach
+- **CSS Organization**: Extracted inline styles to external files (#34)
+  - Created 3 new page-specific CSS files (search-results.css, upload.css, no-solution.css)
+  - Moved ~600 lines of inline CSS from templates to static/css/pages/
+  - All templates now use clean external stylesheet references
+  - Improved maintainability and separation of concerns
 
 ### Changed - v1.0 Preparation (Issue #34 Complete)
 - **Code Organization**: Migrated from monolithic to modular architecture (#34)
@@ -54,6 +59,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Created 5 view test modules matching view structure
   - Updated mocks and patches for new module paths
   - Maintained 75%+ test coverage throughout refactoring
+
+### Removed - v1.0 Preparation (Issue #34 Complete)
+- **Redundant Documentation Sections**: Removed KEY INSIGHT and ALGORITHM (#34)
+  - Removed KEY INSIGHT section (95%+ redundant with INTUITION)
+  - Removed ALGORITHM section (redundant with detailed APPROACH sections)
+  - Simplified from 11 optional sections to 9
+  - Updated APPROACH documentation to emphasize detailed step-by-step content
+  - No impact to existing solutions (0 files used these sections)
 
 ### Added - v1.0 Preparation (Issue #21 Complete)
 - **Category Minimum Threshold**: All 29 categories now have ≥10 problems each (#21)
