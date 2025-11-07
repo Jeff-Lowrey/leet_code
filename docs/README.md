@@ -37,7 +37,7 @@ This documentation provides comprehensive guidance for understanding, using, con
    - Testing procedures
    - Feature development
 
-4. [Module Structure Reference](MODULE_STRUCTURE.md) - Complete module organization guide
+4. [Module Structure Reference](developer-guide/module-structure/README.md) - Complete module organization guide
    - Task-oriented architecture
    - Module responsibilities
    - Interaction patterns
@@ -59,7 +59,7 @@ This documentation provides comprehensive guidance for understanding, using, con
 - **[User Guide](user-guide/README.md)** - Start here if you're using the platform to learn
 - **[Upload Guide](upload-guide/README.md)** - Start here if you want to contribute solutions
 - **[Developer Guide](developer-guide/README.md)** - Start here if you want to modify the codebase
-- **[Module Structure Reference](MODULE_STRUCTURE.md)** - Understand the task-oriented architecture
+- **[Module Structure Reference](developer-guide/module-structure/README.md)** - Understand the task-oriented architecture
 - **[Markdown Structure Guide](markdown-guide/README.md)** - Learn the solution markdown format
 
 ### Templates

@@ -432,7 +432,7 @@ leet_code/
 - `search_views.py`: Search interface, search results
 - `api_views.py`: JSON API endpoints (stats, categories, solutions)
 
-For detailed module documentation, see [docs/MODULE_STRUCTURE.md](docs/MODULE_STRUCTURE.md).
+For detailed module documentation, see [docs/developer-guide/module-structure/README.md](docs/developer-guide/module-structure/README.md).
 
 ---
 
