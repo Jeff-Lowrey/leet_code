@@ -319,6 +319,10 @@ This project is for educational purposes only.
 
 ## Appendix: Project Structure
 
+### Task-Oriented Module Organization
+
+The application is organized around **functional tasks** rather than technical layers, making it easy to find all code related to a specific activity in one place.
+
 ```
 leet_code/
 ├── README.md                       # This file
@@ -327,10 +331,33 @@ leet_code/
 ├── pdm.lock                        # Dependency lock file
 │
 ├── src/
-│   └── leet_code/                  # Application source
-│       ├── app.py                  # Flask application
-│       ├── category_data.py        # Solution data management
-│       └── leetcode_converter.py   # Snake_case to camelCase converter
+│   └── leet_code/                  # Application source (task-oriented structure)
+│       │
+│       ├── app.py                  # CLI entry point (29 lines)
+│       ├── factory.py              # Flask application factory
+│       │
+│       ├── data/                   # DATA MODELS & CONSTANTS
+│       │   ├── category_data.py    # Solution/category models, caching
+│       │   ├── language_constants.py  # Language metadata & mappings
+│       │   └── markdown_extraction.py # Universal markdown parser
+│       │
+│       ├── content/                # CONTENT PROCESSING
+│       │   ├── content_processing.py  # Extraction, parsing, merging (13 functions)
+│       │   └── syntax_highlighting.py # Pygments syntax highlighting
+│       │
+│       ├── code_generation/        # CODE GENERATION
+│       │   ├── skeleton_generator.py  # Template/skeleton generation
+│       │   └── leetcode_converter.py  # Snake_case to camelCase conversion
+│       │
+│       ├── search/                 # SEARCH & DISCOVERY
+│       │   ├── search_engine.py    # Query parsing, search execution, filtering
+│       │   └── solution_finder.py  # Solution lookup, category enrichment
+│       │
+│       └── views/                  # FLASK VIEWS (class-based)
+│           ├── main_views.py       # Home, categories, virtual categories
+│           ├── solution_views.py   # Solution display, downloads, uploads
+│           ├── search_views.py     # Search interface
+│           └── api_views.py        # JSON API endpoints
 │
 ├── solutions/                      # Problem solutions (298 unique problems, 894 files)
 │   ├── arrays-hashing/             # 29 category folders
@@ -347,6 +374,16 @@ leet_code/
 │
 ├── docs/                           # Documentation hub
 │   ├── README.md                   # Documentation overview
+│   ├── markdown-guide/             # Markdown structure guide (10 sections)
+│   │   ├── 01-overview.md         # Design principles
+│   │   ├── 02-metadata.md         # Title & difficulty
+│   │   ├── 03-problem-description.md
+│   │   ├── 04-solution-explanation.md
+│   │   ├── 05-code-section.md
+│   │   ├── 06-language-formatting.md
+│   │   ├── 07-processing-flow.md
+│   │   ├── 08-best-practices.md
+│   │   └── 09-examples.md         # 7 language examples
 │   ├── user-guide/                 # User documentation (10 sections)
 │   │   ├── browsing/              # Browsing strategies
 │   │   └── study/                 # Study methods
@@ -369,6 +406,33 @@ leet_code/
     ├── unit/
     └── integration/
 ```
+
+### Module Responsibilities
+
+**data/** - Data models and constants
+- `category_data.py`: Solution/Category classes, CategoryManager (caching, data loading)
+- `language_constants.py`: Language metadata (extensions, names, icons, comment styles)
+- `markdown_extraction.py`: Universal language-agnostic markdown extraction from code
+
+**content/** - Content extraction and processing
+- `content_processing.py`: Extract problem data, parse explanations, merge content
+- `syntax_highlighting.py`: Pygments syntax highlighting with theme support
+
+**code_generation/** - Code transformation
+- `skeleton_generator.py`: Generate method signature skeletons for all languages
+- `leetcode_converter.py`: Convert Python snake_case to LeetCode camelCase
+
+**search/** - Search and solution discovery
+- `search_engine.py`: Parse search queries, execute searches, filter/group results
+- `solution_finder.py`: Find solutions, enrich with category metadata, generate paths
+
+**views/** - Flask views (class-based)
+- `main_views.py`: Home page, category browsing, virtual categories (difficulty/complexity)
+- `solution_views.py`: Solution display, format conversion, downloads, uploads
+- `search_views.py`: Search interface, search results
+- `api_views.py`: JSON API endpoints (stats, categories, solutions)
+
+For detailed module documentation, see [docs/MODULE_STRUCTURE.md](docs/MODULE_STRUCTURE.md).
 
 ---
 
