@@ -94,7 +94,7 @@ i=1, num=7: complement=2, found! return [0,1]
 ✅ Explain why it's O(n) and what contributes
 
 ### 3. Skipping Intuition
-❌ Jumping straight to algorithm steps
+❌ Jumping straight to implementation steps
 ✅ Start with high-level insight
 
 ### 4. Poor Example Formatting
