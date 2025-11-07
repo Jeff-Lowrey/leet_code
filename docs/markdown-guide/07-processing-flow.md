@@ -1,5 +1,17 @@
 # Processing Flow
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Pipeline Overview](#pipeline-overview)
+- [Step-by-Step Process](#step-by-step-process)
+- [Module Responsibilities](#module-responsibilities)
+- [Data Flow Example](#data-flow-example)
+- [Caching](#caching)
+- [Error Handling](#error-handling)
+- [Performance Optimization](#performance-optimization)
+- [Related Sections](#related-sections)
+
 ## Overview
 
 This document explains how the application extracts, parses, and renders markdown content from solution files.

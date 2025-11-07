@@ -1,5 +1,14 @@
 # Language-Specific Formatting
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Comment Block Formats](#comment-block-formats)
+- [Universal Extraction](#universal-extraction)
+- [Best Practices](#best-practices)
+- [Common Mistakes](#common-mistakes)
+- [Related Sections](#related-sections)
+
 ## Overview
 
 Each programming language has its own comment syntax for embedding markdown. The application automatically detects and extracts markdown based on file extension.

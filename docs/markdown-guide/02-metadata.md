@@ -1,5 +1,14 @@
 # Metadata Section
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Required Format](#required-format)
+- [Components](#components)
+- [Validation Rules](#validation-rules)
+- [Best Practices](#best-practices)
+- [Related Sections](#related-sections)
+
 ## Overview
 
 The metadata section provides structured information about the problem that the application uses for categorization, search, filtering, and display.

@@ -1,5 +1,12 @@
 # Best Practices
 
+## Table of Contents
+
+- [Writing Effective Documentation](#writing-effective-documentation)
+- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Quality Checklist](#quality-checklist)
+- [Related Sections](#related-sections)
+
 ## Writing Effective Documentation
 
 ### 1. Start with LeetCode

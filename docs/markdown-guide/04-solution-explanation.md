@@ -1,5 +1,18 @@
 # Solution Explanation Section
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Format](#format)
+- [Required Sections](#required-sections)
+- [Optional Sections](#optional-sections)
+- [Details Tag](#details-tag)
+- [Section Order](#section-order)
+- [Best Practices](#best-practices)
+- [Common Mistakes](#common-mistakes)
+- [Processing](#processing)
+- [Related Sections](#related-sections)
+
 ## Overview
 
 The solution explanation provides a detailed walkthrough of the approach, algorithm, complexity analysis, and insights. It is wrapped in a `<details>` tag for progressive disclosure.

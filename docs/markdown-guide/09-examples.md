@@ -1,5 +1,16 @@
 # Complete Examples
 
+## Table of Contents
+
+- [Python Example](#python-example)
+- [JavaScript Example](#javascript-example)
+- [Java Example](#java-example)
+- [C++ Example](#c-example)
+- [Go Example](#go-example)
+- [Rust Example](#rust-example)
+- [Key Differences by Language](#key-differences-by-language)
+- [Related Sections](#related-sections)
+
 ## Python Example
 
 ```python

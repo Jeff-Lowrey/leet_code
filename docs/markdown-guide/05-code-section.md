@@ -1,5 +1,13 @@
 # Code Section
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Format Examples](#format-examples)
+- [Best Practices](#best-practices)
+- [Related Sections](#related-sections)
+
 ## Overview
 
 The code section contains the actual solution implementation in the target programming language.

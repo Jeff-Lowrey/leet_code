@@ -1,5 +1,17 @@
 # Markdown Structure Overview
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Design Principles](#design-principles)
+- [Overall Structure](#overall-structure)
+- [Content Flow](#content-flow)
+- [Key Features](#key-features)
+- [Benefits](#benefits)
+- [Processing Modules](#processing-modules)
+- [Design Goals](#design-goals)
+- [Next Steps](#next-steps)
+
 ## Introduction
 
 The Leet Code Learning Tool uses a unified markdown structure embedded in solution files. This design allows the same format to work across all supported programming languages while maintaining language-specific best practices.

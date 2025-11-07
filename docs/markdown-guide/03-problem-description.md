@@ -1,5 +1,16 @@
 # Problem Description Section
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Format](#format)
+- [Components](#components)
+- [Markdown Features](#markdown-features)
+- [Processing](#processing)
+- [Best Practices](#best-practices)
+- [Common Mistakes](#common-mistakes)
+- [Related Sections](#related-sections)
+
 ## Overview
 
 The problem description contains the actual LeetCode problem statement including the task explanation, examples, and constraints.
