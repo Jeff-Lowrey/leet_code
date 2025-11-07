@@ -12,13 +12,15 @@ from collections.abc import Generator
 from typing import Any
 
 import pytest
+from flask import Flask
 
-from src.leet_code.app import app
+from src.leet_code.factory import create_app
 
 
 @pytest.fixture
 def client() -> Generator[Any]:
     """Create a test client for the Flask application."""
+    app = create_app()
     app.config["TESTING"] = True
     with app.test_client() as client:
         yield client
@@ -29,15 +31,18 @@ class TestApplicationStartup:
 
     def test_app_exists(self) -> None:
         """Test that app object exists."""
+        app = create_app()
         assert app is not None
 
     def test_app_is_flask_instance(self) -> None:
         """Test that app is a Flask instance."""
-        assert app.__class__.__name__ == "Flask"
+        app = create_app()
+        assert isinstance(app, Flask)
 
     def test_app_name(self) -> None:
         """Test that app has correct name."""
-        assert app.name == "src.leet_code.app"
+        app = create_app()
+        assert app.name == "src.leet_code.factory"
 
 
 class TestCriticalRoutes:

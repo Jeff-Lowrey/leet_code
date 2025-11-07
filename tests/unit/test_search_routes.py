@@ -2,8 +2,8 @@
 
 from unittest.mock import patch
 
-from src.leet_code.app import app
 from src.leet_code.category_data import Solution
+from src.leet_code.factory import create_app
 
 
 class TestSearchRoutes:
@@ -11,6 +11,8 @@ class TestSearchRoutes:
 
     def test_api_search_empty_query(self) -> None:
         """Test API search with empty query."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client:
             response = client.get("/api/search?q=")
             assert response.status_code == 400
@@ -19,6 +21,8 @@ class TestSearchRoutes:
 
     def test_api_search_navigate_found(self) -> None:
         """Test API search navigate mode with valid problem."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solution = Solution(
                 number="1",
@@ -41,6 +45,8 @@ class TestSearchRoutes:
 
     def test_api_search_navigate_not_found(self) -> None:
         """Test API search navigate mode with invalid problem."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_cm.find_by_number.return_value = None
 
@@ -52,6 +58,8 @@ class TestSearchRoutes:
 
     def test_api_search_name_search(self) -> None:
         """Test API search name search mode."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solutions = [
                 Solution(
@@ -76,6 +84,8 @@ class TestSearchRoutes:
 
     def test_api_search_filter_mode(self) -> None:
         """Test API search filter mode."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solutions: list[Solution] = []
             mock_cm.get_all_solutions.return_value = mock_solutions
@@ -87,6 +97,8 @@ class TestSearchRoutes:
 
     def test_search_route_navigate_redirects(self) -> None:
         """Test HTML search route redirects for navigate mode."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solution = Solution(
                 number="1",
@@ -107,6 +119,8 @@ class TestSearchRoutes:
 
     def test_search_route_error_handling(self) -> None:
         """Test HTML search route error handling."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_cm.find_by_number.return_value = None
 
@@ -117,6 +131,8 @@ class TestSearchRoutes:
 
     def test_search_route_name_search_renders(self) -> None:
         """Test HTML search route renders name search results."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solutions = [
                 Solution(
@@ -139,6 +155,8 @@ class TestSearchRoutes:
 
     def test_search_route_filter_renders(self) -> None:
         """Test HTML search route renders filter results."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client, patch("src.leet_code.app.category_manager") as mock_cm:
             mock_solutions: list[Solution] = []
             mock_cm.get_all_solutions.return_value = mock_solutions
@@ -149,6 +167,8 @@ class TestSearchRoutes:
 
     def test_search_route_empty_query(self) -> None:
         """Test HTML search route with empty query."""
+        app = create_app()
+        app.config["TESTING"] = True
         with app.test_client() as client:
             response = client.get("/search?q=")
             assert response.status_code == 200
