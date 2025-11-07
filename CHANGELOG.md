@@ -7,6 +7,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - v1.0 Preparation (Issue #34 Complete)
+- **Task-Oriented Module Architecture**: Comprehensive codebase reorganization (#34)
+  - Created 5 task-oriented modules: `data/`, `content/`, `code_generation/`, `search/`, `views/`
+  - Eliminated 2,000+ lines of monolithic `app.py` through modularization
+  - Each module contains all code related to a specific functional task
+  - Clear separation of concerns with minimal cross-module dependencies
+- **Class-Based Views**: Converted all Flask routes to `MethodView` pattern (#34)
+  - Created `BaseView` with common functionality (theme handling, code formatting)
+  - Implemented 5 view classes: `MainView`, `SolutionView`, `SearchView`, `ApiView`, `DocsView`
+  - Organized HTTP methods within view classes (GET, POST, etc.)
+  - Improved testability with class-based structure
+- **Flask Application Factory**: Implemented factory pattern for better configuration (#34)
+  - Created `factory.py` with `create_app()` function
+  - Supports multiple app instances for testing
+  - Clean separation of app creation from execution
+  - Entry point reduced to 29 lines in `app.py`
+- **Comprehensive Documentation**: Complete module structure documentation (#34)
+  - Created 11 module-structure guides (overview, directory structure, 5 module docs, interactions, extension guide, testing, migration)
+  - Added 10 markdown-guide files explaining solution file structure
+  - Reorganized developer guide with cross-references and proper TOC navigation
+  - Added Table of Contents to all documentation files following Document Hub format
+  - Updated architecture documentation for task-oriented approach
+
+### Changed - v1.0 Preparation (Issue #34 Complete)
+- **Code Organization**: Migrated from monolithic to modular architecture (#34)
+  - `data/category_data.py` - Solution/Category models, CategoryManager (259 lines)
+  - `data/language_constants.py` - Language metadata & mappings (150+ lines)
+  - `data/markdown_extraction.py` - Universal markdown parser (180+ lines)
+  - `content/content_processing.py` - Extraction, parsing, merging (13 functions)
+  - `content/syntax_highlighting.py` - Pygments highlighting logic
+  - `code_generation/skeleton_generator.py` - Template/skeleton generation
+  - `code_generation/leetcode_converter.py` - Snake_case to camelCase conversion
+  - `search/search_engine.py` - Query parsing, search execution, filtering
+  - `search/solution_finder.py` - Solution lookup, category enrichment
+  - `views/*.py` - 5 class-based view modules with route registration
+- **Route Registration**: Updated to use `.as_view()` pattern (#34)
+  - All routes registered through view classes
+  - Centralized route configuration in `views/__init__.py`
+  - Blueprint-ready structure for future scaling
+- **Import Structure**: Updated all imports for new module organization (#34)
+  - Absolute imports from `src.leet_code.{module}`
+  - Clear module boundaries with explicit `__all__` exports
+  - Reduced circular dependency risks
+- **Test Organization**: Updated all tests for class-based views (#34)
+  - Created 5 view test modules matching view structure
+  - Updated mocks and patches for new module paths
+  - Maintained 75%+ test coverage throughout refactoring
+
 ### Added - v1.0 Preparation (Issue #21 Complete)
 - **Category Minimum Threshold**: All 29 categories now have ≥10 problems each (#21)
   - Added 5 new globally unique problems across 5 categories
