@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from flask import Flask
 
-from src.leet_code.category_data import Category, Solution
+from src.leet_code.data.category_data import Category, Solution
 from src.leet_code.views.main_views import (
     COMPLEXITY_PATTERN_MAP,
     VALID_DIFFICULTY_LEVELS,
@@ -117,7 +117,7 @@ class TestDifficultyOverviewView:
     """Test DifficultyOverviewView class-based view."""
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_success(
         self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any, mock_categories: list[Category]
     ) -> None:
@@ -133,7 +133,7 @@ class TestDifficultyOverviewView:
         assert response.status_code == 200
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_empty_solutions(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test difficulty overview with no solutions."""
         mock_manager.get_all_solutions.return_value = []
@@ -147,7 +147,7 @@ class TestComplexityOverviewView:
     """Test ComplexityOverviewView class-based view."""
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_success(
         self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any, mock_categories: list[Category]
     ) -> None:
@@ -163,7 +163,7 @@ class TestComplexityOverviewView:
         assert response.status_code == 200
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_groups_by_complexity(
         self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any, mock_categories: list[Category]
     ) -> None:
@@ -179,7 +179,7 @@ class TestComplexityOverviewView:
         assert response.status_code == 200
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_groups_with_unknown_complexity(
         self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any
     ) -> None:
@@ -201,7 +201,7 @@ class TestDifficultyLevelView:
     """Test DifficultyLevelView class-based view."""
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_easy(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request for easy difficulty level."""
         easy_solutions = [
@@ -218,7 +218,7 @@ class TestDifficultyLevelView:
         assert b"Easy Problems" in response.data
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_medium(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request for medium difficulty level."""
         medium_solutions = [Solution("002-add-two-numbers.py", "Add Two Numbers", "2", "Medium", "O(n)", "O(1)")]
@@ -232,7 +232,7 @@ class TestDifficultyLevelView:
         assert b"Medium Problems" in response.data
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_hard(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request for hard difficulty level."""
         hard_solutions = [Solution("004-median-sorted-arrays.py", "Median", "4", "Hard", "O(log n)", "O(1)")]
@@ -252,7 +252,7 @@ class TestDifficultyLevelView:
         assert response.status_code == 404
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_case_insensitive(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test difficulty level is case-insensitive."""
         easy_solutions = [Solution("001-two-sum.py", "Two Sum", "1", "Easy", "O(n)", "O(n)")]
@@ -269,7 +269,7 @@ class TestComplexityPatternView:
     """Test ComplexityPatternView class-based view."""
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_o1_pattern(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request for O(1) complexity pattern."""
         o1_solutions = [Solution("125-valid-palindrome.py", "Valid Palindrome", "125", "Easy", "O(1)", "O(1)")]
@@ -283,7 +283,7 @@ class TestComplexityPatternView:
         assert b"Time Complexity: O(1)" in response.data
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_on_pattern(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request for O(n) complexity pattern."""
         on_solutions = [Solution("001-two-sum.py", "Two Sum", "1", "Easy", "O(n)", "O(n)")]
@@ -297,7 +297,7 @@ class TestComplexityPatternView:
         assert b"Time Complexity: O(n)" in response.data
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_on2_pattern(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request for O(n²) complexity pattern."""
         on2_solutions = [Solution("003-longest-substring.py", "Longest", "3", "Medium", "O(n²)", "O(n)")]
@@ -318,7 +318,7 @@ class TestComplexityPatternView:
         assert response.status_code == 404
 
     @patch("src.leet_code.views.main_views.category_manager")
-    @patch("src.leet_code.solution_utils.enrich_solutions_with_category")
+    @patch("src.leet_code.search.solution_finder.enrich_solutions_with_category")
     def test_get_direct_o_notation(self, mock_enrich: MagicMock, mock_manager: MagicMock, client: Any) -> None:
         """Test GET request with direct O() notation."""
         on_solutions = [Solution("001-two-sum.py", "Two Sum", "1", "Easy", "O(n)", "O(n)")]

@@ -1,6 +1,6 @@
 """Unit tests for search query parser."""
 
-from src.leet_code.search_utils import parse_search_query
+from src.leet_code.search.search_engine import parse_search_query
 
 
 class TestParseSearchQuery:

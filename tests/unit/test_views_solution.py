@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, mock_open, patch
 import pytest
 from flask import Flask
 
-from src.leet_code.category_data import Solution
+from src.leet_code.data.category_data import Solution
 
 
 @pytest.fixture
@@ -84,7 +84,7 @@ class TestSolutionView:
 
     @patch("src.leet_code.views.solution_views.category_manager")
     @patch("builtins.open", new_callable=mock_open, read_data="class Solution:\n    pass")
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.search.solution_finder.Path")
     def test_get_success_python(
         self,
         mock_path_class: MagicMock,
@@ -102,7 +102,7 @@ class TestSolutionView:
         mock_path_class.return_value = mock_path
 
         # Mock get_solution_path to return our mock path
-        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.search.solution_finder.get_solution_path", return_value=mock_path):
             mock_file.return_value.read.return_value = mock_solution_code
             mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
 
@@ -111,7 +111,7 @@ class TestSolutionView:
 
     @patch("src.leet_code.views.solution_views.category_manager")
     @patch("builtins.open", new_callable=mock_open, read_data="func twoSum() {}")
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.search.solution_finder.Path")
     def test_get_other_language(
         self,
         mock_path_class: MagicMock,
@@ -135,7 +135,7 @@ class TestSolutionView:
         mock_path.suffix = ".ts"
         mock_path_class.return_value = mock_path
 
-        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.search.solution_finder.get_solution_path", return_value=mock_path):
             mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
 
             response = client.get("/solution/arrays-hashing/001-two-sum?lang=TypeScript")
@@ -171,7 +171,7 @@ class TestSolutionView:
 
     @patch("src.leet_code.views.solution_views.category_manager")
     @patch("builtins.open", new_callable=mock_open, read_data="function twoSum() {}")
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.search.solution_finder.Path")
     def test_get_javascript_solution(
         self,
         mock_path_class: MagicMock,
@@ -187,7 +187,7 @@ class TestSolutionView:
         mock_path.suffix = ".js"
         mock_path_class.return_value = mock_path
 
-        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.search.solution_finder.get_solution_path", return_value=mock_path):
             mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
 
             response = client.get("/solution/arrays-hashing/001-two-sum?lang=JavaScript")
@@ -310,7 +310,7 @@ class TestDownloadSolutionView:
         assert response.status_code == 404
 
     @patch("src.leet_code.views.solution_views.category_manager")
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.search.solution_finder.Path")
     @patch("builtins.open", new_callable=mock_open, read_data="function twoSum() {}")
     def test_download_javascript_solution(
         self,
@@ -327,12 +327,12 @@ class TestDownloadSolutionView:
 
         mock_manager.get_solution.return_value = mock_solution
 
-        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.search.solution_finder.get_solution_path", return_value=mock_path):
             response = client.get("/solution/arrays-hashing/001-two-sum/download/solution/JavaScript")
             assert response.status_code == 200
 
     @patch("src.leet_code.views.solution_views.category_manager")
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.search.solution_finder.Path")
     def test_download_javascript_file_not_found(
         self,
         mock_path_class: MagicMock,
@@ -347,7 +347,7 @@ class TestDownloadSolutionView:
 
         mock_manager.get_solution.return_value = mock_solution
 
-        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.search.solution_finder.get_solution_path", return_value=mock_path):
             response = client.get("/solution/arrays-hashing/001-two-sum/download/solution/JavaScript")
             assert response.status_code == 404
 
