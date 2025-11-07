@@ -7,8 +7,8 @@ including category lookups, enrichment, and path management.
 from pathlib import Path
 from typing import Any
 
-from .category_data import Solution, category_manager
-from .language_constants import get_file_extension
+from ..data.category_data import Solution, category_manager
+from ..data.language_constants import get_file_extension
 
 
 def find_solution_category(solution: Solution) -> tuple[str, str] | None:
@@ -90,7 +90,7 @@ def get_solution_path(category: str, filename: str, language: str) -> Path:
     Returns:
         Path to solution file
     """
-    from .language_constants import SUPPORTED_LANGUAGES
+    from ..data.language_constants import SUPPORTED_LANGUAGES
 
     base_name = remove_py_extension(filename)
     lang_extension = get_file_extension(language)

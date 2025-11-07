@@ -1,12 +1,23 @@
-"""Search utilities for the Leet Code Learning Tool.
+"""Search engine for the Leet Code Learning Tool.
 
 This module contains all search-related functionality including query parsing,
-result filtering, grouping, and enrichment.
+search execution, result filtering, grouping, and enrichment.
 """
 
 from typing import Any
 
-from .category_data import Solution, category_manager
+from ..data.category_data import Solution, category_manager
+
+__all__ = [
+    "parse_search_query",
+    "execute_search",
+    "group_by_similarity",
+    "apply_filters_to_results",
+    "apply_filters_to_solutions",
+    "matches_filters",
+    "enrich_results_with_category",
+    "serialize_results",
+]
 
 # Similarity score thresholds for search result grouping
 SIMILARITY_EXACT = 1.0
@@ -234,7 +245,7 @@ def execute_search(query: str) -> dict[str, Any]:
         - data: Mode-specific data
         - error: Error message if any
     """
-    from .solution_utils import find_solution_category
+    from ..search.solution_finder import find_solution_category
 
     if not query:
         return {"error": "No search query provided", "mode": None}

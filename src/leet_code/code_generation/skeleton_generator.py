@@ -7,7 +7,7 @@ implementations across different programming languages.
 import ast
 import re
 
-from .category_data import Solution
+from ..data.category_data import Solution
 
 
 def generate_python_skeleton(code: str, solution: Solution, is_leetcode: bool = False) -> str:
