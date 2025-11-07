@@ -42,14 +42,13 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 Use a hash map to store seen numbers and look up complements in O(1) time.
 
 ### APPROACH:
-Single-pass through array, checking hash map for complement at each step.
-
-### ALGORITHM:
-1. Initialize empty hash map
-2. For each number:
-   - Calculate complement = target - num
-   - If complement in map, return indices
-   - Store current number in map
+1. **Data Structure**: Hash map to store {number: index}
+2. **Algorithm Flow**:
+   - For each number in array:
+     a. Calculate complement = target - num
+     b. If complement in map, return [map[complement], current_index]
+     c. Store current number: map[num] = current_index
+3. **Why It Works**: Single pass with O(1) lookups
 
 ### COMPLEXITY:
 - **Time Complexity**: O(n) - single pass through array

@@ -27,11 +27,8 @@ The solution explanation provides a detailed walkthrough of the approach, algori
 Brief insight explaining the core idea
 
 ### APPROACH:
-Step-by-step explanation of the solution strategy
-
-### ALGORITHM:
-1. Detailed algorithmic steps
-2. With numbered list
+Detailed step-by-step explanation of the solution strategy.
+Include data structures, operations, and logical flow.
 
 ### COMPLEXITY:
 - **Time Complexity**: O(n) - explanation
@@ -61,52 +58,40 @@ and look up complements in O(1) time.
 
 ### 2. APPROACH
 
-**Purpose**: Strategic explanation of solution method
+**Purpose**: Detailed explanation of solution method and implementation strategy
 
 **Format**: `### APPROACH:`
 
-**Content**: Paragraph or bullets describing overall strategy
+**Content**: Step-by-step strategy including data structures, operations, and logic.
+Should be detailed enough to translate directly to code.
 
 **Example**:
 ```markdown
 ### APPROACH:
-As we iterate through the array, for each number we:
-1. Calculate what number would complete the pair (complement = target - current)
-2. Check if we've seen that complement before
-3. If yes, return the indices; if no, store current number
+1. **Data Structures**:
+   - hash map (dict) to store seen numbers and their indices
+
+2. **Algorithm Flow**:
+   - For each number in the array:
+     a. Calculate complement = target - current number
+     b. Check if complement exists in hash map
+     c. If found: return [stored_index, current_index]
+     d. If not found: store current number and index in map
+
+3. **Why This Works**:
+   - Hash map provides O(1) lookup for complements
+   - Single pass is sufficient since we store as we go
 ```
 
 ---
 
-### 3. ALGORITHM
-
-**Purpose**: Step-by-step implementation details
-
-**Format**: `### ALGORITHM:`
-
-**Content**: Numbered list of algorithmic steps
-
-**Example**:
-```markdown
-### ALGORITHM:
-1. Initialize empty hash map `seen = {}`
-2. For each index `i` and number `num` in array:
-   a. Calculate `complement = target - num`
-   b. If `complement` exists in `seen`:
-      - Return `[seen[complement], i]`
-   c. Store current number: `seen[num] = i`
-3. Return empty array
-```
-
----
-
-### 4. COMPLEXITY
+### 3. COMPLEXITY
 
 **Purpose**: Big-O analysis
 
 **Format**: `### COMPLEXITY:` or `### TIME & SPACE COMPLEXITY:`
 
-**Content**: Must include both time and space
+**Content**: Must include both time and space with explanations
 
 **Example**:
 ```markdown
@@ -160,13 +145,6 @@ i=1, num=7: complement=2, found in seen! return [0,1]
 - Duplicate values: Works (we don't reuse same index)
 ```
 
-### KEY INSIGHT
-```markdown
-### KEY INSIGHT:
-Hash map allows O(1) complement lookup, transforming O(n²) brute force
-into O(n) single-pass solution.
-```
-
 ### OPTIMIZATIONS
 ```markdown
 ### OPTIMIZATIONS:
@@ -212,14 +190,13 @@ Creates collapsible section to reduce initial visual clutter
 Recommended order for clarity:
 
 1. **INTUITION** - The "aha" moment
-2. **APPROACH** - High-level strategy
-3. **ALGORITHM** - Detailed steps
-4. **WHY THIS WORKS** (optional) - Correctness proof
-5. **EXAMPLE WALKTHROUGH** (optional) - Concrete trace
-6. **COMPLEXITY** - Time and space analysis
-7. **EDGE CASES** (optional) - Special handling
-8. **OPTIMIZATIONS** (optional) - Improvements
-9. **ALTERNATIVES** (optional) - Other solutions
+2. **APPROACH** - Detailed step-by-step strategy
+3. **WHY THIS WORKS** (optional) - Correctness proof
+4. **EXAMPLE WALKTHROUGH** (optional) - Concrete trace
+5. **COMPLEXITY** - Time and space analysis
+6. **EDGE CASES** (optional) - Special handling
+7. **OPTIMIZATIONS** (optional) - Improvements
+8. **ALTERNATIVES** (optional) - Other solutions
 
 ---
 

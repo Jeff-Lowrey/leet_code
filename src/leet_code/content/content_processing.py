@@ -112,9 +112,7 @@ def parse_explanation_into_sections(content: str) -> dict[str, str]:
     section_patterns = [
         (r"### METADATA:(.*?)(?=###|$)", "metadata"),
         (r"### INTUITION:(.*?)(?=###|$)", "intuition"),
-        (r"### KEY INSIGHT:(.*?)(?=###|$)", "key_insight"),
         (r"### APPROACH:(.*?)(?=###|$)", "approach"),
-        (r"### ALGORITHM:(.*?)(?=###|$)", "algorithm"),
         (r"### WHY THIS WORKS:(.*?)(?=###|$)", "why_this_works"),
         (r"### EXAMPLE WALKTHROUGH:(.*?)(?=###|$)", "example"),
         (r"### EXAMPLES?:(.*?)(?=###|$)", "example"),
@@ -157,7 +155,6 @@ def parse_explanation_sections(content: str) -> dict[str, str]:
     ]
 
     steps_patterns = [
-        r"### ALGORITHM:(.*?)(?=###|$)",
         r"### STEPS:(.*?)(?=###|$)",
         r"### IMPLEMENTATION:(.*?)(?=###|$)",
     ]

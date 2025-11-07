@@ -42,10 +42,11 @@ Triple backticks for code blocks
 
 ### 5. Organize Logically
 1. **INTUITION** - The "aha" moment
-2. **APPROACH** - Strategic explanation
-3. **ALGORITHM** - Step-by-step details
-4. **COMPLEXITY** - Time and space analysis
-5. **EDGE CASES** (optional) - Special handling
+2. **APPROACH** - Detailed step-by-step strategy
+3. **COMPLEXITY** - Time and space analysis
+4. **EDGE CASES** (optional) - Special handling
+5. **WHY THIS WORKS** (optional) - Correctness proof
+6. **EXAMPLE WALKTHROUGH** (optional) - Concrete trace
 
 ### 6. Explain Complexity
 Don't just state O(n):

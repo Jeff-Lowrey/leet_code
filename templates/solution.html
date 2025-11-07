@@ -110,29 +110,11 @@
     </details>
     {% endif %}
 
-    {% if explanation.key_insight %}
-    <details>
-        <summary>Key Insight</summary>
-        <div class="explanation-content">
-            {{ explanation.key_insight|safe }}
-        </div>
-    </details>
-    {% endif %}
-
     {% if explanation.approach %}
     <details>
         <summary>Approach</summary>
         <div class="explanation-content">
             {{ explanation.approach|safe }}
-        </div>
-    </details>
-    {% endif %}
-
-    {% if explanation.algorithm %}
-    <details>
-        <summary>Algorithm</summary>
-        <div class="explanation-content">
-            {{ explanation.algorithm|safe }}
         </div>
     </details>
     {% endif %}

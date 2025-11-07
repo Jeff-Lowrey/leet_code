@@ -185,7 +185,7 @@ HTTP 200 with application/zip
 
 **`parse_explanation_into_sections(content: str) -> dict[str, str]`**
 - Extracts solution explanation from `<details>` tags
-- Parses sections: INTUITION, APPROACH, ALGORITHM, COMPLEXITY
+- Parses sections: INTUITION, APPROACH, COMPLEXITY, and optional sections
 - Returns section dictionary with HTML-rendered content
 - Supports optional sections (EDGE CASES, WHY THIS WORKS, etc.)
 
