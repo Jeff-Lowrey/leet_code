@@ -18,19 +18,77 @@
 
 ## Application Structure
 
-The Flask application (`src/leet_code/app.py`) follows a functional architecture with clear separation of concerns:
+The Flask application follows a **task-oriented module architecture** with clear separation of concerns. The application uses the **application factory pattern** (`factory.py`) for initialization, with modules organized by functionality rather than technical layers.
 
-```python
-app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-key-change-in-production")
+### Task-Oriented Module Structure
+
+```
+src/leet_code/
+├── app.py                      # CLI entry point (29 lines)
+├── factory.py                  # Flask application factory
+│
+├── data/                       # DATA MODELS & CONSTANTS
+│   ├── category_data.py        # Solution/category models, caching
+│   ├── language_constants.py  # Language metadata & mappings
+│   └── markdown_extraction.py # Universal markdown parser
+│
+├── content/                    # CONTENT PROCESSING
+│   ├── content_processing.py  # Extraction, parsing, merging
+│   └── syntax_highlighting.py # Pygments syntax highlighting
+│
+├── code_generation/            # CODE GENERATION
+│   ├── skeleton_generator.py  # Template/skeleton generation
+│   └── leetcode_converter.py  # Snake_case to camelCase conversion
+│
+├── search/                     # SEARCH & DISCOVERY
+│   ├── search_engine.py        # Query parsing, search execution
+│   └── solution_finder.py      # Solution lookup, enrichment
+│
+└── views/                      # FLASK VIEWS (class-based)
+    ├── main_views.py           # Home, categories, virtual categories
+    ├── solution_views.py       # Solution display, downloads, uploads
+    ├── search_views.py         # Search interface
+    └── api_views.py            # JSON API endpoints
 ```
 
 ### Key Configuration
-- **Template Folder**: `../../templates` (relative to app.py location)
-- **Static Folder**: `../../static` (relative to app.py location)
+- **Application Factory**: `create_app()` in `factory.py`
+- **Template Folder**: `../../templates` (relative to factory.py)
+- **Static Folder**: `../../static` (relative to factory.py)
 - **Secret Key**: From environment variable or dev default
 - **Default Port**: 9501
 - **Debug Mode**: Enabled by default (toggle with `--debug` flag)
+
+### Module Responsibilities
+
+**data/** - Data models and constants
+- Solution/Category dataclasses
+- CategoryManager (caching, data loading)
+- Language metadata and mappings
+- Universal markdown extraction
+
+**content/** - Content extraction and processing
+- Extract problem data from code
+- Parse explanations into sections
+- Merge and reorganize content
+- Syntax highlighting with themes
+
+**code_generation/** - Code transformation
+- Generate method signature skeletons
+- Convert Python snake_case to LeetCode camelCase
+- Multi-language skeleton support
+
+**search/** - Search and solution discovery
+- Parse search queries (navigate, name, similar, filter modes)
+- Execute searches with filtering
+- Find solutions and enrich with metadata
+- Generate solution paths
+
+**views/** - Flask views (class-based)
+- Home page and category browsing
+- Solution display and format conversion
+- Download and upload handling
+- JSON API endpoints
 
 ## Route Structure
 
@@ -111,44 +169,62 @@ HTTP 200 with application/zip
 
 ## Core Processing Functions
 
-### 1. Docstring Processing
+### 1. Content Processing (`content/content_processing.py`)
 
-**`extract_problem_description(code: str) -> str | None`**
-- Extracts problem description from module docstring
-- Removes "Difficulty:" metadata line
+**`extract_all_problem_data(code: str, file_extension: str) -> tuple[str, ProblemData]`**
+- Main extraction orchestrator using language-agnostic parsing
+- Extracts problem data from any supported language
+- Returns clean code + complete problem data structure
+- Uses unified markdown extraction system
+
+**`parse_problem_markdown(markdown_content: str) -> str | None`**
+- Parses problem description from markdown content
+- Removes metadata (difficulty, problem number)
 - Converts Markdown to HTML
-- Location: `app.py:170`
+- Works for all languages
 
-**`parse_docstring_explanation(code: str) -> tuple[str, dict[str, str] | None]`**
+**`parse_explanation_into_sections(content: str) -> dict[str, str]`**
 - Extracts solution explanation from `<details>` tags
 - Parses sections: INTUITION, APPROACH, ALGORITHM, COMPLEXITY
-- Returns clean code + explanation dict
-- Location: `app.py:36`
+- Returns section dictionary with HTML-rendered content
+- Supports optional sections (EDGE CASES, WHY THIS WORKS, etc.)
 
-### 2. Skeleton Generation
+**`merge_and_reorganize_content(documentation: str | None, explanation: str | None) -> str | None`**
+- Merges problem description and explanation
+- Removes duplicate content
+- Creates logical flow for display
+
+### 2. Skeleton Generation (`code_generation/skeleton_generator.py`)
 
 **`generate_skeleton(code: str, solution: Any, is_leetcode: bool = False) -> str`**
 - Creates practice template from full solution
 - Preserves method signatures with type annotations
 - Adds TODO comments for implementation
 - Includes test case template
-- Location: `app.py:1141`
+- Supports Python, JavaScript, Java, C++, Go, Rust, TypeScript
 
-**`generate_js_skeleton(code: str, solution: Any) -> str`**
-- JavaScript version of skeleton generation
-- Extracts classes and functions
-- Includes JSDoc templates
-- Location: `app.py:515`
+**Multi-Language Support**:
+- Python: Preserves type hints, docstrings
+- JavaScript/TypeScript: Preserves JSDoc, type annotations
+- Java: Preserves method signatures, Javadoc
+- C++: Preserves function signatures, Doxygen
+- Go: Preserves function signatures, comments
+- Rust: Preserves ownership/borrowing in signatures
 
-### 3. Syntax Highlighting
+### 3. Syntax Highlighting (`content/syntax_highlighting.py`)
 
 **`create_code_formatter() -> HtmlFormatter[str]`**
 - Creates Pygments HTML formatter
 - Supports theme switching (light/dark)
 - Adds line numbers
-- Location: `app.py:834`
+- Configurable styles
 
-**Theme Detection**:
+**`get_syntax_highlighting_style() -> str`**
+- Detects theme from cookies or request parameters
+- Returns appropriate Pygments style
+- Supports light ("default") and dark ("monokai") themes
+
+**Theme Detection Flow**:
 ```python
 def get_syntax_highlighting_style() -> str:
     theme = request.cookies.get("theme", "light")
@@ -158,28 +234,38 @@ def get_syntax_highlighting_style() -> str:
     return "monokai" if theme == "dark" else "default"
 ```
 
-### 4. Language Support
+### 4. Language Support (`data/language_constants.py`)
 
 **Supported Languages**:
-- Python (primary)
-- JavaScript
-- Java
-- C++/C
-- TypeScript
-- Go
-- Rust
-- C#
-- Swift
-- And 15+ more
+- Python, JavaScript, TypeScript
+- Java, C++, C, C#
+- Go, Rust, Swift, Kotlin, Scala
+- And more (13+ languages)
 
-**Lexer Mapping**:
+**Language Configuration**:
+- Language metadata (extensions, names, icons, comment styles)
+- File extension mappings
+- Pygments lexer configuration
+- Comment block formats for markdown extraction
+
+**LANGUAGE_MAP Structure**:
 ```python
-lexers = {
-    "Python": PythonLexer(),
-    "Java": JavaLexer(),
-    "C++": CppLexer(),
-    "JavaScript": JavascriptLexer(),
-    # ... more lexers
+LANGUAGE_MAP = {
+    'python': {
+        'name': 'Python',
+        'extension': '.py',
+        'pygments_lexer': 'python',
+        'comment_style': 'docstring',  # """..."""
+        # ... more metadata
+    },
+    'javascript': {
+        'name': 'JavaScript',
+        'extension': '.js',
+        'pygments_lexer': 'javascript',
+        'comment_style': 'jsdoc',  # /** ... */
+        # ... more metadata
+    },
+    # ... more languages
 }
 ```
 
