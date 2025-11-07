@@ -6,8 +6,8 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
 
 1. [Overview](01-overview.md) - Project structure, architecture overview, and key components
 2. [Flask Architecture](02-flask-architecture.md) - Flask application structure, routing, and template system
-3. [Data Management](03-data-management.md) - Category and solution data management with `category_data.py`
-4. [Template System](04-template-system.md) - Solution templates and skeleton generation
+3. [Data Management](03-data-management.md) - Category and solution data management (legacy reference)
+4. [Template System](04-template-system.md) - Jinja2 templates and frontend components
 5. [Static Files](05-static-files.md) - CSS, JavaScript, and static asset organization
 6. [Adding Features](06-adding-features.md) - Guidelines for implementing new functionality
 7. [Testing Procedures](07-testing-procedures.md) - Quality checks, testing, and deployment
@@ -15,9 +15,21 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
    - [Template Creation](08-language-support/01-template-creation.md) - Creating language-specific templates
    - [Adding Languages](08-language-support/02-adding-languages.md) - Integration procedures and configuration
    - [Formatting Guides](08-language-support/03-formatting-guide-creation.md) - Writing language documentation
+   - [Testing Languages](08-language-support/04-testing-languages.md) - Testing procedures for language integration
 9. [Architecture](09-architecture.md) - System architecture, component interactions, and data flow
-10. [Testing Languages](10-testing-languages.md) - Testing procedures for language integration
-11. [Contribution Workflow](11-contribution-workflow.md) - Branch strategy, PRs, and contribution guidelines
+10. [Contribution Workflow](11-contribution-workflow.md) - Branch strategy, PRs, and contribution guidelines
+11. [Module Structure](module-structure/README.md) - **Task-oriented code organization** (current architecture)
+    - [Overview](module-structure/01-overview.md) - Design philosophy
+    - [Directory Structure](module-structure/02-directory-structure.md) - Complete module layout
+    - [Data Module](module-structure/03-data-module.md) - Data models, constants, extraction
+    - [Content Module](module-structure/04-content-module.md) - Processing and highlighting
+    - [Code Generation Module](module-structure/05-code-generation-module.md) - Skeletons and conversion
+    - [Search Module](module-structure/06-search-module.md) - Query parsing and discovery
+    - [Views Module](module-structure/07-views-module.md) - Flask HTTP handlers
+    - [Module Interactions](module-structure/08-interactions.md) - Data flows and patterns
+    - [Extension Guide](module-structure/09-extension-guide.md) - Adding new features
+    - [Testing Strategy](module-structure/10-testing-strategy.md) - Per-module testing
+    - [Migration Notes](module-structure/11-migration-notes.md) - From old structure
 
 ## Quick Links
 [↑ Back to Table of Contents](#table-of-contents)

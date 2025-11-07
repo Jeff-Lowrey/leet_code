@@ -4,6 +4,8 @@
 
 ---
 
+> **📌 Note**: This document describes the data management system. For the **current task-oriented module structure**, see [Module Structure Guide](module-structure/README.md), specifically the [Data Module](module-structure/03-data-module.md) section.
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -17,7 +19,9 @@
 
 ## Overview
 
-The `category_data.py` module provides centralized data management for all categories and solutions in the project. It handles automatic discovery, metadata parsing, and efficient data access.
+The `data/category_data.py` module provides centralized data management for all categories and solutions in the project. It handles automatic discovery, metadata parsing, and efficient data access.
+
+For detailed information about the data module's role in the task-oriented architecture, see [Data Module Documentation](module-structure/03-data-module.md).
 
 ## Data Classes
 

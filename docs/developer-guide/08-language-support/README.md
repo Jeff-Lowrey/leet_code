@@ -27,7 +27,7 @@ Learn how to create language-specific solution templates that follow project sta
 Step-by-step guide to integrating a new programming language into the platform.
 
 **What You'll Learn:**
-- Configuration requirements in `app.py`
+- Configuration requirements in `data/language_constants.py`
 - Pygments lexer verification
 - File pattern design and validation
 - Testing integration procedures
@@ -86,6 +86,7 @@ Currently supported languages (7):
 - **Start Here:** [Template Creation →](01-template-creation.md)
 - **After Templates:** [Adding Language Support →](02-adding-languages.md)
 - **Documentation:** [Formatting Guide Creation →](03-formatting-guide-creation.md)
+- **Testing:** [Testing Language Integration →](04-testing-languages.md)
 
 ---
 
