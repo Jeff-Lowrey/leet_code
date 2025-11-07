@@ -100,7 +100,7 @@ class TestAPICategorySolutionsView:
 class TestAPISearchView:
     """Test APISearchView API endpoint."""
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_error(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search API with error result."""
         mock_execute.return_value = {"error": "Invalid query", "mode": None}
@@ -110,7 +110,7 @@ class TestAPISearchView:
         data = response.get_json()
         assert "error" in data
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_navigate_mode(self, mock_execute: MagicMock, client: Any, mock_solution: Solution) -> None:
         """Test search API with navigate mode."""
         mock_execute.return_value = {
@@ -125,8 +125,8 @@ class TestAPISearchView:
         assert data["mode"] == "navigate"
         assert "solution" in data
 
-    @patch("src.leet_code.app.execute_search")
-    @patch("src.leet_code.app.serialize_results")
+    @patch("src.leet_code.search_utils.execute_search")
+    @patch("src.leet_code.search_utils.serialize_results")
     def test_get_similar_mode(
         self, mock_serialize: MagicMock, mock_execute: MagicMock, client: Any, mock_solution: Solution
     ) -> None:
@@ -179,8 +179,8 @@ class TestAPIComplexityStatsView:
         data = response.get_json()
         assert isinstance(data, dict)
 
-    @patch("src.leet_code.app.execute_search")
-    @patch("src.leet_code.app.serialize_results")
+    @patch("src.leet_code.search_utils.execute_search")
+    @patch("src.leet_code.search_utils.serialize_results")
     def test_get_name_search_mode(self, mock_serialize: MagicMock, mock_execute: MagicMock, client: Any) -> None:
         """Test search API with name search mode."""
         mock_execute.return_value = {
@@ -196,8 +196,8 @@ class TestAPIComplexityStatsView:
         data = response.get_json()
         assert data["mode"] == "name_search"
 
-    @patch("src.leet_code.app.execute_search")
-    @patch("src.leet_code.app.serialize_results")
+    @patch("src.leet_code.search_utils.execute_search")
+    @patch("src.leet_code.search_utils.serialize_results")
     def test_get_filter_mode(self, mock_serialize: MagicMock, mock_execute: MagicMock, client: Any) -> None:
         """Test search API with filter mode."""
         mock_execute.return_value = {
@@ -212,7 +212,7 @@ class TestAPIComplexityStatsView:
         data = response.get_json()
         assert data["mode"] == "filter"
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_navigate_error(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search API with navigate mode error."""
         mock_execute.return_value = {"error": "Solution not found", "mode": "navigate"}
@@ -222,7 +222,7 @@ class TestAPIComplexityStatsView:
         data = response.get_json()
         assert "error" in data
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_unknown_mode(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search API with unknown mode (fallback error)."""
         mock_execute.return_value = {"mode": "unknown", "results": []}

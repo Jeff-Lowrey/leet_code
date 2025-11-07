@@ -41,7 +41,7 @@ def mock_solution() -> Solution:
 class TestSearchView:
     """Test SearchView class-based view."""
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_error(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search with error result."""
         mock_execute.return_value = {"error": "Invalid query", "mode": None}
@@ -51,7 +51,7 @@ class TestSearchView:
         # Page renders successfully
         assert b"Search Results" in response.data
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_navigate_mode(self, mock_execute: MagicMock, client: Any, mock_solution: Solution) -> None:
         """Test search that navigates to a solution."""
         mock_execute.return_value = {
@@ -64,8 +64,8 @@ class TestSearchView:
         assert response.status_code == 302  # Redirect
         assert b"/solution/arrays-hashing/001-two-sum" in response.data
 
-    @patch("src.leet_code.app.execute_search")
-    @patch("src.leet_code.app.find_solution_category")
+    @patch("src.leet_code.search_utils.execute_search")
+    @patch("src.leet_code.solution_utils.find_solution_category")
     def test_get_similar_mode(
         self, mock_find_cat: MagicMock, mock_execute: MagicMock, client: Any, mock_solution: Solution
     ) -> None:
@@ -85,7 +85,7 @@ class TestSearchView:
         assert response.status_code == 200
         assert b"Search Results" in response.data or b"Similar" in response.data
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_name_search_mode(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search with name search mode."""
         mock_execute.return_value = {
@@ -98,7 +98,7 @@ class TestSearchView:
         response = client.get("/search?q=two sum")
         assert response.status_code == 200
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_filter_mode(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search with filter mode."""
         mock_execute.return_value = {
@@ -110,7 +110,7 @@ class TestSearchView:
         response = client.get("/search?q=difficulty:easy")
         assert response.status_code == 200
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_empty_query(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search with empty query."""
         mock_execute.return_value = {"error": "Empty query", "mode": None}
@@ -118,7 +118,7 @@ class TestSearchView:
         response = client.get("/search?q=")
         assert response.status_code == 200
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_no_query_param(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search without query parameter."""
         mock_execute.return_value = {"error": "Empty query", "mode": None}
@@ -126,7 +126,7 @@ class TestSearchView:
         response = client.get("/search")
         assert response.status_code == 200
 
-    @patch("src.leet_code.app.execute_search")
+    @patch("src.leet_code.search_utils.execute_search")
     def test_get_unknown_mode(self, mock_execute: MagicMock, client: Any) -> None:
         """Test search with unknown/invalid mode."""
         mock_execute.return_value = {"mode": "unknown", "results": []}

@@ -15,7 +15,8 @@ class SearchView(BaseView):
         Returns:
             Rendered template for search results or redirect to solution
         """
-        from ..app import execute_search, find_solution_category
+        from ..search_utils import execute_search
+        from ..solution_utils import find_solution_category
 
         query = request.args.get("q", "").strip()
 

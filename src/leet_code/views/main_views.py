@@ -83,7 +83,7 @@ class DifficultyOverviewView(BaseView):
         Returns:
             Rendered template for difficulty overview page
         """
-        from ..app import enrich_solutions_with_category
+        from ..solution_utils import enrich_solutions_with_category
 
         all_solutions = category_manager.get_all_solutions()
 
@@ -125,7 +125,7 @@ class ComplexityOverviewView(BaseView):
         Returns:
             Rendered template for complexity overview page
         """
-        from ..app import enrich_solutions_with_category
+        from ..solution_utils import enrich_solutions_with_category
 
         all_solutions = category_manager.get_all_solutions()
 
@@ -178,7 +178,7 @@ class DifficultyLevelView(BaseView):
         Returns:
             Rendered template for virtual category page
         """
-        from ..app import enrich_solutions_with_category
+        from ..solution_utils import enrich_solutions_with_category
 
         # Normalize the level input
         level_normalized = level.lower().capitalize()
@@ -217,7 +217,7 @@ class ComplexityPatternView(BaseView):
         Returns:
             Rendered template for virtual category page
         """
-        from ..app import enrich_solutions_with_category
+        from ..solution_utils import enrich_solutions_with_category
 
         # Normalize pattern and get display name
         pattern_lower = pattern.lower()

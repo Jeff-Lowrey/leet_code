@@ -2,8 +2,8 @@
 
 from unittest.mock import patch
 
-from src.leet_code.app import execute_search
 from src.leet_code.category_data import Solution
+from src.leet_code.search_utils import execute_search
 
 
 class TestExecuteSearch:

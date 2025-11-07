@@ -28,14 +28,9 @@ class SolutionView(BaseView):
         Returns:
             Rendered template for solution page
         """
-        from ..app import (
-            ensure_py_extension,
-            extract_all_problem_data,
-            generate_js_skeleton,
-            generate_skeleton,
-            get_solution_path,
-            parse_problem_markdown,
-        )
+        from ..app import extract_all_problem_data, parse_problem_markdown
+        from ..skeleton_generator import generate_js_skeleton, generate_skeleton
+        from ..solution_utils import ensure_py_extension, get_solution_path
 
         # Add .py extension if not present to normalize the filename
         filename = ensure_py_extension(filename)
@@ -165,7 +160,7 @@ class SolutionLeetCodeView(BaseView):
         Returns:
             Rendered template for LeetCode solution page
         """
-        from ..app import ensure_py_extension
+        from ..solution_utils import ensure_py_extension
 
         # Add .py extension if not present
         filename = ensure_py_extension(filename)
@@ -225,7 +220,8 @@ class DownloadSolutionView(BaseView):
         Returns:
             Response with downloadable file content
         """
-        from ..app import ensure_py_extension, generate_skeleton, get_solution_path
+        from ..skeleton_generator import generate_skeleton
+        from ..solution_utils import ensure_py_extension, get_solution_path
 
         # Handle .py extension if present
         filename = ensure_py_extension(filename)
@@ -329,7 +325,7 @@ class UploadSolutionView(BaseView):
         Returns:
             Rendered template for upload form
         """
-        from ..app import ensure_py_extension, remove_py_extension
+        from ..solution_utils import ensure_py_extension, remove_py_extension
 
         # Handle .py extension if present
         filename = ensure_py_extension(filename)
@@ -352,7 +348,7 @@ class UploadSolutionView(BaseView):
         Returns:
             Redirect to solution view or upload form with error
         """
-        from ..app import ensure_py_extension, remove_py_extension
+        from ..solution_utils import ensure_py_extension, remove_py_extension
 
         # Handle .py extension if present
         filename = ensure_py_extension(filename)

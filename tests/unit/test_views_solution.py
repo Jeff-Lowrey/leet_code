@@ -102,7 +102,7 @@ class TestSolutionView:
         mock_path_class.return_value = mock_path
 
         # Mock get_solution_path to return our mock path
-        with patch("src.leet_code.app.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
             mock_file.return_value.read.return_value = mock_solution_code
             mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
 
@@ -135,7 +135,7 @@ class TestSolutionView:
         mock_path.suffix = ".ts"
         mock_path_class.return_value = mock_path
 
-        with patch("src.leet_code.app.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
             mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
 
             response = client.get("/solution/arrays-hashing/001-two-sum?lang=TypeScript")
@@ -187,7 +187,7 @@ class TestSolutionView:
         mock_path.suffix = ".js"
         mock_path_class.return_value = mock_path
 
-        with patch("src.leet_code.app.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
             mock_manager.get_category.return_value = MagicMock(name="Arrays & Hashing")
 
             response = client.get("/solution/arrays-hashing/001-two-sum?lang=JavaScript")
@@ -327,7 +327,7 @@ class TestDownloadSolutionView:
 
         mock_manager.get_solution.return_value = mock_solution
 
-        with patch("src.leet_code.app.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
             response = client.get("/solution/arrays-hashing/001-two-sum/download/solution/JavaScript")
             assert response.status_code == 200
 
@@ -347,7 +347,7 @@ class TestDownloadSolutionView:
 
         mock_manager.get_solution.return_value = mock_solution
 
-        with patch("src.leet_code.app.get_solution_path", return_value=mock_path):
+        with patch("src.leet_code.solution_utils.get_solution_path", return_value=mock_path):
             response = client.get("/solution/arrays-hashing/001-two-sum/download/solution/JavaScript")
             assert response.status_code == 404
 

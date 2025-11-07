@@ -48,7 +48,7 @@ class APISearchView(BaseView):
         Returns:
             JSON response with search results
         """
-        from ..app import execute_search, serialize_results
+        from ..search_utils import execute_search, serialize_results
 
         query = request.args.get("q", "").strip()
 
@@ -108,7 +108,7 @@ class APIDifficultyStatsView(BaseView):
         Returns:
             JSON response with difficulty counts
         """
-        from ..app import count_by_difficulty
+        from ..solution_utils import count_by_difficulty
 
         all_solutions = category_manager.get_all_solutions()
         difficulty_counts = count_by_difficulty(all_solutions)
@@ -124,7 +124,7 @@ class APIComplexityStatsView(BaseView):
         Returns:
             JSON response with complexity counts
         """
-        from ..app import count_by_time_complexity
+        from ..solution_utils import count_by_time_complexity
 
         all_solutions = category_manager.get_all_solutions()
         complexity_counts = count_by_time_complexity(all_solutions)
@@ -143,7 +143,7 @@ class APIComplexityByDifficultyView(BaseView):
         Returns:
             JSON response with complexity counts for difficulty level
         """
-        from ..app import count_by_time_complexity
+        from ..solution_utils import count_by_time_complexity
 
         # Filter solutions by difficulty level
         filtered_solutions = category_manager.filter_solutions({"difficulty": level.capitalize()})
@@ -163,7 +163,7 @@ class APIDifficultyByComplexityView(BaseView):
         Returns:
             JSON response with difficulty counts for complexity
         """
-        from ..app import count_by_difficulty
+        from ..solution_utils import count_by_difficulty
 
         # Parse complexity key (format: "time_space")
         parts = complexity_key.split("_", 1)
@@ -196,7 +196,7 @@ class APICategoryDifficultyStatsView(BaseView):
         Returns:
             JSON response with difficulty counts for category
         """
-        from ..app import count_by_difficulty
+        from ..solution_utils import count_by_difficulty
 
         category = category_manager.get_category(category_slug)
         if not category:
@@ -219,7 +219,7 @@ class APICategoryComplexityStatsView(BaseView):
         Returns:
             JSON response with complexity counts for category
         """
-        from ..app import count_by_time_complexity
+        from ..solution_utils import count_by_time_complexity
 
         category = category_manager.get_category(category_slug)
         if not category:
