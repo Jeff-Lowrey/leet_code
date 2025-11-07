@@ -1,30 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0444. Sequence Reconstruction
-
-Check whether the original sequence org can be uniquely reconstructed from the sequences in seqs. The org sequence is a permutation of the integers from 1 to n, with 1 ≤ n ≤ 10^4. Reconstruction means building a shortest common supersequence of the sequences in seqs (i.e., a shortest sequence so that all sequences in seqs are subsequences of it). Determine whether there is only one sequence that can be reconstructed from seqs and it is the org sequence.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>org = [1,2,3], seqs = [[1,2],[1,3],[2,3]]</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>The sequences [[1,2],[1,3],[2,3]] can only reconstruct [1,2,3] uniquely. At each step of topological sort, only one node has in-degree 0, ensuring a unique ordering.</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: O(V + E)
-**Space Complexity**: O(V + E)
-
 ### INTUITION:
 This is a topological sort problem where we need to check if there's a unique topological ordering that matches the given original sequence. The key insight is that for a unique reconstruction, at each step of topological sort, there should be exactly one node with in-degree 0.
 
@@ -74,21 +48,18 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(V + E)
+**O(V + E)**
 Where V is number of nodes (n) and E is total number of edges from seqs
 
 ### SPACE COMPLEXITY:
-O(V + E)
+**O(V + E)**
 For the graph representation and auxiliary data structures
 
 ### EDGE CASES:
-- Unique topological order: org=[1,2,3], seqs=[[1,2],[1,3],[2,3]] → True (only one valid sequence exists)
-- Multiple valid orders: org=[1,2,3], seqs=[[1,2],[1,3]] → False (both [1,2,3] and [1,3,2] valid, ambiguous)
-- Cycle in graph: org=[1,2], seqs=[[1,2],[2,1]] → False (contradictory constraints create cycle)
-- Sequence doesn't match order: org=[1,2,3], seqs=[[1,2],[3,2]] → False ([3,2] conflicts with org order)
-- Single element: org=[1], seqs=[[1]] → True (trivially valid, single element always unique)
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

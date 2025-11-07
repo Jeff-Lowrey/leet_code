@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 1233. Remove Sub Folders From The Filesystem
-
-Given a list of folders, remove all sub-folders in those folders and return the folders in any order.
-
-If a folder[i] is located within another folder[j], it is called a sub-folder of it.
-
-The format of a path is one or more concatenated strings of the form: '/' followed by one or more lowercase English letters.
-
-For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty string and "/" are not.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["/a","/a/b","/c/d","/c/d/e","/c/f"]</dd>
-<dt>Output:</dt>
-<dd>["/a","/c/d","/c/f"]</dd>
-<dt>Explanation:</dt>
-<dd>After removing sub-folders: "/a/b" is a sub-folder of "/a", and "/c/d/e" is a sub-folder of "/c/d", so they are removed. The result is ["/a","/c/d","/c/f"]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(N * L * log(N))
-**Space Complexity**: O(N * L)
-
 ### INTUITION:
 We need to identify and remove sub-folders from a list of folder paths. A sub-folder is any folder that has another folder as its prefix path. Using a Trie allows us to efficiently detect prefix relationships by building a tree structure where each node represents a path component.
 
@@ -86,22 +54,20 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(N * L * log(N))
+**O(N * L * log(N)**)
 Where N is number of folders and L is average path length
-- Sorting: O(N * L * log(N))
-- Trie operations: O(N * L)
+- Sorting: **O(N * L * log(N)**)
+- Trie operations: **O(N * L)**
 
 ### SPACE COMPLEXITY:
-O(N * L)
+**O(N * L)**
 For storing the trie structure
 
 ### EDGE CASES:
-- Single folder: folder=["/a"] → ["/a"] (no sub-folders to remove, returns immediately)
-- No sub-folders: folder=["/a","/b","/c"] → ["/a","/b","/c"] (all at same level, all kept)
-- All folders are sub-folders of one root: folder=["/a","/a/b","/a/b/c","/a/b/c/d"] → ["/a"] (keep only root, remove all nested)
-- Folders with similar prefixes: folder=["/a","/ab","/abc"] → ["/a","/ab","/abc"] (all kept, "/ab" not sub-folder of "/a")
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

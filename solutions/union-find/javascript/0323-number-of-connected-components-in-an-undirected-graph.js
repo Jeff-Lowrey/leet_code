@@ -1,82 +1,50 @@
 /**
- * # Difficulty: Medium
- *
- * # 0323. Number Of Connected Components In An Undirected Graph
- *
- *
- * You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
- *
- * Return the number of connected components in the graph.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>Input: n = 5, edges = [[0,1],[1,2],[3,4]]</dd>
- * <dt>Output:</dt>
- * <dd>See walkthrough</dd>
- * <dt>Explanation:</dt>
- * <dd>Number of connected components in undirected graph is 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal
- * **Data Structures**: Array, Tree, Graph
- * **Patterns**: Hash Table Pattern, Divide and Conquer
- * **Time Complexity**: O(E × α(N))
- * **Space Complexity**: O(N)
+### INTUITION:
+This is a classic Union-Find problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. Union-Find efficiently groups nodes into components and counts distinct groups.
 
- *
- * ### INTUITION:
- * This is a classic Union-Find problem for counting connected components. Each connected component is a set of nodes that can reach each other through edges. Union-Find efficiently groups nodes into components and counts distinct groups.
- *
- * ### APPROACH:
- * 1. **Initialize Union-Find**: Each node starts as its own component
- * 2. **Process edges**: Union connected nodes, reducing component count
- * 3. **Count components**: Count number of distinct parent nodes
- *
- * ### WHY THIS WORKS:
- * - Union-Find maintains disjoint sets (connected components)
- * - Each union operation merges two components into one
- * - Final count of root nodes = number of connected components
- * - Path compression and union by rank ensure efficient operations
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 5, edges = [[0,1],[1,2],[3,4]]
- * ```
- *
- * Steps:
- * Step 1: Initial: {0}, {1}, {2}, {3}, {4} → 5 components
- * Step 2: Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
- * Step 3: Union(1,2): {0,1,2}, {3}, {4} → 3 components
- * Step 4: Union(3,4): {0,1,2}, {3,4} → 2 components
- * Step 5: Result: 2 connected components
- * 
- * Output:
- * ```
- * 2 connected components
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(E × α(N))
- * Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
- *
- * ### SPACE COMPLEXITY:
- * O(N)
- * For parent and rank arrays
- *
- * ### EDGE CASES:
- * - No edges: n isolated components
- * - Fully connected: 1 component
- * - Self-loops: don't change component count
- * - Single node: 1 component
- *
- * </details>
- */
+### APPROACH:
+1. **Initialize Union-Find**: Each node starts as its own component
+2. **Process edges**: Union connected nodes, reducing component count
+3. **Count components**: Count number of distinct parent nodes
+
+### WHY THIS WORKS:
+- Union-Find maintains disjoint sets (connected components)
+- Each union operation merges two components into one
+- Final count of root nodes = number of connected components
+- Path compression and union by rank ensure efficient operations
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+n = 5, edges = [[0,1],[1,2],[3,4]]
+```
+
+Steps:
+Step 1: Initial: {0}, {1}, {2}, {3}, {4} → 5 components
+Step 2: Union(0,1): {0,1}, {2}, {3}, {4} → 4 components
+Step 3: Union(1,2): {0,1,2}, {3}, {4} → 3 components
+Step 4: Union(3,4): {0,1,2}, {3,4} → 2 components
+Step 5: Result: 2 connected components
+
+Output:
+```
+2 connected components
+```
+
+### TIME COMPLEXITY:
+O(E × α(N)**)
+Where E is edges, N is nodes, α is inverse Ackermann (nearly constant)
+
+### SPACE COMPLEXITY:
+O(N)**
+For parent and rank arrays
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 class UnionFind {
   constructor(n) {

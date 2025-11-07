@@ -1,40 +1,4 @@
 """
-# 0496. Next Greater Element
-
-# Difficulty: Easy
-
-The next greater element of some element x in an array is the first greater
-element that is to the right of x in the same array.
-
-You are given two distinct `0-indexed` integer arrays nums1 and nums2, where nums1
-is a subset of nums2.
-
-For each `0 <= i` < nums1.length, find the index `j` such that nums1[i] == nums2[j]
-and determine the next greater element of nums2[j] in nums2.
-
-Return an array ans of length nums1.length such that ans[i] is the next greater
-element as described above.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums1 = [4,1,2], nums2 = [1,3,4,2]</dd>
-<dt>Output:</dt>
-<dd>[-1,3,-1]</dd>
-<dt>Explanation:</dt>
-<dd>For each element in nums1, find its next greater element in nums2: [4->-1, 1->3, 2->3]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n + m)
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 Use a monotonic decreasing stack to efficiently find the next greater element for each number in nums2. The stack maintains elements in decreasing order, so when we find a larger element, we can pop and match all smaller elements with their next greater element.
 
@@ -71,15 +35,13 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n + m)
+**O(n + m)**
 
 - Based on input size and operations
 
-
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 - Additional hash map storage
-
 
 ### EDGE CASES:
 - **No greater element exists**: Return -1 for that element
@@ -88,7 +50,6 @@ O(n)
 - **Decreasing sequence**: No next greater for any element
 - **Single element**: Return -1 (no next element)
 
-</details>
 """
 
 from typing import Any

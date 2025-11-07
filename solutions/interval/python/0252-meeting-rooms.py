@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0252. Meeting Rooms
-
-Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>intervals = [[0,30],[5,10],[15,20]]</dd>
-<dt>Output:</dt>
-<dd>False (cannot attend all meetings)</dd>
-<dt>Explanation:</dt>
-<dd>The person can attend all meetings because [[0,30],[5,10],[15,20]] has overlaps (cannot attend all)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Linked List
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Sort meetings by start time. Check consecutive meetings for overlap by comparing start of next meeting with end of current. If any overlap, return false.
+The key insight is that sort meetings by start time. Check consecutive meetings for overlap by comparing start of next meeting with end of current. If any overlap, return false.
 
 ### APPROACH:
 1. **Sort by start time**: Sort intervals by interval[0]
@@ -62,21 +36,18 @@ False (cannot attend all meetings)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

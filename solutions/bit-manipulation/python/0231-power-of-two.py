@@ -1,35 +1,6 @@
 """
-# 0231. Power of Two
-
-# Difficulty: Easy
-
-Given an integer n, return true if it is a power of two. Otherwise, return false.
-
-An integer n is a power of two, if there exists an integer x such that n == 2^x.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 16</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>2^4 = 16</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Bit Manipulation
-**Data Structures**: None
-**Patterns**: Divide and Conquer, Mathematical
-**Time Complexity**: O(log n) for recursion
-**Space Complexity**: O(log n) for recursion stack
-
 ### INTUITION:
-A power of two has exactly one bit set in its binary representation.
+The key insight is that a power of two has exactly one bit set in its binary representation.
 Recursively, we can check: if n is even, divide by 2 and recurse.
 If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
 
@@ -40,9 +11,9 @@ If n becomes 1, it's a power of two. If n is odd (and not 1), it's not.
 4. **Alternative**: Bit manipulation - n & (n-1) == 0
 
 ### WHY THIS WORKS:
-- Powers of 2 in binary: 1, 10, 100, 1000, etc.
-- Dividing by 2 removes one bit until we reach 1
-- If we encounter an odd number (except 1), it cannot be a power of 2
+- This ensures that powers of 2 in binary: 1, 10, 100, 1000, etc.
+- This ensures that dividing by 2 removes one bit until we reach 1
+- This ensures that if we encounter an odd number (except 1), it cannot be a power of 2
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -64,17 +35,16 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(log n) - dividing by 2 each time
+**O(log n)** - dividing by 2 each time
 
 ### SPACE COMPLEXITY:
-O(log n) - recursion stack depth
+**O(log n)** - recursion stack depth
 
 ### EDGE CASES:
-- n ≤ 0: return False
-- n = 1: return True (2^0)
-- Odd numbers > 1: return False
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

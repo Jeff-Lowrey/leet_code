@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0567. Permutation In String
- *
- *
- * Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
- *
- * In other words, return true if one of s1's permutations is the substring of s2.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s1 = "ab", s2 = "eidbaooo"</dd>
- * <dt>Output:</dt>
- * <dd>True</dd>
- * <dt>Explanation:</dt>
- * <dd>The permutation of s2='ab' exists in s1 starting at index 1 ('ba' is a permutation of 'ab')</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Sliding Window
- * **Data Structures**: Array, String
- * **Patterns**: Sliding Window Pattern, Hash Table Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use sliding window with character frequency. Window is valid if it contains permutation of s1 (same character counts). Check each window of size len(s1) by maintaining character counts.
+ * The key insight is that use sliding window with character frequency. Window is valid if it contains permutation of s1 (same character counts). Check each window of size len(s1) by maintaining character counts.
  *
  * ### APPROACH:
  * 1. **Count s1 characters**: Use Counter(s1) to get character frequencies
@@ -64,23 +38,21 @@
  * ```
  * True
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

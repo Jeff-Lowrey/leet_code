@@ -1,86 +1,55 @@
 /**
- * # Difficulty: Hard
- *
- * # 0493. Reverse Pairs
- *
- *
- * Given an integer array nums, return the number of reverse pairs in the array.
- *
- * A reverse pair is a pair (i, j) where:
- * - 0 <= i < j < nums.length and
- * - nums[i] > 2 * nums[j]
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[1, 3, 2, 3, 1]]</dd>
- * <dt>Output:</dt>
- * <dd>"\nInput: nums"</dd>
- * <dt>Explanation:</dt>
- * <dd>Count of reverse pairs where nums[i] > 2*nums[j] and i < j is 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Complement Search, Two Pointers Pattern
- * **Time Complexity**: O(n log n) - Sorting or divide-and-conquer
- * **Space Complexity**: O(n) - Additional hash map storage
+### INTUITION:
+This is similar to counting inversions but with a modified condition (nums[i] > 2 * nums[j] instead of nums[i] > nums[j]). We can use merge sort to count these pairs efficiently during the merge process, or use segment trees / BIT with coordinate compression.
 
- *
- * ### INTUITION:
- * This is similar to counting inversions but with a modified condition (nums[i] > 2 * nums[j] instead of nums[i] > nums[j]). We can use merge sort to count these pairs efficiently during the merge process, or use segment trees / BIT with coordinate compression.
- *
- * ### APPROACH:
- * 1. **Base case check**: Return 0 for empty array, and create base case for single-element arrays in recursion
- * 2. **Divide array**: Split array into left and right halves using merge sort structure
- * 3. **Recursively count**: Get reverse pair counts from left half and right half independently
- * 4. **Count cross-boundary pairs**: For each element in left half, count elements in right half where left[i] > 2 * right[j]
- * 5. **Use two pointers**: Maintain pointer j in right array, increment while condition left[i] > 2 * right[j] holds
- * 6. **Merge sorted arrays**: After counting, merge left and right into sorted array for parent recursion level
- * 7. **Return total count**: Sum of left count, right count, and cross-boundary count gives total reverse pairs
- *
- * ### WHY THIS WORKS:
- * By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [1,3,2,3,1]
- * ```
- *
- * Reverse pairs:
- * - (1,4): nums[1]=3 > 2*nums[4]=2 ✓
- * - (3,4): nums[3]=3 > 2*nums[4]=2 ✓
- *
- * Output:
- * ```
- * 2
- * ```
+### APPROACH:
+1. **Base case check**: Return 0 for empty array, and create base case for single-element arrays in recursion
+2. **Divide array**: Split array into left and right halves using merge sort structure
+3. **Recursively count**: Get reverse pair counts from left half and right half independently
+4. **Count cross-boundary pairs**: For each element in left half, count elements in right half where left[i] > 2 * right[j]
+5. **Use two pointers**: Maintain pointer j in right array, increment while condition left[i] > 2 * right[j] holds
+6. **Merge sorted arrays**: After counting, merge left and right into sorted array for parent recursion level
+7. **Return total count**: Sum of left count, right count, and cross-boundary count gives total reverse pairs
 
- * ### TIME COMPLEXITY:
- * O(n log n)
- * - Sorting or divide-and-conquer
- * For merge sort and tree-based approaches
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * For auxiliary arrays and recursion stack
- *
- * ### EDGE CASES:
- * - Empty array
- * - Single element
- * - No reverse pairs
- * - All elements form reverse pairs
- * - Negative numbers and large values
- * - Overflow when computing 2*nums[j]
- *
- * </details>
- */
+### WHY THIS WORKS:
+By repeatedly dividing the search space in half, we eliminate half of the remaining elements in each iteration. Since the array is sorted, we can determine which half contains the target by comparing with the middle element. This guarantees we find the target (if it exists) in O(log n) time because each step reduces the problem size by a factor of 2.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [1,3,2,3,1]
+```
+
+Reverse pairs:
+- (1,4): nums[1]=3 > 2*nums[4]=2 ✓
+- (3,4): nums[3]=3 > 2*nums[4]=2 ✓
+
+Output:
+```
+2
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+O(n log n)**
+- Sorting or divide-and-conquer
+For merge sort and tree-based approaches
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+For auxiliary arrays and recursion stack
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 493: Reverse Pairs

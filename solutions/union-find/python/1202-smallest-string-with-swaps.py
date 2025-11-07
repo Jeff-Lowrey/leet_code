@@ -1,34 +1,6 @@
 """
-# 1202. Smallest String With Swaps
-
-# Difficulty: Medium
-
-You are given a string s, and an array of pairs where pairs[i] = [a, b] indicates 2 indices
-(0-indexed) that can be swapped. You can swap indices multiple times. Return the lexicographically
-smallest string that s can be transformed to after using the swaps.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "dcab", pairs = [[0,3],[1,2]]</dd>
-<dt>Output:</dt>
-<dd>bacd"</dd>
-<dt>Explanation:</dt>
-<dd>Smallest string after swapping characters in connected components</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: O(n log n + m α(n)) where m is pairs count
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
-Pairs form connected components via union-find. Within each component, indices can be
+The key insight is that pairs form connected components via union-find. Within each component, indices can be
 rearranged freely. Sort characters in each component and assign to sorted indices.
 
 ### APPROACH:
@@ -61,12 +33,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n log n + m α(n)) where m is pairs count
+**O(n log n + m α(n)**) where m is pairs count
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 - Additional hash map storage
-
 
 ### EDGE CASES:
 - **No pairs given**: Return original string unchanged
@@ -75,7 +46,6 @@ O(n)
 - **Multiple disconnected components**: Sort each component independently
 - **Duplicate characters**: Sorting naturally handles duplicates correctly
 
-</details>
 """
 
 from collections import defaultdict

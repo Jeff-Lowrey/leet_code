@@ -1,34 +1,4 @@
 """
-# Difficulty: Medium
-
-# 1268. Search Suggestions System
-
-You are given an array of strings products and a string searchWord.
-
-Design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
-
-Return a list of lists of the suggested products after each character of searchWord is typed.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["mobile", "mouse", "moneypot", "monitor", "mousepad"]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Search suggestions for 'mouse' show top 3 products per character</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(N * L + S)
-**Space Complexity**: O(N * L)
-
 ### INTUITION:
 This is a classic autocomplete problem that benefits from using a Trie data structure. As we type each character, we need to find all words with that prefix and return the top 3 lexicographically. A Trie allows us to efficiently navigate to the prefix and collect matching words.
 
@@ -41,10 +11,10 @@ This is a classic autocomplete problem that benefits from using a Trie data stru
 Alternative: Sort products, then use binary search for each prefix
 
 ### WHY THIS WORKS:
-- Trie naturally organizes words by prefixes
-- Storing sorted suggestions at each node provides O(1) lookup
-- As we build the trie, we can maintain the lexicographically smallest suggestions
-- Navigation follows the typed prefix exactly
+- This ensures that trie naturally organizes words by prefixes
+- This ensures that storing sorted suggestions at each node provides O(1) lookup
+- This ensures that as we build the trie, we can maintain the lexicographically smallest suggestions
+- This ensures that navigation follows the typed prefix exactly
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,23 +37,26 @@ Step 8: Process 'mou': ["mouse", "mousepad"]
 Step 9: Process 'mous': ["mouse", "mousepad"]
 Step 10: Process 'mouse': ["mouse", "mousepad"]
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-O(N * L + S)
+**O(N * L + S)**
 Where N is number of products, L is average length, S is searchWord length
-- Building trie with suggestions: O(N * L)
-- Processing search: O(S)
+- Building trie with suggestions: **O(N * L)**
+- Processing search: **O(S)**
 
 ### SPACE COMPLEXITY:
-O(N * L)
+**O(N * L)**
 For storing the trie structure
 
 ### EDGE CASES:
-- SearchWord has no matching products
-- Fewer than 3 products match a prefix
-- All products share the same prefix
-- Empty products list
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

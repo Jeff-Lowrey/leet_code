@@ -1,37 +1,9 @@
 /**
- * # Difficulty: Easy
+ * ### METADATA:
  *
- * # 0021. Merge Two Sorted Lists
- *
- *
- * You are given the heads of two sorted linked lists list1 and list2.
- *
- * Merge the two lists in a sorted manner and return the head of the merged linked list.
- *
- * The list should be made by splicing together the nodes of the first two lists.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>list1 = [1,2,4], list2 = [1,3,4]</dd>
- * <dt>Output:</dt>
- * <dd>[1,1,2,3,4,4]</dd>
- * <dt>Explanation:</dt>
- * <dd>Merging [1,2,4] and [1,3,4] gives [1,1,2,3,4,4]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup
- * **Data Structures**: Hash Set, Array, Linked List
- * **Patterns**: Divide and Conquer
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
+ * The key insight is that use dummy node to handle edge cases. Compare nodes from both lists. Advance pointer of smaller node. Continue until both lists exhausted. Return dummy.next.
  *
  * ### APPROACH:
  * 1. **Create dummy node**: Initialize dummy = ListNode(0) to simplify list construction
@@ -68,23 +40,21 @@
  * ```
  * [1,1,2,3,4,4]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class ListNode {

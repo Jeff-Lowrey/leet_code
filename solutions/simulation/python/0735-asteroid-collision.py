@@ -1,45 +1,16 @@
 """
-# 0735. Asteroid Collision
-
-# Difficulty: Medium
-
-We are given an array `asteroids` of integers representing asteroids in a row.
-
-For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
-
-Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>asteroids = [5,10,-5]</dd>
-<dt>Output:</dt>
-<dd>[5,10]</dd>
-<dt>Explanation:</dt>
-<dd>The 10 and -5 collide resulting in 10. The 5 and 10 never collide.</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-
-### METADATA:
-**Techniques**: Stack-based Simulation, Collision Detection
-**Data Structures**: Stack, Array
-**Patterns**: Simulation, State Management
-**Time Complexity**: **O(n)** - Each asteroid is pushed and popped at most once
-**Space Complexity**: **O(n)** - Stack can contain all asteroids in worst case
-
 ### INTUITION:
-Use a stack to simulate asteroids. Only right-moving asteroids (positive) can potentially collide with left-moving asteroids (negative). When we encounter a left-moving asteroid, we need to check if it collides with any right-moving asteroids already on the stack.
+The key insight is that use a stack to simulate asteroids. Only right-moving asteroids (positive) can potentially collide with left-moving asteroids (negative). When we encounter a left-moving asteroid, we need to check if it collides with any right-moving asteroids already on the stack.
 
 ### APPROACH:
-We iterate through the asteroids array and use a stack to track surviving asteroids. For each asteroid, if it's moving right (positive) or the stack is empty, we simply add it to the stack.
-
-When we encounter a left-moving asteroid (negative), we need to handle potential collisions. We compare it with the top of the stack. If the stack top is moving left or the stack is empty, no collision occurs and we add the asteroid. If the stack top is moving right, a collision occurs. We compare their absolute values: if the left-moving asteroid is larger, it destroys the stack top and continues; if equal, both explode; if smaller, the left-moving asteroid explodes.
-
-We continue this collision process until the left-moving asteroid explodes, gets added to the stack, or the stack becomes empty.
+1. We iterate through the asteroids array and use a stack to track surviving asteroids.
+2. For each asteroid, if it's moving right (positive) or the stack is empty, we simply add it to the stack.
+3. When we encounter a left-moving asteroid (negative), we need to handle potential collisions.
+4. We compare it with the top of the stack.
+5. If the stack top is moving left or the stack is empty, no collision occurs and we add the asteroid.
+6. If the stack top is moving right, a collision occurs.
+7. We compare their absolute values: if the left-moving asteroid is larger, it destroys the stack top and continues; if equal, both explode; if smaller, the left-moving asteroid explodes.
+8. We continue this collision process until the left-moving asteroid explodes, gets added to the stack, or the stack becomes empty.
 
 ### WHY THIS WORKS:
 - Stack naturally handles the sequential collision process
@@ -81,7 +52,6 @@ Output:
 - **Single asteroid:** Always survives
 - **Empty array:** Returns empty array
 
-</details>
 """
 
 from typing import List

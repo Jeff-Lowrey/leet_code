@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 1248. Count Number Of Nice Subarrays
-
-Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
-
-Return the number of nice sub-arrays.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [1,1,2,1,1], k = 3</dd>
-<dt>Output:</dt>
-<dd>2</dd>
-<dt>Explanation:</dt>
-<dd>The only sub-arrays with 3 odd numbers are [1,1,2,1] and [1,2,1,1].</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Sliding Window Pattern, Hash Table Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 This problem is a variation of "subarray sum equals k" but instead of sum, we count odd numbers. We can use prefix sum technique by treating each odd number as 1 and even numbers as 0. Then we need to find subarrays where the sum of 1s equals k.
 
@@ -37,10 +9,10 @@ This problem is a variation of "subarray sum equals k" but instead of sum, we co
 4. **Count subarrays**: For each position, use hash table lookup to check if (current_count - k) exists in hash map
 
 ### WHY THIS WORKS:
-- Transform odd numbers to 1, even numbers to 0
-- Problem becomes: find subarrays with sum = k
-- Use the same technique as "Subarray Sum Equals K"
-- prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
+- This ensures that transform odd numbers to 1, even numbers to 0
+- This ensures that problem becomes: find subarrays with sum = k
+- This ensures that use the same technique as "Subarray Sum Equals K"
+- This ensures that prefix_count[j] - prefix_count[i] = k means subarray from i+1 to j has k odd numbers
 
 ### EXAMPLE WALKTHROUGH:
 **Input:** nums = [1,1,2,1,1], k = 3
@@ -68,20 +40,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Single pass through array with HashMap operations
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For the frequency HashMap
 
 ### EDGE CASES:
-- No odd numbers in array
-- k = 0 (looking for subarrays with no odd numbers)
-- k > number of odd numbers in array
-- All numbers are odd or all are even
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from collections import defaultdict

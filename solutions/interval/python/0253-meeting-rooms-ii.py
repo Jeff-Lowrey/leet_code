@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0253. Meeting Rooms Ii
-
-Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>intervals = [[0,30],[5,10],[15,20]]</dd>
-<dt>Output:</dt>
-<dd>2 (minimum meeting rooms needed)</dd>
-<dt>Explanation:</dt>
-<dd>Minimum 2 meeting rooms needed for [[0,30],[5,10],[15,20]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
+The key insight is that track meeting start and end times separately. Use min heap for end times. When a new meeting starts, remove all meetings that have already ended. Heap size is rooms needed at that moment. Return maximum heap size.
 
 ### APPROACH:
 1. **Separate start and end times**: Create start_times and end_times arrays
@@ -39,11 +13,11 @@ Track meeting start and end times separately. Use min heap for end times. When a
 8. **Return result**: Return max_rooms
 
 ### WHY THIS WORKS:
-- Sort start times and end times separately as two arrays
-- Two pointers: when meeting starts before earliest end, need new room
-- When meeting starts after earliest end, reuse that room
-- Track maximum rooms needed simultaneously
-- O(n log n) for sorting, O(n) space for separate arrays
+- This ensures that sort start times and end times separately as two arrays
+- This ensures that two pointers: when meeting starts before earliest end, need new room
+- This ensures that when meeting starts after earliest end, reuse that room
+- This ensures that track maximum rooms needed simultaneously
+- This ensures that o(n log n) for sorting, O(n) space for separate arrays
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -68,21 +42,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 import heapq

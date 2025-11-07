@@ -1,32 +1,4 @@
 """
-# 1312. Minimum Insertions Palindrome
-
-# Difficulty: Hard
-
-Given a string s, return the minimum number of insertions needed to make s a palindrome.
-
-A palindrome is a string that reads the same forward and backward.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "zzazz"</dd>
-<dt>Output:</dt>
-<dd>0</dd>
-<dt>Explanation:</dt>
-<dd>The string 'zzazz' requires 0 insertions because it's already a palindrome</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, String
-**Patterns**: Greedy Algorithm, Dynamic Programming
-**Time Complexity**: O(n²) - Nested iteration through input
-**Space Complexity**: O(n²)
-
 ### INTUITION:
 To make a string palindromic with minimum insertions, we need to find the longest palindromic subsequence (LPS) first. The minimum insertions needed equals the string length minus the LPS length, because we only need to insert characters to match the "missing" ones.
 
@@ -58,20 +30,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n²)
+**O(n²)**
 - Filling n×n DP table with constant work per cell
 
 ### SPACE COMPLEXITY:
-O(n²)
-- DP table storage, can be optimized to O(n)
+**O(n²)**
+- DP table storage, can be optimized to **O(n)**
 
 ### EDGE CASES:
-- Already palindrome: return 0
-- Single character: return 0
-- All different characters: return n-1
-- Empty string: return 0
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 import time

@@ -1,34 +1,4 @@
 """
-# Difficulty: Hard
-
-# 0745. Prefix And Suffix Search
-
-Design a special dictionary that searches the words in it by a prefix and a suffix.
-
-Implement the WordFilter class:
-- WordFilter(string[] words) Initializes the object with the words in the dictionary.
-- f(string pref, string suff) Returns the index of the word in the dictionary, which has the prefix pref and the suffix suff. If there is more than one valid index, return the largest of them. If there is no such word in the dictionary, return -1.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>words = ["apple"]</dd>
-<dt>Output:</dt>
-<dd>See walkthrough</dd>
-<dt>Explanation:</dt>
-<dd>WordFilter finds 'apple' with prefix='a' and suffix='e'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Backtracking
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern, Backtracking
-**Time Complexity**: - Constructor: O(N * L^3) where N is words count, L is max word length
-**Space Complexity**: O(N * L^3)
-
 ### INTUITION:
 We need to efficiently search for words that match both a prefix and suffix. A clever trick is to create combined keys like "suffix{word}prefix" where '{' acts as a separator. We can then build a trie with all possible suffix#prefix combinations for each word. When searching, we look up "suff{pref" in the trie.
 
@@ -79,21 +49,28 @@ Look up "e{app" in trie
 Find indices 0 (apple) and 2 (application)
 Return 2 (maximum)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-- Constructor: O(N * L^3) where N is words count, L is max word length
-  - For each word, we create L^2 combinations, each taking O(L) to insert
-- f(): O(P + S) where P is prefix length, S is suffix length
+- Constructor: **O(N * L^3)** where N is words count, L is max word length
+  - For each word, we create L^2 combinations, each taking **O(L)** to insert
+- f(): **O(P + S)** where P is prefix length, S is suffix length
 
 ### SPACE COMPLEXITY:
-O(N * L^3)
+**O(N * L^3)**
 For storing all suffix-prefix combinations in trie
 
 ### EDGE CASES:
-- Multiple words with same prefix and suffix
-- Word is both prefix and suffix
-- Empty prefix or suffix
-- No matching words
-- Single character words
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """

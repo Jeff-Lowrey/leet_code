@@ -1,36 +1,6 @@
 """
-# 0207. Course Schedule
-
-# Difficulty: Medium
-
-There are a total of numCourses courses you have to take, labeled from 0 to `numCourses - 1`.
-You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates
-that you must take course bi first if you want to take course ai.
-
-Return true if you can finish all courses. Otherwise, return false.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>numCourses = 2`, prerequisites = [[1,0]]</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>Course schedule [0,1] means 0 depends on 1; can finish if no cycles</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(V + E)
-**Space Complexity**: O(V + E)
-
 ### INTUITION:
-This is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
+The key insight is that this is a cycle detection problem in a directed graph. If there's a cycle in the prerequisite dependencies, it's impossible to complete all courses. Topological sorting can detect cycles while finding a valid course order.
 
 ### APPROACH:
 1. **Build adjacency list**: Create a graph where each prerequisite points to the courses that depend on it
@@ -65,16 +35,14 @@ true
 ```
 
 ### TIME COMPLEXITY:
-O(V + E)
+**O(V + E)**
 
 - Visit all vertices and edges in the graph
 
-
 ### SPACE COMPLEXITY:
-O(V + E)
+**O(V + E)**
 
 - Store adjacency list and visited set
-
 
 ### EDGE CASES:
 - **No prerequisites**: All courses can be taken, return true
@@ -83,7 +51,6 @@ O(V + E)
 - **Linear chain**: No cycles, courses taken in topological order
 - **Disconnected components**: Process each component separately
 
-</details>
 """
 
 from collections import deque, defaultdict

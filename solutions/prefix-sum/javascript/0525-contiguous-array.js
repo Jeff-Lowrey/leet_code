@@ -1,83 +1,57 @@
 /**
- * # 0525. Contiguous Array
- *
- * Difficulty: Medium
- *
- *
- * Given a binary array nums, return the maximum length of a contiguous subarray
- * with an equal number of 0 and 1.
- *
- * Example:
- * Input: nums = [0,1]
- * Output: 2
- * Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums = [0,1]</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>The longest contiguous subarray with equal 0s and 1s has length 2: [0,1] or [1,0]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(n) - Additional hash map storage
+### INTUITION:
+The key insight is that transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
+finding a subarray with sum 0. Use prefix sum with hash map to track when we've
+seen each sum value before.
 
- *
- * ### INTUITION:
- * Transform the problem: treat 0 as -1. Finding equal 0s and 1s is equivalent to
- * finding a subarray with sum 0. Use prefix sum with hash map to track when we've
- * seen each sum value before.
- *
- * ### APPROACH:
- * 1. **Transform**: Replace 0 with -1 in counting (not modifying array)
- * 2. **Prefix Sum**: Calculate cumulative count (treating 0 as -1)
- * 3. **Hash Map**: Store (sum → earliest_index) pairs
- * 4. **Check**: If same sum seen before, subarray between has sum 0 (equal 0s and 1s)
- *
- * ### WHY THIS WORKS:
- * If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
- * Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * nums = [0, 1, 0]
- * ```
- *
- * Transform to: [-1, 1, -1]
- * Prefix sums: [-1, 0, -1]
- * Index -1: sum 0 (initialize)
- * Index 0: sum -1, store {0: -1, -1: 0}
- * Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
- * Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
- * Maximum length = 2
+### APPROACH:
+1. **Transform**: Replace 0 with -1 in counting (not modifying array)
+2. **Prefix Sum**: Calculate cumulative count (treating 0 as -1)
+3. **Hash Map**: Store (sum → earliest_index) pairs
+4. **Check**: If same sum seen before, subarray between has sum 0 (equal 0s and 1s)
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- *
- * ### EDGE CASES:
- * - All 0s or all 1s: No equal subarray (return 0)
- * - Already balanced: Entire array is valid
- * - Empty array: Return 0
- * - Single element: Cannot have equal 0s and 1s
- *
- * </details>
- */
+### WHY THIS WORKS:
+If we treat 0 as -1, then a subarray with equal 0s and 1s will have sum 0.
+Using prefix sums: if prefix[i] == prefix[j], then sum(nums[i+1:j+1]) == 0.
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+nums = [0, 1, 0]
+```
+
+Transform to: [-1, 1, -1]
+Prefix sums: [-1, 0, -1]
+Index -1: sum 0 (initialize)
+Index 0: sum -1, store {0: -1, -1: 0}
+Index 1: sum 0, seen at index -1, length = 1 - (-1) = 2
+Index 2: sum -1, seen at index 0, length = 2 - 0 = 2
+Maximum length = 2
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 525: Contiguous Array

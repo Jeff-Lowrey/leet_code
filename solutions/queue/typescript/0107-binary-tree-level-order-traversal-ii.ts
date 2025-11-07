@@ -1,83 +1,64 @@
 /**
- * # Difficulty: Medium
- *
- * # 0107. Binary Tree Level Order Traversal II
- *
- *
- * Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values.
- * (i.e., from left to right, level by level from leaf to root).
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[[15, 7]]</dd>
- * <dt>Output:</dt>
- * <dd>"Test case 1 passed: Example tree"</dd>
- * <dt>Explanation:</dt>
- * <dd>Bottom-up level-order: [[15,7],[9,20],[3]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Two Pointers
- * **Data Structures**: Array, Queue, Tree
- * **Patterns**: Two Pointers Pattern, Graph Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(w)
- *
- * ### INTUITION:
- * Perform standard level-order traversal (BFS) but reverse the final result to get bottom-up order.
- * Alternatively, we can prepend each level to the result instead of appending.
- *
- * ### APPROACH:
- * 1. **Handle edge case**: Return empty list if tree is empty
- * 2. **Initialize BFS**: Use a deque for level-order traversal
- * 3. **For each level**:
- *    - Process all nodes at current level
- *    - Collect values in order
- *    - Add level to result
- * 4. **Reverse result**: Return reversed list for bottom-up order
- *
- * ### WHY THIS WORKS:
- * - BFS naturally processes nodes level by level (top to bottom)
- * - By reversing the result at the end, we get bottom-up order
- * - Deque provides efficient O(1) operations for BFS
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Tree:      3
- * ```
- *
- * /   \
- * 9     20
- * /  \
- * 15   7
- * Level-order (top-down): [[3], [9, 20], [15, 7]]
- * Bottom-up: [[15, 7], [9, 20], [3]]
+### INTUITION:
+Perform standard level-order traversal (BFS) but reverse the final result to get bottom-up order.
+Alternatively, we can prepend each level to the result instead of appending.
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Visit each node exactly once: O(n)
- * - Reversing result: O(h) where h = height
- * - Total: O(n)
- *
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- * - Result storage: O(n)
- *
- * ### EDGE CASES:
- * - Empty tree: Return []
- * - Single node: Return [[root.val]]
- * - Skewed tree: Each level has one node
- *
- * </details>
- */
+### APPROACH:
+1. **Handle edge case**: Return empty list if tree is empty
+2. **Initialize BFS**: Use a deque for level-order traversal
+3. **For each level**:
+   - Process all nodes at current level
+   - Collect values in order
+   - Add level to result
+4. **Reverse result**: Return reversed list for bottom-up order
+
+### WHY THIS WORKS:
+- This ensures that bFS naturally processes nodes level by level (top to bottom)
+- This ensures that by reversing the result at the end, we get bottom-up order
+- This ensures that deque provides efficient O(1) operations for BFS
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Tree:      3
+```
+
+/   \
+9     20
+/  \
+15   7
+Level-order (top-down): [[3], [9, 20], [15, 7]]
+Bottom-up: [[15, 7], [9, 20], [3]]
+
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+- Visit each node exactly once: **O(n)**
+- Reversing result: **O(h)** where h = height
+- Total: **O(n)**
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: **O(n)**
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 class TreeNode {
   val: number;

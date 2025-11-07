@@ -1,110 +1,65 @@
 /**
- * # 0038. Count And Say
- *
- * Difficulty: Easy
- *
- *
- * The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
- * - countAndSay(1) = "1"
- * - countAndSay(n) is the way you would "say" the digit string from countAndSay(n-1),
- *   which is then converted into a different digit string.
- *
- * To determine how you "say" a digit string, split it into the minimal number of substrings
- * such that each substring contains exactly one unique digit. Then for each substring,
- * say the number of digits, then say the digit. Finally, concatenate every said digit.
- *
- * Example:
- * Input: n = 4
- * Output: "1211"
- * Explanation:
- * countAndSay(1) = "1"
- * countAndSay(2) = say "1" = one 1 = "11"
- * countAndSay(3) = say "11" = two 1s = "21"
- * countAndSay(4) = say "21" = one 2 + one 1 = "1211"
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>n = 4</dd>
- * <dt>Output:</dt>
- * <dd>1211"</dd>
- * <dt>Explanation:</dt>
- * <dd>4th count-and-say term is '1211'</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal
- * **Data Structures**: String, Linked List
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n * m)
- * **Space Complexity**: O(m)
+### INTUITION:
+The key insight is that the count-and-say sequence is built iteratively where each term describes the previous term
+by counting consecutive identical digits. We read the previous result from left to right,
+counting how many times each digit appears consecutively, then building a new string.
 
- *
- * ### INTUITION:
- * The count-and-say sequence is built iteratively where each term describes the previous term
- * by counting consecutive identical digits. We read the previous result from left to right,
- * counting how many times each digit appears consecutively, then building a new string.
- *
- * ### APPROACH:
- * 1. **Base Case**: Start with "1" for n=1
- * 2. **Iterative Building**: For each iteration from 2 to n:
- *    - Read through the previous string
- *    - Count consecutive occurrences of each digit
- *    - Build new string by appending count + digit
- * 3. **Two-Pointer Technique**: Use two pointers to identify runs of same digits
- * 4. **String Construction**: Use list for efficient string building
- *
- * ### WHY THIS WORKS:
- * - Each term is uniquely determined by the previous term
- * - We process left to right, counting consecutive identical digits
- * - The pattern is deterministic and follows a clear rule
- * - Building with a list and joining is efficient in Python
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * n = 5:
- * ```
- *
- * 1. "1"
- * 2. "11" (one 1)
- * 3. "21" (two 1s)
- * 4. "1211" (one 2, one 1)
- * 5. "111221" (one 1, one 2, two 1s)
- *
- * Steps:
- * Step 1: For "1211" → "111221":
- * Step 2: - Read '1' once: "11"
- * Step 3: - Read '2' once: "12"
- * Step 4: - Read '1' twice: "21"
- * Step 5: - Result: "111221"
- * 
- * Output:
- * ```
- * "111221"
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(n * m)
- * - n iterations to build up to the nth term
- * - m is the length of the string at each iteration (grows exponentially)
- * - Each iteration processes the entire string once
- *
- * ### SPACE COMPLEXITY:
- * O(m)
- * - m is the length of the current string
- * - We store the result string which grows with each iteration
- *
- * ### EDGE CASES:
- * - n = 1: Return "1" directly
- * - Long sequences: String grows exponentially
- * - All same digits: Still processed character by character
- *
- * </details>
- */
+### APPROACH:
+1. **Base Case**: Start with "1" for n=1
+2. **Iterative Building**: For each iteration from 2 to n:
+   - Read through the previous string
+   - Count consecutive occurrences of each digit
+   - Build new string by appending count + digit
+3. **Two-Pointer Technique**: Use two pointers to identify runs of same digits
+4. **String Construction**: Use list for efficient string building
+
+### WHY THIS WORKS:
+- This ensures that each term is uniquely determined by the previous term
+- This ensures that we process left to right, counting consecutive identical digits
+- This ensures that the pattern is deterministic and follows a clear rule
+- This ensures that building with a list and joining is efficient in Python
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+n = 5:
+```
+
+1. "1"
+2. "11" (one 1)
+3. "21" (two 1s)
+4. "1211" (one 2, one 1)
+5. "111221" (one 1, one 2, two 1s)
+
+Steps:
+Step 1: For "1211" → "111221":
+Step 2: - Read '1' once: "11"
+Step 3: - Read '2' once: "12"
+Step 4: - Read '1' twice: "21"
+Step 5: - Result: "111221"
+
+Output:
+```
+"111221"
+```
+
+### TIME COMPLEXITY:
+O(n * m)**
+- n iterations to build up to the nth term
+- m is the length of the string at each iteration (grows exponentially)
+- Each iteration processes the entire string once
+
+### SPACE COMPLEXITY:
+O(m)**
+- m is the length of the current string
+- We store the result string which grows with each iteration
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 /**
  * Main solution for Problem 38: Count And Say

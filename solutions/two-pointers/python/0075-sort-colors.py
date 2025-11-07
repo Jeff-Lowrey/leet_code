@@ -1,36 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0075. Sort Colors
-
-Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
-
-We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
-
-You must solve this problem without using the library's sort function.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [2, 0, 2, 1, 1, 0]</dd>
-<dt>Output:</dt>
-<dd>[0, 0, 1, 1, 2, 2]</dd>
-<dt>Explanation:</dt>
-<dd>Sort colors [2,0,2,1,1,0] in-place to [0,0,1,1,2,2]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see 0, swap with p0. When see 2, swap with p2. When see 1, just move current. Partitions in single pass.
+The key insight is that use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see 0, swap with p0. When see 2, swap with p2. When see 1, just move current. Partitions in single pass.
 
 ### APPROACH:
 1. **Initialize three pointers**: Set low = 0, mid = 0, high = len(nums) - 1
@@ -42,11 +12,11 @@ Use three pointers: p0 for next 0, p2 for next 2, current for scanning. When see
 7. **Array sorted**: After loop, array contains 0s, then 1s, then 2s
 
 ### WHY THIS WORKS:
-- Dutch national flag: three pointers (low, mid, high)
-- low tracks next position for 0, high tracks next position for 2
-- If nums[mid] == 0: swap with low, advance both
-- If nums[mid] == 2: swap with high, decrement high only (don't advance mid, need to check swapped value)
-- O(n) time single pass, O(1) space
+- This ensures that dutch national flag: three pointers (low, mid, high)
+- This ensures that low tracks next position for 0, high tracks next position for 2
+- This ensures that if nums[mid] == 0: swap with low, advance both
+- This ensures that if nums[mid] == 2: swap with high, decrement high only (don't advance mid, need to check swapped value)
+- This ensures that o(n) time single pass, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -81,21 +51,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple

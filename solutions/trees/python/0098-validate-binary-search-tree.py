@@ -1,38 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0098. Validate Binary Search Tree
-
-Given the root of a binary tree, determine if it is a valid binary search tree (BST).
-
-A valid BST is defined as follows:
-
-- The left subtree of a node contains only nodes with keys less than the node's key.
-- The right subtree of a node contains only nodes with keys greater than the node's key.
-- Both the left and right subtrees must also be binary search trees.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2,1,3]</dd>
-<dt>Output:</dt>
-<dd>True (valid BST)</dd>
-<dt>Explanation:</dt>
-<dd>Tree is valid BST if all nodes satisfy left < node < right</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Stack Operations
-**Data Structures**: Hash Map, Array, Stack
-**Patterns**: Two Pointers Pattern, Binary Search Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.
+The key insight is that recursively validate each subtree. For each node, check: left < node < right, and both subtrees are valid BSTs. Pass valid range down: left subtree max < node, right subtree min > node.
 
 ### APPROACH:
 1. **Define helper function**: Implement validate(node, min_val, max_val)
@@ -68,21 +36,18 @@ True (valid BST)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

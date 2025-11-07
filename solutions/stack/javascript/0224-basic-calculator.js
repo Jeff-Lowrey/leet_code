@@ -1,94 +1,61 @@
 /**
- * # Difficulty: Hard
- *
- * # 0224. Basic Calculator
- *
- *
- * Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
- *
- * Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
- *
- * The expression string contains only '(', ')', '+', '-', non-negative integers and spaces ' '.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>"1 + 1"</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>Expression '1+1' evaluates to 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Iterative Solution
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(n) - Additional set storage
+### INTUITION:
+This is a classic stack problem for parsing expressions with parentheses. The key insight is to use a stack to save the current state (result and sign) when entering a parenthesized subexpression, then restore it when exiting.
 
- *
- * ### INTUITION:
- * This is a classic stack problem for parsing expressions with parentheses. The key insight is to use a stack to save the current state (result and sign) when entering a parenthesized subexpression, then restore it when exiting.
- *
- * ### APPROACH:
- * 1. **Stack for State**: Use stack to save [result, sign] when encountering '('
- * 2. **Parse Numbers**: Build numbers digit by digit as we scan
- * 3. **Handle Operations**: Apply operations (+/-) when we encounter operators or ')'
- * 4. **Parentheses Logic**: Push state on '(', pop and apply on ')'
- *
- * ### WHY THIS WORKS:
- * - Stack naturally handles nested parentheses
- * - We maintain running result and current sign
- * - When we see '(', we start a fresh calculation (subproblem)
- * - When we see ')', we complete the subproblem and add back to previous result
- * - Numbers and operators are processed left to right
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * "1 + 1"
- * "2-(1+1)"
- * ```
- *
- * 1. num=1, result=0, sign=1
- * 2. '+': result = 0 + 1*1 = 1, sign=1
- * 3. num=1: result = 1 + 1*1 = 2
- * 1. num=2, result=0, sign=1
- * 2. '-': result = 0 + 2*1 = 2, sign=-1
- * 3. '(': push [2, -1], reset result=0, sign=1
- * 4. num=1, result=0, sign=1
- * 5. '+': result = 0 + 1*1 = 1, sign=1
- * 6. num=1: result = 1 + 1*1 = 2
- * 7. ')': pop [2, -1], result = 2 + 2*(-1) = 0
- *
- * Output:
- * ```
- * 2
- * 0
- * ```
+### APPROACH:
+1. **Stack for State**: Use stack to save [result, sign] when encountering '('
+2. **Parse Numbers**: Build numbers digit by digit as we scan
+3. **Handle Operations**: Apply operations (+/-) when we encounter operators or ')'
+4. **Parentheses Logic**: Push state on '(', pop and apply on ')'
 
- * ### TIME COMPLEXITY:
- * O(n)
- * Single pass through the string
- *
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional set storage
- * Stack can grow up to the depth of nested parentheses
- *
- * ### EDGE CASES:
- * - **No parentheses**: Simple left-to-right evaluation
- * - **Nested parentheses**: Stack handles multiple levels
- * - **Spaces in expression**: Skip whitespace during parsing
- * - **Negative numbers**: Handle with sign tracking
- * - **Single digit**: Return the digit value
- *
- * </details>
- */
+### WHY THIS WORKS:
+- Stack naturally handles nested parentheses
+- We maintain running result and current sign
+- When we see '(', we start a fresh calculation (subproblem)
+- When we see ')', we complete the subproblem and add back to previous result
+- Numbers and operators are processed left to right
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+"1 + 1"
+"2-(1+1)"
+```
+
+1. num=1, result=0, sign=1
+2. '+': result = 0 + 1*1 = 1, sign=1
+3. num=1: result = 1 + 1*1 = 2
+1. num=2, result=0, sign=1
+2. '-': result = 0 + 2*1 = 2, sign=-1
+3. '(': push [2, -1], reset result=0, sign=1
+4. num=1, result=0, sign=1
+5. '+': result = 0 + 1*1 = 1, sign=1
+6. num=1: result = 1 + 1*1 = 2
+7. ')': pop [2, -1], result = 2 + 2*(-1) = 0
+
+Output:
+```
+2
+0
+```
+
+### TIME COMPLEXITY:
+O(n)**
+Single pass through the string
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional set storage
+Stack can grow up to the depth of nested parentheses
+
+### EDGE CASES:
+- **No parentheses**: Simple left-to-right evaluation
+- **Nested parentheses**: Stack handles multiple levels
+- **Spaces in expression**: Skip whitespace during parsing
+- **Negative numbers**: Handle with sign tracking
+- **Single digit**: Return the digit value
+
+*/
 
 /**
  * Calculate the result of a basic arithmetic expression with parentheses.

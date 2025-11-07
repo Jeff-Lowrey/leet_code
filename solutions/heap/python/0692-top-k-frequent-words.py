@@ -1,32 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0692. Top K Frequent Words
-
-Given an array of strings words and an integer k, return the k most frequent strings.
-
-Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>words = ["i","love","leetcode","i","love","coding"], k = 2</dd>
-<dt>Output:</dt>
-<dd>["i", "love"] (after reversing)</dd>
-<dt>Explanation:</dt>
-<dd>Top k=2 frequent words in ['i','love','leetcode','i','love','coding'] are ['i','love']</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(N log k)
-**Space Complexity**: O(N + k)
-
 ### INTUITION:
 This problem combines frequency counting with sorting. We need to find the k most frequent words, but with a twist: when frequencies are equal, we sort lexicographically. A heap is perfect for this because we can maintain the top k elements efficiently while respecting both frequency and lexicographical ordering.
 
@@ -58,21 +30,24 @@ Heap process:
 - Remove coding: heap = [(-2, "love"), (-2, "i")]
 Result: ["i", "love"] (after reversing)
 
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-O(N log k)
-Where N is number of words, k is the result size. Heap operations are O(log k).
+**O(N log k)**
+Where N is number of words, k is the result size. Heap operations are **O(log k)**.
 
 ### SPACE COMPLEXITY:
-O(N + k)
-O(N) for frequency map, O(k) for heap
+**O(N + k)**
+**O(N)** for frequency map, **O(k)** for heap
 
 ### EDGE CASES:
-- k equals number of unique words
-- All words have same frequency (pure lexicographical sort)
-- Single word repeated
-- k = 1 with multiple candidates
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from collections import Counter

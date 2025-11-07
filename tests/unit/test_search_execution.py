@@ -2,8 +2,8 @@
 
 from unittest.mock import patch
 
-from src.leet_code.app import execute_search
-from src.leet_code.category_data import Solution
+from src.leet_code.data.category_data import Solution
+from src.leet_code.search.search_engine import execute_search
 
 
 class TestExecuteSearch:
@@ -18,7 +18,7 @@ class TestExecuteSearch:
 
     def test_navigate_mode_found(self) -> None:
         """Test navigate mode with existing problem."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_solution = Solution(
                 number="1",
                 name="Two Sum",
@@ -29,7 +29,7 @@ class TestExecuteSearch:
             )
             mock_cm.find_by_number.return_value = mock_solution
 
-            with patch("src.leet_code.app.find_solution_category") as mock_find:
+            with patch("src.leet_code.search.solution_finder.find_solution_category") as mock_find:
                 mock_find.return_value = ("arrays-hashing", "Arrays & Hashing")
 
                 result = execute_search("1")
@@ -41,7 +41,7 @@ class TestExecuteSearch:
 
     def test_navigate_mode_not_found(self) -> None:
         """Test navigate mode with non-existent problem."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_cm.find_by_number.return_value = None
 
             result = execute_search("99999")
@@ -52,7 +52,7 @@ class TestExecuteSearch:
 
     def test_similar_mode_found(self) -> None:
         """Test similarity search with valid reference."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_reference = Solution(
                 number="1",
                 name="Two Sum",
@@ -73,7 +73,7 @@ class TestExecuteSearch:
             mock_cm.find_by_number.return_value = mock_reference
             mock_cm.find_similar_problems.return_value = [(mock_similar, 0.75)]
 
-            with patch("src.leet_code.app.find_solution_category") as mock_find:
+            with patch("src.leet_code.search.solution_finder.find_solution_category") as mock_find:
                 mock_find.return_value = ("arrays-hashing", "Arrays & Hashing")
 
                 result = execute_search("1 difficulty=medium")
@@ -86,7 +86,7 @@ class TestExecuteSearch:
 
     def test_similar_mode_reference_not_found(self) -> None:
         """Test similarity search with invalid reference."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_cm.find_by_number.return_value = None
 
             result = execute_search("99999 difficulty=easy")
@@ -97,7 +97,7 @@ class TestExecuteSearch:
 
     def test_name_search_mode(self) -> None:
         """Test name search mode."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_solutions = [
                 Solution(
                     number="1",
@@ -118,7 +118,7 @@ class TestExecuteSearch:
             ]
             mock_cm.find_by_name.return_value = mock_solutions
 
-            with patch("src.leet_code.app.find_solution_category") as mock_find:
+            with patch("src.leet_code.search.solution_finder.find_solution_category") as mock_find:
                 mock_find.return_value = ("arrays-hashing", "Arrays & Hashing")
 
                 result = execute_search("sum")
@@ -130,7 +130,7 @@ class TestExecuteSearch:
 
     def test_name_search_with_filters(self) -> None:
         """Test name search with difficulty filter."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_solutions = [
                 Solution(
                     number="1",
@@ -143,7 +143,7 @@ class TestExecuteSearch:
             ]
             mock_cm.find_by_name.return_value = mock_solutions
 
-            with patch("src.leet_code.app.find_solution_category") as mock_find:
+            with patch("src.leet_code.search.solution_finder.find_solution_category") as mock_find:
                 mock_find.return_value = ("arrays-hashing", "Arrays & Hashing")
 
                 result = execute_search("sum difficulty=easy")
@@ -154,7 +154,7 @@ class TestExecuteSearch:
 
     def test_filter_mode(self) -> None:
         """Test pure filter mode."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_solutions = [
                 Solution(
                     number="1",
@@ -167,7 +167,7 @@ class TestExecuteSearch:
             ]
             mock_cm.get_all_solutions.return_value = mock_solutions
 
-            with patch("src.leet_code.app.find_solution_category") as mock_find:
+            with patch("src.leet_code.search.solution_finder.find_solution_category") as mock_find:
                 mock_find.return_value = ("arrays-hashing", "Arrays & Hashing")
 
                 result = execute_search("difficulty=easy")
@@ -178,7 +178,7 @@ class TestExecuteSearch:
 
     def test_filter_mode_multiple_filters(self) -> None:
         """Test filter mode with multiple filters."""
-        with patch("src.leet_code.app.category_manager") as mock_cm:
+        with patch("src.leet_code.search.search_engine.category_manager") as mock_cm:
             mock_solutions: list[Solution] = []
             mock_cm.get_all_solutions.return_value = mock_solutions
 

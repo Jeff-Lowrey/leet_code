@@ -1,42 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0211. Design Add and Search Words Data Structure
-
-Design a data structure that supports adding new words and finding if a string matches any previously added string.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>
-["WordDictionary","addWord","addWord","addWord","search","search","search","search"]<br>
-[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
-</dd>
-<dt>Output:</dt>
-<dd>[null,null,null,null,false,true,true,true]</dd>
-<dt>Explanation:</dt>
-<dd>
-WordDictionary wordDictionary = new WordDictionary();<br>
-wordDictionary.addWord("bad");<br>
-wordDictionary.addWord("dad");<br>
-wordDictionary.addWord("mad");<br>
-wordDictionary.search("pad"); // return False<br>
-wordDictionary.search("bad"); // return True<br>
-wordDictionary.search(".ad"); // return True<br>
-wordDictionary.search("b.."); // return True
-</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Depth-First Search
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Graph Pattern
-**Time Complexity**: - addWord: O(n) where n is word length
-**Space Complexity**: O(total characters in all words)
-
 ### INTUITION:
 We need a data structure that can efficiently store words and support wildcard searches.
 A Trie (prefix tree) is perfect for this - it allows efficient storage and search with wildcard support.
@@ -68,21 +30,23 @@ Step 1: search("pad") -> false
 Step 2: search(".ad") -> true (matches "bad", "dad", "mad")
 Step 3: search("b..") -> true (matches "bad")
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-- addWord: O(n) where n is word length
-- search: O(26^m) worst case where m is number of wildcards, O(n) average
+- addWord: **O(n)** where n is word length
+- search: **O(26^m)** worst case where m is number of wildcards, **O(n)** average
 
 ### SPACE COMPLEXITY:
-O(total characters in all words)
+**O(total characters in all words)**
 
 - Based on auxiliary data structures
 
-
 ### EDGE CASES:
-- Empty string
-- All wildcards
-- No matches
-- Single character words
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """

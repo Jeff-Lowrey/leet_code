@@ -1,37 +1,10 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0630. Course Schedule III
- * 
- * There are n different online courses numbered from 1 to n. You are given an array courses where courses[i] = [durationi, lastDayi] indicate that the ith course should be taken continuously for durationi days and must be finished before or on lastDayi.
- * 
- * You will start on the 1st day and you cannot take two or more courses simultaneously.
- * 
- * Return the maximum number of courses that you can take.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]</dd>
- * <dt>Output:</dt>
- * <dd>3 (max courses)</dd>
- * <dt>Explanation:</dt>
- * <dd>Maximum courses you can take within time limit</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Sorting
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- * 
+ * ### METADATA:
+ *
+ *
  * ### INTUITION:
- * Greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
- * 
+ * The key insight is that greedy: sort courses by deadline. For each course, if time available, add to heap (track duration). If no time, compare with longest course taken. If current shorter, replace longest.
+ *
  * ### APPROACH:
  * 1. **Sort by end time**: Sort courses by their deadlines
  * 2. **Initialize heap and time**: Create max heap, set current_time = 0
@@ -40,14 +13,14 @@
  * 5. **Check feasibility**: If current_time > deadline, remove longest course
  * 6. **Continue processing**: Handle all courses
  * 7. **Return result**: Return len(heap)
- * 
+ *
  * ### WHY THIS WORKS:
  * - Sort courses by deadline: greedy choice of course order
  * - Use max heap to track course durations taken so far
  * - If current time + duration > deadline, remove longest course (heap top)
  * - Greedy: always try to fit course, remove longest if conflicts
  * - O(n log n) for sort + heap operations, O(n) space for heap
- * 
+ *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
@@ -66,22 +39,20 @@
  * ```
  * 3 (max courses)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
-
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
  */
 
 class Solution {

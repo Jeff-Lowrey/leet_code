@@ -1,39 +1,10 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0646. Maximum Length Of Pair Chain
- * 
- * You are given an array of n pairs pairs where pairs[i] = [lefti, righti] and lefti < righti.
- * 
- * A pair p2 = [c, d] follows a pair p1 = [a, b] if b < c. A chain of pairs can be formed in this fashion.
- * 
- * Return the length longest chain which can be formed.
- * 
- * You do not need to use up all the given intervals. You can select pairs in any order.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>pairs = [[1,2],[2,3],[3,4]]</dd>
- * <dt>Output:</dt>
- * <dd>2 (maximum chain length)</dd>
- * <dt>Explanation:</dt>
- * <dd>Longest chain of pairs [[1,2],[2,3],[3,4]] is 2</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- * 
+ * ### METADATA:
+ *
+ *
  * ### INTUITION:
- * Sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
- * 
+ * The key insight is that sort pairs by end time. Use greedy similar to Activity Selection. Keep previous end, skip pairs that don't start after previous end. Count valid pairs.
+ *
  * ### APPROACH:
  * 1. **Sort by end**: Sort pairs by pair[1]
  * 2. **Initialize variables**: Set count = 1, current_end = pairs[0][1]
@@ -42,14 +13,14 @@
  * 5. **Extend chain**: Increment count, update current_end = pair_end
  * 6. **Continue processing**: Handle all pairs
  * 7. **Return result**: Return count as maximum chain length
- * 
+ *
  * ### WHY THIS WORKS:
  * - Sort pairs by end value (second element)
  * - Greedy: always pick pair with earliest end that doesn't overlap
  * - If current.start > last.end, add to chain
  * - Earliest end leaves maximum room for future pairs
  * - O(n log n) for sort, O(1) space, same logic as activity selection
- * 
+ *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
@@ -67,21 +38,20 @@
  * ```
  * 2 (maximum chain length)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
- * 
+ *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
  */
 
 class Solution {

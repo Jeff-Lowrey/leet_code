@@ -1,35 +1,4 @@
 """
-# Difficulty: Medium
-
-# 0235. Lowest Common Ancestor of a Binary Search Tree
-
-Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
-
-According to the definition of LCA on Wikipedia: "The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself)."
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[("BST Recursive", solution.lowestCommonAncestor),
-        ("BST Iterative", solution.lowestCommonAncestorIterative),
-        ("General Tree", solution.lowestCommonAncestorGeneral),
-        ("Path-based", solution.lowestCommonAncestorPaths)]</dd>
-<dt>Output:</dt>
-<dd>"{name}: {result.val}"</dd>
-<dt>Explanation:</dt>
-<dd>The lowest common ancestor of p=2 and q=8 is node 6</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, Stack, Tree
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(h)
-**Space Complexity**: O(h)
-
 ### INTUITION:
 In a BST, we can leverage the ordering property to find LCA efficiently. If both nodes are smaller than current node, LCA is in left subtree. If both are larger, LCA is in right subtree. Otherwise, current node is the LCA.
 
@@ -40,10 +9,10 @@ In a BST, we can leverage the ordering property to find LCA efficiently. If both
 4. **Handle edge cases**: One node is ancestor of the other
 
 ### WHY THIS WORKS:
-- BST ordering allows us to determine which subtree contains the LCA
-- The first node where p and q diverge (different subtrees) is the LCA
-- If one node equals current node, current node is the LCA
-- This is much more efficient than general tree LCA algorithms
+- This ensures that bST ordering allows us to determine which subtree contains the LCA
+- This ensures that the first node where p and q diverge (different subtrees) is the LCA
+- This ensures that if one node equals current node, current node is the LCA
+- This ensures that this is much more efficient than general tree LCA algorithms
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -70,12 +39,12 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(h)
-Where h is the height of the tree. O(log n) for balanced BST, O(n) for skewed tree
+**O(h)**
+Where h is the height of the tree. **O(log n)** for balanced BST, **O(n)** for skewed tree
 
 ### SPACE COMPLEXITY:
-O(h)
-For recursion stack, O(1) for iterative solution
+**O(h)**
+For recursion stack, **O(1)** for iterative solution
 
 ### EDGE CASES:
 - **One node is ancestor of other**: Return the ancestor node
@@ -84,7 +53,6 @@ For recursion stack, O(1) for iterative solution
 - **One node equals root**: Root is the LCA
 - **Linear BST (skewed)**: O(n) time complexity in worst case
 
-</details>
 """
 
 from typing import Any

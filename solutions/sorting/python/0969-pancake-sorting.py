@@ -1,42 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0969. Pancake Sorting
-
-Given an array of integers arr, sort the array by performing a series of pancake flips.
-
-In one pancake flip we do the following steps:
-- Choose an integer k where 1 <= k <= arr.length.
-- Reverse the sub-array arr[0...k-1] (0-indexed).
-
-For example, if arr = [3,2,1,4] and we performed a pancake flip choosing k = 3, we reverse the
-sub-array [3,2,1], so arr = [1,2,3,4] after the pancake flip at k = 3.
-
-Return an array of the k-values corresponding to a sequence of pancake flips that sort arr.
-Any valid answer that sorts the array within 10 * arr.length flips will be accepted.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3, 2, 4, 1]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Pancake sort of [3,2,4,1] uses flips [4,2,3,2]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n²) - Nested iteration through input
-**Space Complexity**: O(n)
-
 ### INTUITION:
-Like sorting pancakes by size - we can repeatedly bring the largest unsorted element to the
+The key insight is that like sorting pancakes by size - we can repeatedly bring the largest unsorted element to the
 top with one flip, then flip it to its final position. This guarantees sorting.
 
 ### APPROACH:
@@ -90,23 +54,20 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n²)
+**O(n²)**
 - n iterations (one per element)
-- Each iteration finds max: O(n)
-- Total: O(n²)
+- Each iteration finds max: **O(n)**
+- Total: **O(n²)**
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For storing the flip sequence
 
 ### EDGE CASES:
-- Already sorted array
-- Single element
-- Reverse sorted
-- All elements equal
-- Two elements
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

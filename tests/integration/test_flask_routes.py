@@ -7,13 +7,14 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from src.leet_code.app import app
 from src.leet_code.category_data import Category, Solution
+from src.leet_code.factory import create_app
 
 
 @pytest.fixture
 def client() -> Generator[Any]:
     """Create a test client for the Flask application."""
+    app = create_app()
     app.config["TESTING"] = True
     with app.test_client() as client:
         yield client

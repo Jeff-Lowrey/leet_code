@@ -1,34 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0901. Online Stock Span
-
-Design a class StockSpanner which collects daily price quotes for some stock, and returns the span of that stock's price for the current day.
-
-The span of the stock's price in one day is the maximum number of consecutive days (starting from that day and going backward) for which the stock price was less than or equal to the price of that day.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>Operations: ["StockSpanner","next","next","next","next","next","next","next"]</dd>
-<dt>Output:</dt>
-<dd>[1,1,1,2,1,4,6]</dd>
-<dt>Explanation:</dt>
-<dd>After each price, the stock price span is the count of consecutive days with price ≤ current price</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Stack Operations
-**Data Structures**: Hash Set, Array, String
-**Patterns**: Hash Table Pattern
-**Time Complexity**: O(n)
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
+The key insight is that maintain monotonic decreasing stack of (price, span) pairs. When new price comes, pop all lower prices and sum their spans. Current span = 1 + sum of popped spans. Push (price, span).
 
 ### APPROACH:
 1. **Initialize in __init__**: Set self.stack = []
@@ -66,21 +38,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

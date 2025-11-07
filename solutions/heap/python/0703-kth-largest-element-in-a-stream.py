@@ -1,36 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0703. Kth Largest Element in a Stream
-
-Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.
-
-Implement KthLargest class:
-- KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of integers nums.
-- int add(int val) Appends the integer val to the stream and returns the element representing the kth largest element in the stream.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>k = 3, nums = [4, 5, 8, 2]</dd>
-<dt>Output:</dt>
-<dd>See walkthrough</dd>
-<dt>Explanation:</dt>
-<dd>The 3rd largest element is maintained as elements are added</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Standard Algorithm
-**Data Structures**: Array, Heap, Tree
-**Patterns**: Iterative Solution
-**Time Complexity**: - Constructor: O(n log k) where n = len(nums)
-**Space Complexity**: O(k)
-
 ### INTUITION:
-Use a min-heap of size k. The root of the heap is always the kth largest element. When adding a new element, if it's larger than the root, replace the root. This maintains exactly k largest elements with the smallest at the top.
+The key insight is that use a min-heap of size k. The root of the heap is always the kth largest element. When adding a new element, if it's larger than the root, replace the root. This maintains exactly k largest elements with the smallest at the top.
 
 ### APPROACH:
 1. **Initialize min-heap**: Add first k elements from nums
@@ -41,10 +11,10 @@ Use a min-heap of size k. The root of the heap is always the kth largest element
    - Return heap root (kth largest)
 
 ### WHY THIS WORKS:
-- Min-heap with k elements keeps k largest elements
-- Root of min-heap is the smallest of the k largest = kth largest overall
-- When new element added, if it's in top k, smallest of previous top k is removed
-- Heap operations are O(log k), efficient for streaming data
+- This ensures that min-heap with k elements keeps k largest elements
+- This ensures that root of min-heap is the smallest of the k largest = kth largest overall
+- This ensures that when new element added, if it's in top k, smallest of previous top k is removed
+- This ensures that heap operations are O(log k), efficient for streaming data
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -67,20 +37,27 @@ add(10):
 - Size > k, remove min: [5, 8, 10]
 - Return root: 5
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-- Constructor: O(n log k) where n = len(nums)
-- add(): O(log k)
+- Constructor: **O(n log k)** where n = len(nums)
+- add(): **O(log k)**
 
 ### SPACE COMPLEXITY:
-O(k)
+**O(k)**
 Heap stores at most k elements
 
 ### EDGE CASES:
-- k = 1 (just track maximum)
-- Empty initial array
-- All elements same
-- Negative numbers
-- k > initial array size
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """

@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0069. Sqrt(x)
- *
- *
- * Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
- *
- * You must not use any built-in exponent function or operator.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>x = 8</dd>
- * <dt>Output:</dt>
- * <dd>2</dd>
- * <dt>Explanation:</dt>
- * <dd>Integer square root of 8 is 2</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Two Pointers, Binary Search
- * **Data Structures**: Hash Set, Tree
- * **Patterns**: Two Pointers Pattern, Binary Search Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
+ * The key insight is that use binary search on the range [0, x]. For mid, check if mid * mid <= x. If yes, mid could be answer; try larger. If no, try smaller. Converge to floor(sqrt(x)).
  *
  * ### APPROACH:
  * 1. **Handle edge cases**: If x == 0 or x == 1, return x
@@ -41,11 +15,11 @@
  * 7. **Return result**: Return stored result (largest integer whose square <= x)
  *
  * ### WHY THIS WORKS:
- * - Binary search on range [0, x] for answer
- * - If mid * mid == x, found exact square root
- * - If mid * mid < x, answer might be mid or higher (left = mid + 1)
- * - If mid * mid > x, answer is lower (right = mid - 1)
- * - O(log x) time binary search, O(1) space
+ * - This ensures that binary search on range [0, x] for answer
+ * - This ensures that if mid * mid == x, found exact square root
+ * - This ensures that if mid * mid < x, answer might be mid or higher (left = mid + 1)
+ * - This ensures that if mid * mid > x, answer is lower (right = mid - 1)
+ * - This ensures that o(log x) time binary search, O(1) space
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -65,23 +39,21 @@
  * ```
  * 2 (floor of sqrt(8))
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

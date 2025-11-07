@@ -1,33 +1,4 @@
 """
-# 0326. Power of Three
-
-# Difficulty: Easy
-
-Given an integer n, return true if it is a power of three. Otherwise, return false.
-
-An integer n is a power of three, if there exists an integer x such that n == 3^x.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 27</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>3^3 = 27</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Mathematics
-**Data Structures**: None
-**Patterns**: Divide and Conquer, Mathematical
-**Time Complexity**: O(log₃ n) for recursion
-**Space Complexity**: O(log₃ n) for recursion stack
-
 ### INTUITION:
 Similar to power of two, but we divide by 3 instead of 2.
 If n is divisible by 3, recursively check n/3.
@@ -40,9 +11,9 @@ If n becomes 1, it's a power of three.
 4. **Alternative**: Check if log₃(n) is an integer
 
 ### WHY THIS WORKS:
-- Powers of 3: 1, 3, 9, 27, 81, 243, etc.
-- Dividing by 3 repeatedly should eventually reach 1
-- If we cannot divide evenly, n is not a power of 3
+- This ensures that powers of 3: 1, 3, 9, 27, 81, 243, etc.
+- This ensures that dividing by 3 repeatedly should eventually reach 1
+- This ensures that if we cannot divide evenly, n is not a power of 3
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -63,17 +34,16 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(log₃ n) - dividing by 3 each time
+**O(log₃ n)** - dividing by 3 each time
 
 ### SPACE COMPLEXITY:
-O(log₃ n) - recursion stack depth
+**O(log₃ n)** - recursion stack depth
 
 ### EDGE CASES:
-- n ≤ 0: return False
-- n = 1: return True (3^0)
-- Numbers not divisible by 3: return False
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

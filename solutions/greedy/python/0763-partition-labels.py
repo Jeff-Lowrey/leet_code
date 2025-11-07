@@ -1,36 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0763. Partition Labels
-
-You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
-
-Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s.
-
-Return a list of integers representing the size of these parts.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "ababcbacadefegdehijhklij"</dd>
-<dt>Output:</dt>
-<dd>[9,7,8] (partition sizes)</dd>
-<dt>Explanation:</dt>
-<dd>String is partitioned into 2 parts: 'ababcbaca' + 'defegde'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
+The key insight is that each partition should end at the last occurrence of any character in it. Track last occurrence of each character. Extend partition end while current position hasn't passed last occurrence of all seen characters.
 
 ### APPROACH:
 1. **Find last occurrence**: Create dict mapping each char to its last index in s
@@ -43,11 +13,11 @@ Each partition should end at the last occurrence of any character in it. Track l
 8. **Return result**: Return result list with partition sizes
 
 ### WHY THIS WORKS:
-- Track last occurrence of each character
-- Extend partition end to max last occurrence of chars seen so far
-- When reach partition end, cut and start new partition
-- Greedy: maximize partition size before cutting
-- O(n) time: two passes, O(26) = O(1) space for last occurrence map
+- This ensures that track last occurrence of each character
+- This ensures that extend partition end to max last occurrence of chars seen so far
+- This ensures that when reach partition end, cut and start new partition
+- This ensures that greedy: maximize partition size before cutting
+- This ensures that o(n) time: two passes, O(26) = O(1) space for last occurrence map
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -73,21 +43,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any, List, Optional, Dict, Tuple

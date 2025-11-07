@@ -1,33 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0739. Daily Temperatures
- *
- *
- * Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>temperatures = [73, 74, 75, 71, 69, 72, 76, 73]</dd>
- * <dt>Output:</dt>
- * <dd>[0,0,0,0,0,0,0,0]</dd>
- * <dt>Explanation:</dt>
- * <dd>For each day, count days until a warmer temperature: [1, 1, 4, 2, 1, 1, 0, 0]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, Stack
- * **Patterns**: Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use monotonic decreasing stack storing indices. When current temperature > stack top temperature, pop and calculate days waited (current index - popped index). Remaining indices have no warmer day.
+ * The key insight is that use monotonic decreasing stack storing indices. When current temperature > stack top temperature, pop and calculate days waited (current index - popped index). Remaining indices have no warmer day.
  *
  * ### APPROACH:
  * 1. **Initialize result and stack**: result = [0] * len(temperatures), stack = []
@@ -38,11 +14,11 @@
  * 6. **Return result**: Return result array
  *
  * ### WHY THIS WORKS:
- * - Monotonic decreasing stack stores indices of days waiting for warmer temperature
- * - When warmer day found, pop all cooler days and calculate their wait times
- * - Current index - popped index gives days waited
- * - Days still in stack at end have answer 0 (no warmer day)
- * - O(n) time: each element pushed/popped once, O(n) space for stack
+ * - This ensures that monotonic decreasing stack stores indices of days waiting for warmer temperature
+ * - This ensures that when warmer day found, pop all cooler days and calculate their wait times
+ * - This ensures that current index - popped index gives days waited
+ * - This ensures that days still in stack at end have answer 0 (no warmer day)
+ * - This ensures that o(n) time: each element pushed/popped once, O(n) space for stack
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -91,21 +67,20 @@
  * ```
  * [1,1,4,2,1,1,0,0]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

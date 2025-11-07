@@ -1,45 +1,4 @@
 """
-# Difficulty: Easy
-
-# 1260. Shift 2D Grid
-
-Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
-
-In one shift operation:
-- Element at grid[i][j] moves to grid[i][j + 1].
-- Element at grid[i][n - 1] moves to grid[i + 1][0].
-- Element at grid[m - 1][n - 1] moves to grid[0][0].
-
-Return the 2D grid after applying shift operation k times.
-
-Example 1:
-Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
-Output: [[9,1,2],[3,4,5],[6,7,8]]
-
-Example 2:
-Input: grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
-Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[1, 2, 3]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>2D grid [[1,2,3],[4,5,6],[7,8,9]] shifted k=1 becomes [[9,1,2],[3,4,5],[6,7,8]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, Matrix
-**Patterns**: Iterative Solution
-**Time Complexity**: O(m × n)
-**Space Complexity**: O(m × n)
-
 ### INTUITION:
 Think of the 2D grid as a 1D array that wraps around. Each shift moves all elements
 one position to the right, with the last element wrapping to the first position.
@@ -56,9 +15,9 @@ Instead of performing k individual shifts, we can calculate final positions dire
 - 1D to 2D: row = index // n, col = index % n
 
 ### WHY THIS WORKS:
-- Shifting k times is equivalent to rotating the flattened array by k positions
-- Using modulo handles wrapping and optimizes multiple full rotations
-- Direct position calculation avoids expensive element-by-element shifting
+- This ensures that shifting k times is equivalent to rotating the flattened array by k positions
+- This ensures that using modulo handles wrapping and optimizes multiple full rotations
+- This ensures that direct position calculation avoids expensive element-by-element shifting
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -87,21 +46,19 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(m × n)
+**O(m × n)**
 - Must visit each element once to build result
 
 ### SPACE COMPLEXITY:
-O(m × n)
+**O(m × n)**
 - Need to store the result grid (required by problem)
-- Can be O(1) if we modify in-place, but tricky with constraints
+- Can be **O(1)** if we modify in-place, but tricky with constraints
 
 ### EDGE CASES:
-- k = 0: No shift needed
-- k >= m*n: Use k % (m*n) to optimize
-- Single row or column: Still works with formula
-- k is multiple of total: Grid unchanged
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

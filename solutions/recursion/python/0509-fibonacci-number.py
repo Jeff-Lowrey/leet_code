@@ -1,39 +1,6 @@
 """
-# 0509. Fibonacci Number
-
-# Difficulty: Easy
-
-The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
-such that each number is the sum of the two preceding ones, starting from 0 and 1. That is:
-
-F(0) = 0, F(1) = 1
-F(n) = F(n - 1) + F(n - 2), for n > 1.
-
-Given n, calculate F(n).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 4</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>F(4) = F(3) + F(2) = 2 + 1 = 3</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-
-### METADATA:
-**Techniques**: Recursion, Memoization, Iteration
-**Data Structures**: Array (for memoization)
-**Patterns**: Base Case Recursion, Top-Down DP
-**Time Complexity**: O(2^n) naive, O(n) with memoization
-**Space Complexity**: O(n) for recursion stack and memoization
-
 ### INTUITION:
-The Fibonacci sequence is the classic example of recursion. Each number is defined
+The key insight is that the Fibonacci sequence is the classic example of recursion. Each number is defined
 recursively as the sum of the two preceding numbers, with base cases F(0)=0 and F(1)=1.
 
 ### APPROACH:
@@ -42,9 +9,9 @@ recursively as the sum of the two preceding numbers, with base cases F(0)=0 and 
 3. **Optimization**: Use memoization to avoid redundant calculations
 
 ### WHY THIS WORKS:
-- The Fibonacci definition is inherently recursive
-- Base cases prevent infinite recursion
-- Memoization reduces time complexity from exponential to linear
+- This ensures that the Fibonacci definition is inherently recursive
+- This ensures that base cases prevent infinite recursion
+- This ensures that memoization reduces time complexity from exponential to linear
 
 ### EXAMPLE WALKTHROUGH:
 ```
@@ -55,19 +22,28 @@ fib(2) = fib(1) + fib(0) = 1 + 0 = 1
 fib(4) = 2 + 1 = 3
 ```
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-- Naive recursion: O(2^n) - exponential
-- With memoization: O(n) - linear
+- Naive recursion: **O(2^n)** - exponential
+- With memoization: **O(n)** - linear
 
 ### SPACE COMPLEXITY:
-O(n) - recursion stack depth
+**O(n)** - recursion stack depth
 
 ### EDGE CASES:
-- n = 0: return 0
-- n = 1: return 1
-- Large n: use memoization to avoid timeout
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

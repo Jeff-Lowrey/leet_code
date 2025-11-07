@@ -1,36 +1,4 @@
 """
-# Difficulty: Medium
-
-# 1395. Count Number Of Teams
-
-There are n soldiers standing in a line. Every soldier has a unique rating value.
-
-You have to form a team of 3 soldiers amongst them under the following rules:
-- Choose 3 soldiers with index (i, j, k) with rating (rating[i], rating[j], rating[k]).
-- A team is valid if: (rating[i] < rating[j] < rating[k]) or (rating[i] > rating[j] > rating[k]) where (i < j < k).
-
-Return the number of teams you can form given the conditions. (soldiers can be used in multiple teams).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[2, 5, 3, 4, 1]</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>There are 3 valid teams of soldiers with increasing or decreasing heights</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n log n) - Sorting or divide-and-conquer
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
 This problem is about counting ordered triplets in an array. We can solve it using multiple approaches: brute force O(n³), dynamic programming O(n²), or advanced data structures like segment trees or Binary Indexed Trees for O(n log n). The key insight is that for each middle element, we count how many valid left and right elements exist.
 
@@ -64,21 +32,24 @@ Step 5: - j=2 (rating=3): left_larger=1 (rating=5), right_smaller=1 (rating=1) �
 Step 6: - j=3 (rating=4): left_larger=1 (rating=5), right_smaller=1 (rating=1) → 1 team
 Step 7: Total: 1 + 1 + 1 = 3 teams
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-O(n log n)
+**O(n log n)**
 For segment tree approach with coordinate compression
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 For compressed coordinates and tree structure
 
 ### EDGE CASES:
-- Array length < 3
-- All elements equal (no valid teams)
-- Strictly increasing/decreasing array
-- Duplicate ratings
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

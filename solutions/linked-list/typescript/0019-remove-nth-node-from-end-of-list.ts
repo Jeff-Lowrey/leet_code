@@ -1,33 +1,10 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0019. Remove Nth Node From End Of List
- * 
- * Given the head of a linked list, remove the nth node from the end of the list and return its head.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>head = [1,2,3,4,5], n = 2</dd>
- * <dt>Output:</dt>
- * <dd>* [1,2,3,5]</dd>
- * <dt>Explanation:</dt>
- * <dd>Removing 2nd node from end of [1,2,3,4,5] gives [1,2,3,5]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Set, Array, Linked List
- * **Patterns**: Two Pointers Pattern, Hash Table Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
- * 
+ * ### METADATA:
+ *
+ *
  * ### INTUITION:
- * Use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
- * 
+ * The key insight is that use two pointers with n-step gap. Move fast pointer n steps ahead. Then move both until fast reaches end. Slow is now at the node before target. Remove target node.
+ *
  * ### APPROACH:
  * 1. **Create dummy node**: Initialize dummy = ListNode(0, head) to handle edge cases
  * 2. **Use two pointers**: Set fast = slow = dummy for the two-pointer technique
@@ -36,14 +13,14 @@
  * 5. **Slow at target's previous**: When fast is null, slow is at node before target
  * 6. **Remove target node**: Set slow.next = slow.next.next to skip target node
  * 7. **Return new head**: Return dummy.next as the new head of modified list
- * 
+ *
  * ### WHY THIS WORKS:
  * - Two-pointer technique with gap of n creates (n+1) node offset
  * - Dummy node handles edge case of removing first node elegantly
  * - When fast reaches end, slow is at node before target (nth from end)
  * - Single pass O(n) instead of two-pass (count length, then remove)
  * - Gap ensures slow.next points to node to remove, enabling removal
- * 
+ *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
@@ -61,21 +38,20 @@
  * ```
  * [1,2,3,5]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
- * 
+ *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
  */
 
 class Solution {

@@ -1,33 +1,6 @@
 """
-# 0557. Reverse Words In A String Iii
-
-# Difficulty: Easy
-
-Given a string s, reverse the order of characters in each word within a sentence
-while still preserving whitespace and initial word order.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>s = "Let's take LeetCode contest"</dd>
-<dt>Output:</dt>
-<dd>s'teL ekat edoCteeL tsetnoc"</dd>
-<dt>Explanation:</dt>
-<dd>Reverse each word: 'Let's take LeetCode contest' becomes 's'teL ekat edoCteeL tsetnoc'</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, String, Stack
-**Patterns**: Two Pointers Pattern, Divide and Conquer
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(n) - Additional set storage
-
 ### INTUITION:
-We need to reverse each word individually while keeping the words in the same order
+The key insight is that we need to reverse each word individually while keeping the words in the same order
 and preserving spaces. This is straightforward: split the string by spaces, reverse
 each word, and join them back together with spaces.
 
@@ -63,27 +36,29 @@ Step 3: - "LeetCode" -> "edoCteeL"
 Step 4: - "contest" -> "tsetnoc"
 Step 5: Join: "s'teL ekat edoCteeL tsetnoc"
 
+Output:
+```
+[Expected output]
+```
+
 ### TIME COMPLEXITY:
-O(n)
-- Splitting the string: O(n)
-- Reversing each word: O(n) total for all words
-- Joining: O(n)
-- Overall: O(n) where n is length of string
+**O(n)**
+- Splitting the string: **O(n)**
+- Reversing each word: **O(n)** total for all words
+- Joining: **O(n)**
+- Overall: **O(n)** where n is length of string
 
 ### SPACE COMPLEXITY:
-O(n)
-- Storing split words: O(n)
-- Creating result string: O(n)
-- Overall: O(n)
+**O(n)**
+- Storing split words: **O(n)**
+- Creating result string: **O(n)**
+- Overall: **O(n)**
 
 ### EDGE CASES:
-- Empty string: Return empty
-- Single word: Return reversed word
-- Single character words: Return unchanged
-- Multiple spaces: Handled by split() method
-- Leading/trailing spaces: Preserved if using split(' ') vs split()
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

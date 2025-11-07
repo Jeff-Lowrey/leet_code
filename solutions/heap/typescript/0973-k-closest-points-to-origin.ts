@@ -1,37 +1,10 @@
 /**
- * # Difficulty: Medium
- * 
- * # 0973. K Closest Points To Origin
- * 
- * Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
- * 
- * The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)^2 + (y1 - y2)^2).
- * 
- * You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>points = [[1,3], [-2,2], [5,8], [0,1]], k = 2</dd>
- * <dt>Output:</dt>
- * <dd>[[0,1], [-2,2]]</dd>
- * <dt>Explanation:</dt>
- * <dd>The k=2 closest points to origin are [[1,3],[-2,2]]</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Array, Heap
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
- * 
+ * ### METADATA:
+ *
+ *
  * ### INTUITION:
- * Calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
- * 
+ * The key insight is that calculate distance for each point. Use max heap (negate distances) of size k. Maintain k closest points. Alternatively, use quickselect for O(n) average time.
+ *
  * ### APPROACH:
  * 1. **Calculate distances**: For each point, compute squared distance = x^2 + y^2
  * 2. **Build min heap**: Push (distance, point) tuples to heap
@@ -39,14 +12,14 @@
  * 4. **Extract k smallest**: Pop from heap k times
  * 5. **Build result**: For each popped element, add point to result
  * 6. **Return result**: Return list of k closest points
- * 
+ *
  * ### WHY THIS WORKS:
- * - Max heap of size k: stores (negative distance, point) to get k smallest
- * - For each point, calculate distance squared (avoid sqrt for efficiency)
- * - If heap size < k, push; else if distance < heap[0], pop and push
- * - Negative distance converts min heap to max heap behavior
- * - O(n log k) time: n points, log k heap operations, O(k) space
- * 
+ * - This ensures that max heap of size k: stores (negative distance, point) to get k smallest
+ * - This ensures that for each point, calculate distance squared (avoid sqrt for efficiency)
+ * - This ensures that if heap size < k, push; else if distance < heap[0], pop and push
+ * - This ensures that negative distance converts min heap to max heap behavior
+ * - This ensures that o(n log k) time: n points, log k heap operations, O(k) space
+ *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
  * ```
@@ -70,22 +43,20 @@
  * ```
  * [[0,1], [-2,2]]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
-
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
- * 
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
+ *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
- * 
- * </details>
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
+ *
+ * *
  */
 
 class Solution {

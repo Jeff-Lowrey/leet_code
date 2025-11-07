@@ -1,84 +1,58 @@
 /**
- * # Difficulty: Medium
- *
- * # 0199. Binary Tree Right Side View
- *
- *
- * Given the root of a binary tree, imagine yourself standing on the right side of it,
- * return the values of the nodes you can see ordered from top to bottom.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 3, 4]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>Right side view of tree is [1,3,4]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Queue Operations
- * **Data Structures**: Array, String, Queue
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(w)
+### INTUITION:
+The key insight is that the right side view is simply the rightmost node at each level of the tree.
+Use level-order traversal (BFS) and capture the last node at each level.
 
- *
- * ### INTUITION:
- * The right side view is simply the rightmost node at each level of the tree.
- * Use level-order traversal (BFS) and capture the last node at each level.
- *
- * ### APPROACH:
- * 1. **Handle edge case**: Return empty list if tree is empty
- * 2. **Initialize BFS**: Use a deque with root node
- * 3. **For each level**:
- *    - Process all nodes at current level
- *    - Keep track of the last node in the level
- *    - Add the last node's value to result
- *    - Add children to queue for next level
- *
- * ### WHY THIS WORKS:
- * - BFS processes nodes level by level, left to right
- * - The last node processed at each level is the rightmost node
- * - This is exactly what's visible from the right side
- * - We collect these rightmost nodes from each level
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Tree:      1            <- Right view: 1
- * ```
- *
- * /   \\
- * 2     3          <- Right view: 3
- * \\     \\
- * 5     4        <- Right view: 4
- * Result: [1, 3, 4]
+### APPROACH:
+1. **Handle edge case**: Return empty list if tree is empty
+2. **Initialize BFS**: Use a deque with root node
+3. **For each level**:
+   - Process all nodes at current level
+   - Keep track of the last node in the level
+   - Add the last node's value to result
+   - Add children to queue for next level
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * - Visit each node exactly once
- * - n = number of nodes in tree
- *
- * ### SPACE COMPLEXITY:
- * O(w)
- * - Queue holds at most one level of nodes at a time
- * - w = maximum width of tree (worst case: n/2 for complete tree)
- * - Result storage: O(h) where h = height
- *
- * ### EDGE CASES:
- * - Empty tree: Return []
- * - Single node: Return [root.val]
- * - Left-skewed tree: All nodes visible from right
- * - Right-skewed tree: Only rightmost branch visible
- *
- * </details>
- */
+### WHY THIS WORKS:
+- This ensures that bFS processes nodes level by level, left to right
+- This ensures that the last node processed at each level is the rightmost node
+- This ensures that this is exactly what's visible from the right side
+- This ensures that we collect these rightmost nodes from each level
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Tree:      1            <- Right view: 1
+```
+
+/   \\
+2     3          <- Right view: 3
+\\     \\
+5     4        <- Right view: 4
+Result: [1, 3, 4]
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+- Visit each node exactly once
+- n = number of nodes in tree
+
+### SPACE COMPLEXITY:
+O(w)**
+- Queue holds at most one level of nodes at a time
+- w = maximum width of tree (worst case: n/2 for complete tree)
+- Result storage: **O(h)** where h = height
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 // Definition for a binary tree node
 function TreeNode(val, left, right) {

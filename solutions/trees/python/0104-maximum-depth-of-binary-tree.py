@@ -1,37 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0104. Maximum Depth of Binary Tree
-
-Given the root of a binary tree, return its maximum depth.
-
-A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[3,9,20,null,null,15,7]</dd>
-        ("BFS Level-order", solution.maxDepthBFS),
-        ("Iterative DFS", solution.maxDepthIterativeDFS),
-        ("Preorder traversal", solution.maxDepthPreorder)]</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>The maximum depth of the tree is 3 (from root to deepest leaf)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Array, Stack, Queue
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(h)
-
 ### INTUITION:
-The maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
+The key insight is that the maximum depth of a binary tree is simply 1 plus the maximum depth of its left and right subtrees. This naturally suggests a recursive solution where we explore both subtrees and return the maximum depth.
 
 ### APPROACH:
 1. **Base Case**: If node is None, depth is 0
@@ -39,10 +8,10 @@ The maximum depth of a binary tree is simply 1 plus the maximum depth of its lef
 3. **Multiple Approaches**: Recursive (DFS), iterative (BFS), and stack-based solutions
 
 ### WHY THIS WORKS:
-- Tree depth follows recursive structure naturally
-- Each node contributes 1 to the total depth
-- Maximum depth is determined by the deepest branch
-- Both DFS and BFS can solve this problem effectively
+- This ensures that tree depth follows recursive structure naturally
+- This ensures that each node contributes 1 to the total depth
+- This ensures that maximum depth is determined by the deepest branch
+- This ensures that both DFS and BFS can solve this problem effectively
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -69,11 +38,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Must visit every node to determine maximum depth
 
 ### SPACE COMPLEXITY:
-O(h)
+**O(h)**
 Where h is height of tree (recursion stack or queue size)
 
 ### EDGE CASES:
@@ -83,7 +52,6 @@ Where h is height of tree (recursion stack or queue size)
 - **Perfect binary tree**: Depth is log2(n+1) for n nodes
 - **Unbalanced tree**: Return depth of deepest leaf node
 
-</details>
 """
 
 from collections import deque

@@ -1,35 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0139. Word Break
- *
- *
- * Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
- *
- * Note that the same word in the dictionary may be reused multiple times in the segmentation.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "leetcode", wordDict = ["leet","code"]</dd>
- * <dt>Output:</dt>
- * <dd>false</dd>
- * <dt>Explanation:</dt>
- * <dd>String 'leetcode' can be segmented using dictionary ['leet','code']</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Greedy Algorithm, Dynamic Programming
- * **Time Complexity**: O(n) - Single pass with O(1) hash lookups
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * dp[i] = whether s[0:i] can be segmented. For each position, check all possible last words ending at i. If s[j:i] is in dict and dp[j] is true, then dp[i] is true.
+ * The key insight is that dp[i] = whether s[0:i] can be segmented. For each position, check all possible last words ending at i. If s[j:i] is in dict and dp[j] is true, then dp[i] is true.
  *
  * ### APPROACH:
  * 1. **Convert to set**: Create word_set = set(wordDict) for O(1) word lookup
@@ -41,11 +15,11 @@
  * 7. **Return result**: Return dp[len(s)] indicating if entire string can be segmented
  *
  * ### WHY THIS WORKS:
- * - DP: dp[i] = true if s[0:i] can be segmented
- * - For each position i, check all words: if word matches s[i-len:i] and dp[i-len] true
- * - Trie optimization: faster word matching than set lookup
- * - Bottom-up: dp[0] = true (empty string), build up to dp[n]
- * - O(n^2 * m) time: n positions, n substrings, m avg word length
+ * - This ensures that dP: dp[i] = true if s[0:i] can be segmented
+ * - This ensures that for each position i, check all words: if word matches s[i-len:i] and dp[i-len] true
+ * - This ensures that trie optimization: faster word matching than set lookup
+ * - This ensures that bottom-up: dp[0] = true (empty string), build up to dp[n]
+ * - This ensures that o(n^2 * m) time: n positions, n substrings, m avg word length
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -66,21 +40,20 @@
  * ```
  * True (can be segmented)
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass with O(1) hash lookups
+ * O(n)**
+ * - Single pass with **O(1)** hash lookups
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

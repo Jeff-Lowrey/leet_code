@@ -1,36 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0124. Binary Tree Maximum Path Sum
-
-A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
-
-The path sum of a path is the sum of the node's values in the path.
-
-Given the root of a binary tree, return the maximum path sum of any non-empty path.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[-10,9,20,null,null,15,7]</dd>
-<dt>Output:</dt>
-<dd>42 (maximum path sum)</dd>
-<dt>Explanation:</dt>
-<dd>The maximum path sum is 42 (path: 15->20->7)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Two Pointers, Depth-First Search
-**Data Structures**: Hash Set, Tree
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-For each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
+The key insight is that for each node, max path is: left max path + node + right max path. Recursively calculate max single path from each child. Track global maximum. Return max single path (node + best child path) up.
 
 ### APPROACH:
 1. **Initialize max_sum**: Set max_sum = float('-inf')
@@ -43,11 +13,11 @@ For each node, max path is: left max path + node + right max path. Recursively c
 8. **Call helper**: max_gain(root), return max_sum
 
 ### WHY THIS WORKS:
-- Post-order DFS: compute max path through each node as potential answer
-- Path through node = node.val + max(0, left_path) + max(0, right_path)
-- Return to parent: node.val + max(0, left_path, right_path) (single path)
-- Track global maximum across all nodes
-- O(n) time visiting each node once, O(h) space for recursion
+- This ensures that post-order DFS: compute max path through each node as potential answer
+- This ensures that path through node = node.val + max(0, left_path) + max(0, right_path)
+- This ensures that return to parent: node.val + max(0, left_path, right_path) (single path)
+- This ensures that track global maximum across all nodes
+- This ensures that o(n) time visiting each node once, O(h) space for recursion
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -68,21 +38,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

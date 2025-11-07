@@ -1,35 +1,6 @@
 /**
- * # Difficulty: Medium
- *
- * # 0373. Find K Pairs With Smallest Sums
- *
- *
- * You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k.
- *
- * Define a pair (u, v) which consists of one element from the first array and one element from the second array.
- *
- * Return the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums1 = [1,7,11], nums2 = [2,4,6], k = 3</dd>
- * <dt>Output:</dt>
- * <dd>[[1,2],[1,4],[1,6]]</dd>
- * <dt>Explanation:</dt>
- * <dd>The k=3 pairs with smallest sums from [1,7,11] and [2,4,6] are [[1,2],[1,4],[1,6]]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
  * ### METADATA:
- * **Techniques**: Hash Map Storage, Array Traversal, Greedy Selection
- * **Data Structures**: Array, String, Heap
- * **Patterns**: Greedy Algorithm, Divide and Conquer
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
-
+ *
  *
  * ### INTUITION:
  * [This problem requires understanding of heap concepts. The key insight is to identify the optimal approach for this specific scenario.]
@@ -41,9 +12,9 @@
  * 4. **Handle edge cases**: Consider boundary conditions and special cases
  *
  * ### WHY THIS WORKS:
- * - The solution leverages heap principles
- * - Time complexity is optimized for the given constraints
- * - Space complexity is minimized where possible
+ * - This ensures that the solution leverages heap principles
+ * - This ensures that time complexity is optimized for the given constraints
+ * - This ensures that space complexity is minimized where possible
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -62,21 +33,20 @@
  * ```
  * [[1,2],[1,4],[1,6]]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 /**

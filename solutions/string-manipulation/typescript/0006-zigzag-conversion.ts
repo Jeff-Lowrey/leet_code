@@ -1,113 +1,76 @@
 /**
- * # 0006. Zigzag Conversion
- * 
- * # Difficulty: Medium
- * 
- * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows
- * like this:
- * 
- * P   A   H   N
- * A P L S I I G
- * Y   I   R
- * 
- * And then read line by line: "PAHNAPLSIIGYIR"
- * 
- * Write the code that will take a string and make this conversion given a number of rows.
- * 
- * **Example:**
- * 
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "PAYPALISHIRING", numRows = 3</dd>
- * <dt>Output:</dt>
- * <dd>PAHNAPLSIIGYIR"</dd>
- * <dt>Explanation:</dt>
- * <dd>Zigzag pattern 'PAYPALISHIRING' with 3 rows reads 'PAHNAPLSIIGYIR'</dd>
- * </dl>
- * 
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
- * **Data Structures**: Array, String, Tree
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(n) - Additional hash map storage
- * 
- * ### INTUITION:
- * The zigzag pattern alternates going down and then up diagonally. We can simulate this
- * by using an array of strings (one for each row) and tracking the current row and direction.
- * As we process each character, we add it to the current row, then move to the next row
- * in the current direction, reversing direction when we hit the top or bottom.
- * 
- * ### APPROACH:
- * 1. **Edge Cases**: If numRows = 1 or numRows >= len(s), return original string
- * 2. **Create Row Buffers**: Array of strings, one for each row
- * 3. **Track Current Row and Direction**: Start at row 0, going down
- * 4. **Process Each Character**:
- *    - Add character to current row
- *    - Move to next row in current direction
- *    - Reverse direction at boundaries (row 0 or numRows-1)
- * 5. **Concatenate Rows**: Join all rows to get final result
- * 
- * ### WHY THIS WORKS:
- * - Each character belongs to exactly one row in the zigzag pattern
- * - Direction changes happen at predictable boundaries (top and bottom)
- * - Processing left to right with row tracking simulates the zigzag
- * - No complex indexing needed, just direction tracking
- * 
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * s = "PAYPALISHIRING", numRows = 3
- * ```
- *
- * Row buffers: ["", "", ""]
- * Direction: down (1)
- * Process each character:
- *
- * Steps:
- * Step 1: P -> row 0: ["P", "", ""]      going down
- * Step 2: A -> row 1: ["P", "A", ""]     going down
- * Step 3: Y -> row 2: ["P", "A", "Y"]    hit bottom, reverse to up
- * Step 4: P -> row 1: ["P", "AP", "Y"]   going up
- * Step 5: A -> row 0: ["PA", "AP", "Y"]  hit top, reverse to down
- * Step 6: L -> row 1: ["PA", "APL", "Y"] going down
- * Step 7: I -> row 2: ["PA", "APL", "YI"] hit bottom, reverse to up
- * Step 8: ...
- *
- * Final rows:
- * ```
- * Row 0: "PAHN"
- * Row 1: "APLSIIG"
- * Row 2: "YIR"
- * Result: "PAHNAPLSIIGYIR"
- * ```
- * 
- * Output:
- * ```
- * "PAHNAPLSIIGYIR"
- * ```
- * 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Process each character exactly once
- * - Concatenating rows is O(n) as each character appears once
- * 
- * ### SPACE COMPLEXITY:
- * O(n)
- * - Additional hash map storage
- * - Store n characters across all row buffers
- * - Result string requires O(n) space
- * 
- * ### EDGE CASES:
- * - numRows = 1: Return original string (no zigzag possible)
- * - numRows >= len(s): Each character on its own row, return original
- * - Empty string: Return empty
- * - numRows = 2: Simple alternating pattern
- * 
- * </details>
- */
+### INTUITION:
+The key insight is that the zigzag pattern alternates going down and then up diagonally. We can simulate this
+by using an array of strings (one for each row) and tracking the current row and direction.
+As we process each character, we add it to the current row, then move to the next row
+in the current direction, reversing direction when we hit the top or bottom.
+
+### APPROACH:
+1. **Edge Cases**: If numRows = 1 or numRows >= len(s), return original string
+2. **Create Row Buffers**: Array of strings, one for each row
+3. **Track Current Row and Direction**: Start at row 0, going down
+4. **Process Each Character**:
+   - Add character to current row
+   - Move to next row in current direction
+   - Reverse direction at boundaries (row 0 or numRows-1)
+5. **Concatenate Rows**: Join all rows to get final result
+
+### WHY THIS WORKS:
+- This ensures that each character belongs to exactly one row in the zigzag pattern
+- This ensures that direction changes happen at predictable boundaries (top and bottom)
+- This ensures that processing left to right with row tracking simulates the zigzag
+- This ensures that no complex indexing needed, just direction tracking
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+s = "PAYPALISHIRING", numRows = 3
+```
+
+Row buffers: ["", "", ""]
+Direction: down (1)
+Process each character:
+
+Steps:
+Step 1: P -> row 0: ["P", "", ""]      going down
+Step 2: A -> row 1: ["P", "A", ""]     going down
+Step 3: Y -> row 2: ["P", "A", "Y"]    hit bottom, reverse to up
+Step 4: P -> row 1: ["P", "AP", "Y"]   going up
+Step 5: A -> row 0: ["PA", "AP", "Y"]  hit top, reverse to down
+Step 6: L -> row 1: ["PA", "APL", "Y"] going down
+Step 7: I -> row 2: ["PA", "APL", "YI"] hit bottom, reverse to up
+Step 8: ...
+
+Final rows:
+```
+Row 0: "PAHN"
+Row 1: "APLSIIG"
+Row 2: "YIR"
+Result: "PAHNAPLSIIGYIR"
+```
+
+Output:
+```
+"PAHNAPLSIIGYIR"
+```
+
+### TIME COMPLEXITY:
+O(n)**
+- Process each character exactly once
+- Concatenating rows is **O(n)** as each character appears once
+
+### SPACE COMPLEXITY:
+O(n)**
+- Additional hash map storage
+- Store n characters across all row buffers
+- Result string requires **O(n)** space
+
+### EDGE CASES:
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
+
+*/
 
 class Solution {
   /**

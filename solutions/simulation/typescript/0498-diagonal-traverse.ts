@@ -24,8 +24,8 @@
  * <dd>Diagonal traversal of [[1,2,3],[4,5,6],[7,8,9]] is [1,2,4,7,5,3,6,8,9]</dd>
  * </dl>
  *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
+ * 
+ * <b>🔍 SOLUTION EXPLANATION</b>
  *
  * ### METADATA:
  * **Techniques**: Simulation, Direction control, Diagonal traversal
@@ -35,63 +35,65 @@
  * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Elements on the same diagonal have the same sum of row + column indices.
- * Traverse diagonals alternately upward and downward, handling direction changes
- * and boundaries carefully.
- *
- * ### APPROACH:
- * **Data structures: Matrix (2D array input), Array (result storage)**
- * 1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal, tracked in array
- * 2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
- * 3. **Boundary Handling**: When hitting matrix edges, change to next diagonal with proper direction
- * 4. **Movement Pattern**:
- * - Going up: row--, col++ (move in matrix)
- * - Going down: row++, col-- (move in matrix)
- * - Hit boundary: adjust position and flip direction
- *
- * **Key Observations**:
- * - Total diagonals = m + n - 1
- * - Diagonal d contains elements where i + j = d
- * - Direction alternates: up (d even), down (d odd)
- *
- * ### WHY THIS WORKS:
- * - Using row + col sum groups elements into diagonals naturally
- * - Alternating directions matches the required zigzag pattern
- * - Boundary checks ensure we stay within matrix bounds
- * - Direction flipping at boundaries creates the diagonal traversal pattern
- *
- * ### EXAMPLE WALKTHROUGH:
-  * Input:
- * ```
- * mat = [[1,2,3], [4,5,6], [7,8,9]] (3x3 matrix)
- * ```
- *
- * **Step 1:** Diagonal 0 (sum=0)
- * - Elements where row+col=0: [1]
- * - Direction: up, Result: [1]
- *
- * **Step 2:** Diagonal 1 (sum=1)
- * - Elements where row+col=1: [2,4]
- * - Direction: down, Result: [1,2,4]
- *
- * **Step 3:** Diagonal 2 (sum=2)
- * - Elements where row+col=2: [7,5,3]
- * - Direction: up, Result: [1,2,4,7,5,3]
- *
- * **Step 4:** Diagonal 3 (sum=3)
- * - Elements where row+col=3: [6,8]
- * - Direction: down, Result: [1,2,4,7,5,3,6,8]
- *
- * **Step 5:** Diagonal 4 (sum=4)
- * - Elements where row+col=4: [9]
- * - Direction: up, Result: [1,2,4,7,5,3,6,8,9]
- *
- * Output:
- * ```
- * [1,2,4,7,5,3,6,8,9]
- * ```
- *
- * ### TIME COMPLEXITY:
+The key insight is that elements on the same diagonal have the same sum of row + column indices.
+Traverse diagonals alternately upward and downward, handling direction changes
+and boundaries carefully.
+
+### APPROACH:
+The algorithm proceeds as follows:
+
+**Data structures: Matrix (2D array input), Array (result storage)**
+1. **Diagonal Identification**: Elements at (i, j) where i + j = k are on the same diagonal, tracked in array
+2. **Direction Alternation**: Even-indexed diagonals go up-right, odd-indexed go down-left
+3. **Boundary Handling**: When hitting matrix edges, change to next diagonal with proper direction
+4. **Movement Pattern**:
+- Going up: row--, col++ (move in matrix)
+- Going down: row++, col-- (move in matrix)
+- Hit boundary: adjust position and flip direction
+
+**Key Observations**:
+- Total diagonals = m + n - 1
+- Diagonal d contains elements where i + j = d
+- Direction alternates: up (d even), down (d odd)
+
+### WHY THIS WORKS:
+- This ensures that using row + col sum groups elements into diagonals naturally
+- This ensures that alternating directions matches the required zigzag pattern
+- This ensures that boundary checks ensure we stay within matrix bounds
+- This ensures that direction flipping at boundaries creates the diagonal traversal pattern
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+mat = [[1,2,3], [4,5,6], [7,8,9]] (3x3 matrix)
+```
+
+**Step 1:** Diagonal 0 (sum=0)
+- Elements where row+col=0: [1]
+- Direction: up, Result: [1]
+
+**Step 2:** Diagonal 1 (sum=1)
+- Elements where row+col=1: [2,4]
+- Direction: down, Result: [1,2,4]
+
+**Step 3:** Diagonal 2 (sum=2)
+- Elements where row+col=2: [7,5,3]
+- Direction: up, Result: [1,2,4,7,5,3]
+
+**Step 4:** Diagonal 3 (sum=3)
+- Elements where row+col=3: [6,8]
+- Direction: down, Result: [1,2,4,7,5,3,6,8]
+
+**Step 5:** Diagonal 4 (sum=4)
+- Elements where row+col=4: [9]
+- Direction: up, Result: [1,2,4,7,5,3,6,8,9]
+
+Output:
+```
+[1,2,4,7,5,3,6,8,9]
+```
+
+### TIME COMPLEXITY:
  * O(m × n)
  * - Visit each element exactly once
  *
@@ -100,66 +102,7 @@
  * - Only use constant extra space (not counting output array)
  *
  * ### EDGE CASES:
- * - Single element matrix: mat=[[1]] → [1] (no diagonals to traverse, returns single element)
- * - Single row matrix: mat=[[1,2,3]] → [1,2,3] (all elements traversed left to right)
- * - Single column matrix: mat=[[1],[2],[3]] → [1,2,3] (all elements traversed top to bottom)
- * - Non-square matrices: mat=[[1,2,3],[4,5,6]] → [1,2,4,5,3,6] (2×3 matrix handled correctly with proper diagonal traversal)
- * - Empty matrix: mat=[] → [] (no elements to traverse, returns empty array)
- *
- *
-*/
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-function findDiagonalOrder(mat: number[][]): number[] {
-    if (!mat || !mat.length || !mat[0].length) return [];
-
-    const m: number = mat.length, n: number = mat[0].length;
-    const result: number[] = [];
-    let row: number = 0, col: number = 0, goingUp: boolean = true;
-
-    for (let i = 0; i < m * n; i++) {
-        result.push(mat[row][col]);
-
-        if (goingUp) {
-            if (col === n - 1) {
-                row++;
-                goingUp = false;
-            } else if (row === 0) {
-                col++;
-                goingUp = false;
-            } else {
-                row--;
-                col++;
-            }
-        } else {
-            if (row === m - 1) {
-                col++;
-                goingUp = true;
-            } else if (col === 0) {
-                row++;
-                goingUp = true;
-            } else {
-                row++;
-                col--;
-            }
-        }
-    }
-
-    return result;
-}
-
-if (require.main === module) {
-    const testCases: [number[][], number[]][] = [
-        [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [1, 2, 4, 7, 5, 3, 6, 8, 9]],
-        [[[1, 2], [3, 4]], [1, 2, 3, 4]],
-    ];
-
-    console.log("Testing findDiagonalOrder:");
-    for (const [mat, expected] of testCases) {
-        const result: number[] = findDiagonalOrder(mat);
-        const status: string = JSON.stringify(result) === JSON.stringify(expected) ? "✓" : "✗";
-        console.log(`${status} findDiagonalOrder(${JSON.stringify(mat)})`);
-        console.log(`   = ${JSON.stringify(result)}, expected = ${JSON.stringify(expected)}`);
-    }
-}
-
-export { findDiagonalOrder };

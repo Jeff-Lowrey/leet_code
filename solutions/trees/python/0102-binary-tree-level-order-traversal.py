@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0102. Binary Tree Level Order Traversal
-
-Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>[[3]]</dd>
-<dt>Output:</dt>
-<dd>1</dd>
-<dt>Explanation:</dt>
-<dd>Level-order traversal groups nodes by depth: [[3], [9,20], [15,7]]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Array, Queue, Tree
-**Patterns**: Two Pointers Pattern, Hash Table Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(w)
-
 ### INTUITION:
-Level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
+The key insight is that level order traversal visits nodes level by level from left to right. This is a classic BFS (Breadth-First Search) problem where we use a queue to process nodes level by level, collecting values at each level separately.
 
 ### APPROACH:
 1. **BFS with Queue**: Use queue to process nodes level by level
@@ -63,11 +37,11 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Each node is visited exactly once
 
 ### SPACE COMPLEXITY:
-O(w)
+**O(w)**
 Where w is maximum width of the tree (queue size)
 
 ### EDGE CASES:
@@ -77,7 +51,6 @@ Where w is maximum width of the tree (queue size)
 - **Linear tree (skewed)**: Each level has exactly one node
 - **Unbalanced tree**: Level sizes vary based on structure
 
-</details>
 """
 
 from collections import deque

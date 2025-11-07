@@ -1,35 +1,6 @@
 """
-# 0070. Climbing Stairs
-
-# Difficulty: Easy
-
-You are climbing a staircase. It takes `n` steps to reach the top.
-
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you
-climb to the top?
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>n = 3</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>Ways to climb 3 stairs: 3 methods [1+1+1, 1+2, 2+1]</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array
-**Patterns**: Dynamic Programming
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-This is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
+The key insight is that this is the classic Fibonacci problem in `disguise! To` reach step `n`, you can
 either come from step (`n-1`) by taking 1 step, or from step (`n-2`) by taking 2 steps.
 So: ways(n) = ways(`n-1`) + ways(`n-2`)
 
@@ -63,20 +34,19 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
-Single pass from 3 to n, constant work per iteration
+**O(n)** where n is the number of stairs. We iterate from step 3 to step n, performing constant-time arithmetic operations at each step. Each step's value is calculated exactly once by adding the previous two values, giving us a linear time complexity of **O(n)**. No repeated subproblem calculations occur due to the bottom-up approach.
 
 ### SPACE COMPLEXITY:
-O(1)
-Only store two variables (prev1, prev2), not full DP array
+**O(1)** for the optimized solution - We only maintain two variables (prev1 and prev2) to track the last two Fibonacci values, regardless of n. The space doesn't grow with input size. Alternative: **O(n)** if using a full DP array to store all intermediate values from 1 to n, but the optimized approach only needs the last two values to compute the next one.
 
 ### EDGE CASES:
-- n = 1: return 1 (one way)
-- n = 2: return 2 (two ways)
-- Large n: Fibonacci grows exponentially but algorithm is linear
-- n = 0: not in problem constraints
+- **n = 1**: Returns 1 (only one way: single 1-step)
+- **n = 2**: Returns 2 (two ways: two 1-steps or one 2-step)
+- **Small n**: Base cases handled directly
+- **Large n**: Fibonacci grows exponentially but algorithm remains O(n) time
+- **n = 0**: Not in problem constraints, but would return 1 (one way to stay at ground)
+- **Maximum constraints**: For very large n, integer overflow possible in other languages (Python handles big integers automatically)
 
-</details>
 """
 
 from typing import Any

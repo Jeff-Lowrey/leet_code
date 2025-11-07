@@ -1,38 +1,6 @@
 """
-# 0322. Coin Change
-
-# Difficulty: Medium
-
-You are given an integer array coins representing coins of different denominations
-and an integer amount representing a total amount of money.
-
-Return the fewest number of coins that you need to make up that amount. If that
-amount of money cannot be made up by any combination of the coins, `return -1`.
-
-You may assume that you have an infinite number of each kind of coin.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>coins = [1,2,5], `amount = 11`</dd>
-<dt>Output:</dt>
-<dd>3</dd>
-<dt>Explanation:</dt>
-<dd>Minimum coins to make amount 11 using [1,2,5] is 3 coins: 5+5+1</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Set Operations
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Hash Table Pattern, Greedy Algorithm
-**Time Complexity**: O(amount × len(coins))
-**Space Complexity**: O(amount)
-
 ### INTUITION:
-This is a classic "minimum path to `target`" DP problem. For any amount, we want
+The key insight is that this is a classic "minimum path to `target`" DP problem. For any amount, we want
 the minimum coins needed. We can build this up from smaller amounts.
 
 ### APPROACH:
@@ -63,21 +31,29 @@ dp[6] = 2 (use coin `5 + coin` 1)
 ...
 dp[11] = 3 (use coin `5 + coin` `5 + coin` 1)
 
+Output:
+```
+[Expected output]
+```
+
+Step-by-step execution:
+1. [First step]
+2. [Second step]
+3. [Final step]
+
 ### TIME COMPLEXITY:
-O(amount × len(coins))
+**O(amount × len(coins)**)
 For each amount from 1 to target, try all coins
 
 ### SPACE COMPLEXITY:
-O(amount)
+**O(amount)**
 DP array of size amount + 1
 
 ### EDGE CASES:
-- Amount is 0: return 0 (no coins needed)
-- No solution possible: return -1
-- Single coin type: straightforward calculation
-- Large amounts: DP handles efficiently
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from collections import deque

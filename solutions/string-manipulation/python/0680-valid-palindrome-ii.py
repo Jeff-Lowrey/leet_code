@@ -1,33 +1,6 @@
 """
-# Difficulty: Easy
-
-# 0680. Valid Palindrome II
-
-Given a string s, return true if the s can be palindrome after deleting at most one character from it.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>"aba"
-"abca"</dd>
-<dt>Output:</dt>
-<dd>True</dd>
-<dt>Explanation:</dt>
-<dd>String 'aba' is a valid palindrome (can delete 0 characters)</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: String, Tree
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-We can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.
+The key insight is that we can use a two-pointer approach to check if a string is a palindrome. When we find a mismatch, we have two options: skip the left character or skip the right character. If either option results in a valid palindrome for the remaining substring, then the original string can be made a palindrome by deleting at most one character.
 
 ### APPROACH:
 1. **Two pointers**: Start from both ends of the string
@@ -38,10 +11,10 @@ We can use a two-pointer approach to check if a string is a palindrome. When we 
 4. **Return result**: True if either option results in palindrome
 
 ### WHY THIS WORKS:
-- If string is already palindrome, we return true immediately
-- When first mismatch occurs, exactly one deletion can potentially fix it
-- We only need to check the remaining substring after skipping one character
-- Two-pointer palindrome check is efficient and straightforward
+- This ensures that if string is already palindrome, we return true immediately
+- This ensures that when first mismatch occurs, exactly one deletion can potentially fix it
+- This ensures that we only need to check the remaining substring after skipping one character
+- This ensures that two-pointer palindrome check is efficient and straightforward
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -66,20 +39,18 @@ True
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 In worst case, we check the string twice (once normally, once after skip)
 
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 Only using constant extra space for pointers
 
 ### EDGE CASES:
-- Empty string: palindrome
-- Single character: palindrome
-- Already palindrome: return true immediately
-- Multiple mismatches: cannot be fixed with one deletion
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 

@@ -1,86 +1,57 @@
 /**
- * # Difficulty: Easy
- *
- * # 0094. Binary Tree Inorder Traversal
- *
- *
- * Given the root of a binary tree, return the inorder traversal of its nodes' values.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>[1, 3, 2]</dd>
- * <dt>Output:</dt>
- * <dd>1</dd>
- * <dt>Explanation:</dt>
- * <dd>In-order traversal of tree [1,null,2,3] is [1,3,2]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
- * ### METADATA:
- * **Techniques**: Array Traversal, Two Pointers, Stack Operations
- * **Data Structures**: Array, String, Stack
- * **Patterns**: Two Pointers Pattern, Tree Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: * - Recursive: O(h) where h is tree height (call stack)
+### INTUITION:
+Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for Binary Search Trees. The key is to implement this pattern using recursion or iteration with a stack.
 
- *
- * ### INTUITION:
- * Inorder traversal visits nodes in the order: Left -> Root -> Right. This gives us a sorted sequence for Binary Search Trees. The key is to implement this pattern using recursion or iteration with a stack.
- *
- * ### APPROACH:
- * 1. **Recursive**: Visit left subtree, process root, visit right subtree
- * 2. **Iterative with stack**: Simulate recursion using explicit stack
- * 3. **Morris traversal**: O(1) space using threading technique
- *
- * ### WHY THIS WORKS:
- * - Inorder traversal naturally follows left-root-right pattern
- * - For BSTs, this produces sorted output
- * - Stack-based approach simulates the call stack of recursion
- * - Morris traversal modifies tree temporarily to avoid extra space
- *
- * ### EXAMPLE WALKTHROUGH:
- * Input:
- * ```
- * Tree:    1
- * ```
- *
- * \
- * 2
- * /
- * 3
- * Inorder traversal steps:
- * 1. Start at root (1)
- * 2. No left child, process 1
- * 3. Go to right child (2)
- * 4. Go to left child of 2 (which is 3)
- * 5. No left child of 3, process 3
- * 6. No right child of 3, backtrack
- * 7. Process 2
- * 8. No right child of 2
- * Result: [1, 3, 2]
+### APPROACH:
+1. **Recursive**: Visit left subtree, process root, visit right subtree
+2. **Iterative with stack**: Simulate recursion using explicit stack
+3. **Morris traversal**: O(1) space using threading technique
 
- * ### TIME COMPLEXITY:
- * O(n)
- * - Single pass through input
- * We visit each node exactly once
- *
- * ### SPACE COMPLEXITY:
- * - Recursive: O(h) where h is tree height (call stack)
- * - Iterative: O(h) for explicit stack
- * - Morris: O(1) constant space
- *
- * ### EDGE CASES:
- * - **Empty tree**: Return empty list immediately
- * - **Single node**: Return list with one element
- * - **Left-skewed tree**: Traversal order is leaf-to-root path
- * - **Right-skewed tree**: Traversal order is root-to-leaf path
- * - **BST**: Inorder gives sorted sequence of values
- *
- * </details>
- */
+### WHY THIS WORKS:
+- This ensures that inorder traversal naturally follows left-root-right pattern
+- This ensures that for BSTs, this produces sorted output
+- This ensures that stack-based approach simulates the call stack of recursion
+- This ensures that morris traversal modifies tree temporarily to avoid extra space
+
+### EXAMPLE WALKTHROUGH:
+Input:
+```
+Tree:    1
+```
+
+\
+2
+/
+3
+Inorder traversal steps:
+1. Start at root (1)
+2. No left child, process 1
+3. Go to right child (2)
+4. Go to left child of 2 (which is 3)
+5. No left child of 3, process 3
+6. No right child of 3, backtrack
+7. Process 2
+8. No right child of 2
+Result: [1, 3, 2]
+
+### TIME COMPLEXITY:
+O(n)**
+- Single pass through input
+We visit each node exactly once
+
+### SPACE COMPLEXITY:
+- Recursive: **O(h)** where h is tree height (call stack)
+- Iterative: **O(h)** for explicit stack
+- Morris: **O(1)** constant space
+
+### EDGE CASES:
+- **Empty tree**: Return empty list immediately
+- **Single node**: Return list with one element
+- **Left-skewed tree**: Traversal order is leaf-to-root path
+- **Right-skewed tree**: Traversal order is root-to-leaf path
+- **BST**: Inorder gives sorted sequence of values
+
+*/
 
 /**
  * Definition for a binary tree node.

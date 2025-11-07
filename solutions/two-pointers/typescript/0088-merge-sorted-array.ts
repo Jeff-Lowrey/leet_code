@@ -1,37 +1,9 @@
 /**
- * # Difficulty: Medium
+ * ### METADATA:
  *
- * # 0088. Merge Sorted Array
- *
- *
- * You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
- *
- * Merge nums1 and nums2 into a single array sorted in non-decreasing order.
- *
- * The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</dd>
- * <dt>Output:</dt>
- * <dd>[1,2,2,3,5,6]</dd>
- * <dt>Explanation:</dt>
- * <dd>Merge [1,2,3,0,0,0] and [2,5,6] into [1,2,2,3,5,6]</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Hash Map Storage, Two Pointers
- * **Data Structures**: Hash Map, Hash Set, Array
- * **Patterns**: Two Pointers Pattern, Greedy Algorithm
- * **Time Complexity**: O(n)
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Start from end of both arrays (largest elements). Compare elements and place larger one at end of nums1. Use three pointers: one for each array's current position, one for insertion position.
+ * The key insight is that start from end of both arrays (largest elements). Compare elements and place larger one at end of nums1. Use three pointers: one for each array's current position, one for insertion position.
  *
  * ### APPROACH:
  * 1. **Initialize three pointers**: Set p1 = m-1, p2 = n-1, p = m+n-1
@@ -43,11 +15,11 @@
  * 7. **No return needed**: Modification is in-place in nums1
  *
  * ### WHY THIS WORKS:
- * - Merge from back to front to avoid overwriting nums1 elements
- * - Three pointers: p1 at nums1 end, p2 at nums2 end, p at merge position
- * - Compare nums1[p1] and nums2[p2], place larger at nums1[p]
- * - Copy remaining nums2 elements if any
- * - O(m + n) time, O(1) space (in-place merge)
+ * - This ensures that merge from back to front to avoid overwriting nums1 elements
+ * - This ensures that three pointers: p1 at nums1 end, p2 at nums2 end, p at merge position
+ * - This ensures that compare nums1[p1] and nums2[p2], place larger at nums1[p]
+ * - This ensures that copy remaining nums2 elements if any
+ * - This ensures that o(m + n) time, O(1) space (in-place merge)
  *
  * ### EXAMPLE WALKTHROUGH:
  * Input:
@@ -67,23 +39,21 @@
  * ```
  * [1,2,2,3,5,6]
  * ```
-
+ *
  * ### TIME COMPLEXITY:
-
- * O(n)
-
+ * O(n)**
+ *
  * - Single pass through the input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
- * - Empty input handling
- * - Single element cases
- * - Large input considerations
+ * - **Empty input**: Handle when input is empty
+ * - **Single element**: Handle single-element inputs
+ * - **Boundary values**: Handle minimum/maximum valid values
  *
- * </details>
+ * *
  */
 
 class Solution {

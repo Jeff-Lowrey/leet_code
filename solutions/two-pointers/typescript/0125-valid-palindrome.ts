@@ -1,37 +1,9 @@
 /**
- * # 0125. Valid Palindrome
+ * ### METADATA:
  *
- * Difficulty: Medium
- *
- *
- * A phrase is a palindrome if, after converting all uppercase letters into lowercase
- * letters and removing all `non-alphanumeric` characters, it reads the same forward
- * and backward. Alphanumeric characters include letters and numbers.
- *
- * Given a string s, return true if it is a palindrome, or false otherwise.
- *
- * **Example:**
- *
- * <dl class="example-details">
- * <dt>Input:</dt>
- * <dd>s = "A man, a plan, a canal: Panama"</dd>
- * <dt>Output:</dt>
- * <dd>true</dd>
- * <dt>Explanation:</dt>
- * <dd>String 'A man, a plan, a canal: Panama' is a valid palindrome</dd>
- * </dl>
- *
- * <details>
- * <summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
- * **Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
- * **Data Structures**: Hash Set, String, Tree
- * **Patterns**: Two Pointers Pattern
- * **Time Complexity**: O(n) - Single pass through input
- * **Space Complexity**: O(1) - Constant extra space
  *
  * ### INTUITION:
- * Use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
+ * The key insight is that use two pointers from both ends of the string, skipping non-alphanumeric characters and comparing characters case-insensitively. This avoids creating a cleaned string, saving space.
  *
  * ### APPROACH:
  * 1. **Initialize two pointers**: Set left pointer at start (0) and right pointer at end (len(s) - 1)
@@ -65,14 +37,18 @@
  * Step 6: a.lower() == a.lower() → True, continue
  * Step 7: ... continue until pointers meet ...
  * Step 8: All comparisons match → return True
-
+ *
+ * Output:
+ * ```
+ * [Expected output]
+ * ```
+ *
  * ### TIME COMPLEXITY:
- * O(n)
+ * O(n)**
  * - Single pass through input
  *
  * ### SPACE COMPLEXITY:
- * O(1)
- * - Constant extra space
+ * **O(n)** - [Explanation of why this complexity]. The algorithm [describe the operation] which takes **O(n)** space.
  *
  * ### EDGE CASES:
  * - **Empty string**: Return True (empty is palindrome)
@@ -81,7 +57,7 @@
  * - **Mixed case**: Convert to lowercase for comparison
  * - **No letters/digits**: Return True (vacuously true)
  *
- * </details>
+ * *
  */
 
 class Solution {

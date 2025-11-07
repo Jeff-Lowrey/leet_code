@@ -1,42 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0150. Evaluate Reverse Polish Notation
-
-You are given an array of strings tokens that represents an arithmetic expression
-in Reverse Polish Notation.
-
-Evaluate the expression. Return an integer that represents the value of the expression.
-
-Note that:
-- The valid operators are '+', '-', '*', and '/'.
-- Each operand may be an integer or another expression.
-- The division between two integers always truncates toward zero.
-- There will not be any division by zero.
-- The input represents a valid arithmetic expression in reverse polish notation.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>["2","1","+","3","*"]</dd>
-<dt>Output:</dt>
-<dd>9</dd>
-<dt>Explanation:</dt>
-<dd>Postfix '2 1 + 3 *' evaluates to 9</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Map, Array, String
-**Patterns**: Two Pointers Pattern
-**Time Complexity**: O(n) - Single pass with O(1) hash lookups
-**Space Complexity**: O(n) - Additional hash map storage
-
 ### INTUITION:
-Reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
+The key insight is that reverse Polish Notation (RPN) is perfect for stack-based evaluation. In RPN,
 operators come after their operands, so we can process left-to-right:
 push numbers onto stack, and when we see an operator, pop two operands,
 compute, and push result back.
@@ -74,19 +38,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 Where n is the number of tokens - process each token once
 
 ### SPACE COMPLEXITY:
-O(n)
+**O(n)**
 Stack can hold up to n/2 operands in worst case
 
 ### EDGE CASES:
-- Single number: return that number
-- Division truncating toward zero
-- Negative operands and results
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

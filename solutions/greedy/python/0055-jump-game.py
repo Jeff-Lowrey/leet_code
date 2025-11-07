@@ -1,36 +1,6 @@
 """
-# 0055. Jump Game
-
-# Difficulty: Medium
-
-You are given an integer array `nums`. You are initially positioned at the array's
-first index, and each element in the array represents your maximum jump length
-at that position.
-
-Return true if you can reach the last index, or false otherwise.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [2,3,1,1,4]</dd>
-<dt>Output:</dt>
-<dd>true</dd>
-<dt>Explanation:</dt>
-<dd>You can reach the last index from [2,3,1,1,4] by jumping optimally</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Linked List
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
+The key insight is that use greedy approach to track the farthest position we can reach. If at any point our current position exceeds the farthest reachable position, we can't proceed further.
 
 ### APPROACH:
 1. **Initialize max reachable position**: Set max_reach to 0, representing the farthest index we can currently reach
@@ -65,14 +35,12 @@ True (can reach end)
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
-
 
 ### EDGE CASES:
 - **Single element array**: Always return True (already at end)
@@ -81,7 +49,6 @@ O(1)
 - **All zeros except first**: Return False unless array length is 1
 - **Maximum jump values**: Can reach end in one jump, return True immediately
 
-</details>
 """
 
 

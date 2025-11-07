@@ -1,32 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0300. Longest Increasing Subsequence
-
-Given an integer array nums, return the length of the longest strictly increasing subsequence.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>nums = [10, 9, 2, 5, 3, 7, 101, 18]</dd>
-<dt>Output:</dt>
-<dd>4 (LIS: [2, 3, 7, 18] or [2, 3, 7, 101])</dd>
-<dt>Explanation:</dt>
-<dd>Longest increasing subsequence in [10,9,2,5,3,7,101,18] is [2,3,7,18] with length 4</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Hash Map Storage, Array Traversal
-**Data Structures**: Hash Set, Array, Tree
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-For each number, find the longest increasing subsequence ending at that number. dp[i] = max(dp[j] + 1) for all j < i where nums[j] < nums[i]. The answer is max(dp).
+The key insight is that for each number, find the longest increasing subsequence ending at that number. dp[i] = max(dp[j] + 1) for all j < i where nums[j] < nums[i]. The answer is max(dp).
 
 ### APPROACH:
 1. **Initialize DP array**: Create dp = [1] * len(nums) where dp[i] = LIS length ending at index i
@@ -38,11 +12,11 @@ For each number, find the longest increasing subsequence ending at that number. 
 7. **Return result**: Return max(dp) as the length of longest increasing subsequence
 
 ### WHY THIS WORKS:
-- DP: dp[i] = length of LIS ending at i
-- For each i, check all j < i: if nums[j] < nums[i], dp[i] = max(dp[i], dp[j] + 1)
-- Binary search optimization: maintain increasing tails array, binary search for insertion point
-- Tails[i] = smallest ending value of LIS of length i+1
-- O(n^2) DP solution, O(n log n) with binary search, O(n) space
+- This ensures that dP: dp[i] = length of LIS ending at i
+- This ensures that for each i, check all j < i: if nums[j] < nums[i], dp[i] = max(dp[i], dp[j] + 1)
+- This ensures that binary search optimization: maintain increasing tails array, binary search for insertion point
+- This ensures that tails[i] = smallest ending value of LIS of length i+1
+- This ensures that o(n^2) DP solution, O(n log n) with binary search, O(n) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -75,21 +49,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import Any

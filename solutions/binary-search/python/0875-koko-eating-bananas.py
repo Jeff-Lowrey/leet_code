@@ -1,38 +1,6 @@
 """
-# Difficulty: Medium
-
-# 0875. Koko Eating Bananas
-
-Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
-
-Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.
-
-Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
-
-Return the minimum integer k such that she can eat all the bananas within h hours.
-
-**Example:**
-
-<dl class="example-details">
-<dt>Input:</dt>
-<dd>piles = [3,6,7,11], h = 8</dd>
-<dt>Output:</dt>
-<dd>4 (minimum eating speed)</dd>
-<dt>Explanation:</dt>
-<dd>Minimum eating speed k=4 allows finishing all banana piles within h hours</dd>
-</dl>
-
-<details>
-<summary><b>🔍 SOLUTION EXPLANATION</b></summary>
-### METADATA:
-**Techniques**: Hash Table Lookup, Array Traversal, Two Pointers
-**Data Structures**: Hash Map, Hash Set, Array
-**Patterns**: Two Pointers Pattern, Greedy Algorithm
-**Time Complexity**: O(n) - Single pass through input
-**Space Complexity**: O(1) - Constant extra space
-
 ### INTUITION:
-Binary search on the eating speed k, not the array. The minimum k is 1, maximum is max(piles). For each mid speed, calculate total hours needed. If hours <= h, try smaller k; otherwise try larger k. Find the minimum valid k.
+The key insight is that binary search on the eating speed k, not the array. The minimum k is 1, maximum is max(piles). For each mid speed, calculate total hours needed. If hours <= h, try smaller k; otherwise try larger k. Find the minimum valid k.
 
 ### APPROACH:
 1. **Define search range**: Set left = 1 (minimum speed), right = max(piles) (maximum speed)
@@ -45,11 +13,11 @@ Binary search on the eating speed k, not the array. The minimum k is 1, maximum 
 8. **Return result**: Return left as the minimum eating speed
 
 ### WHY THIS WORKS:
-- Binary search on eating speed: min=1, max=max(piles)
-- For each speed k, calculate hours needed: ceil(pile / k) for each pile
-- If total hours <= h, try smaller speed (right = mid - 1)
-- If total hours > h, need faster speed (left = mid + 1)
-- O(n log m) time: log m binary search, O(n) to verify, O(1) space
+- This ensures that binary search on eating speed: min=1, max=max(piles)
+- This ensures that for each speed k, calculate hours needed: ceil(pile / k) for each pile
+- This ensures that if total hours <= h, try smaller speed (right = mid - 1)
+- This ensures that if total hours > h, need faster speed (left = mid + 1)
+- This ensures that o(n log m) time: log m binary search, O(n) to verify, O(1) space
 
 ### EXAMPLE WALKTHROUGH:
 Input:
@@ -78,21 +46,18 @@ Output:
 ```
 
 ### TIME COMPLEXITY:
-O(n)
+**O(n)**
 - Single pass through input
 
-
 ### SPACE COMPLEXITY:
-O(1)
+**O(1)**
 - Constant extra space
 
-
 ### EDGE CASES:
-- Empty input handling
-- Single element cases
-- Large input considerations
+- **Empty input**: Handle when input is empty
+- **Single element**: Handle single-element inputs
+- **Boundary values**: Handle minimum/maximum valid values
 
-</details>
 """
 
 from typing import List, Optional, Dict, Tuple
