@@ -9,9 +9,9 @@ from flask import Response, abort, flash, redirect, render_template, request, ur
 from pygments import highlight
 from pygments.lexers import PythonLexer
 
-from ..category_data import category_manager
-from ..language_constants import get_file_extension, get_lexer_for_language
-from ..leetcode_converter import convert_to_leetcode_format, extract_solution_class
+from ..code_generation.leetcode_converter import convert_to_leetcode_format, extract_solution_class
+from ..data.category_data import category_manager
+from ..data.language_constants import get_file_extension, get_lexer_for_language
 from .base import BaseView
 
 
@@ -28,9 +28,9 @@ class SolutionView(BaseView):
         Returns:
             Rendered template for solution page
         """
-        from ..app import extract_all_problem_data, parse_problem_markdown
-        from ..skeleton_generator import generate_js_skeleton, generate_skeleton
-        from ..solution_utils import ensure_py_extension, get_solution_path
+        from ..code_generation.skeleton_generator import generate_js_skeleton, generate_skeleton
+        from ..content.content_processing import extract_all_problem_data, parse_problem_markdown
+        from ..search.solution_finder import ensure_py_extension, get_solution_path
 
         # Add .py extension if not present to normalize the filename
         filename = ensure_py_extension(filename)
@@ -160,7 +160,7 @@ class SolutionLeetCodeView(BaseView):
         Returns:
             Rendered template for LeetCode solution page
         """
-        from ..solution_utils import ensure_py_extension
+        from ..search.solution_finder import ensure_py_extension
 
         # Add .py extension if not present
         filename = ensure_py_extension(filename)
@@ -220,8 +220,8 @@ class DownloadSolutionView(BaseView):
         Returns:
             Response with downloadable file content
         """
-        from ..skeleton_generator import generate_skeleton
-        from ..solution_utils import ensure_py_extension, get_solution_path
+        from ..code_generation.skeleton_generator import generate_skeleton
+        from ..search.solution_finder import ensure_py_extension, get_solution_path
 
         # Handle .py extension if present
         filename = ensure_py_extension(filename)
@@ -325,7 +325,7 @@ class UploadSolutionView(BaseView):
         Returns:
             Rendered template for upload form
         """
-        from ..solution_utils import ensure_py_extension, remove_py_extension
+        from ..search.solution_finder import ensure_py_extension, remove_py_extension
 
         # Handle .py extension if present
         filename = ensure_py_extension(filename)
@@ -348,7 +348,7 @@ class UploadSolutionView(BaseView):
         Returns:
             Redirect to solution view or upload form with error
         """
-        from ..solution_utils import ensure_py_extension, remove_py_extension
+        from ..search.solution_finder import ensure_py_extension, remove_py_extension
 
         # Handle .py extension if present
         filename = ensure_py_extension(filename)
