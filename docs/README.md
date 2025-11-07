@@ -37,8 +37,20 @@ This documentation provides comprehensive guidance for understanding, using, con
    - Testing procedures
    - Feature development
 
+4. [Module Structure Reference](developer-guide/module-structure/README.md) - Complete module organization guide
+   - Task-oriented architecture
+   - Module responsibilities
+   - Interaction patterns
+   - Extension guide
+
+5. [Markdown Structure Guide](markdown-guide/README.md) - Solution markdown format documentation
+   - Metadata, problem description, explanation sections
+   - Language-specific formatting
+   - Processing flow and best practices
+   - Complete examples for 7 languages
+
 ### Solutions Library
-4. [Solutions Directory](solutions/) - 298+ algorithm solutions across 29 categories
+6. [Solutions Directory](solutions/) - 298+ algorithm solutions across 29 categories
 
 ## Quick Links
 [↑ Back to Table of Contents](#table-of-contents)
@@ -47,6 +59,8 @@ This documentation provides comprehensive guidance for understanding, using, con
 - **[User Guide](user-guide/README.md)** - Start here if you're using the platform to learn
 - **[Upload Guide](upload-guide/README.md)** - Start here if you want to contribute solutions
 - **[Developer Guide](developer-guide/README.md)** - Start here if you want to modify the codebase
+- **[Module Structure Reference](developer-guide/module-structure/README.md)** - Understand the task-oriented architecture
+- **[Markdown Structure Guide](markdown-guide/README.md)** - Learn the solution markdown format
 
 ### Templates
 - **[Python Solution Template](solutions/templates/SOLUTION_TEMPLATE.py)** - Template for Python solutions

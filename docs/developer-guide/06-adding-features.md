@@ -4,6 +4,8 @@
 
 ---
 
+> **📌 Note**: For **task-oriented feature development** and understanding which module to modify, see the [Extension Guide](module-structure/09-extension-guide.md). This document covers the **general feature development workflow**.
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -18,6 +20,8 @@
 ## Overview
 
 This guide walks through adding new features to the LeetCode Learning Tool, from planning to deployment. Follow these guidelines to ensure consistent, high-quality contributions.
+
+For specific guidance on **which module** to modify for different types of features, see the [Module Structure Extension Guide](module-structure/09-extension-guide.md).
 
 ## Feature Development Workflow
 

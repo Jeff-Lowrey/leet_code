@@ -1,6 +1,6 @@
 # Testing Language Integration
 
-[← Previous: Architecture](09-architecture.md) | [🏠 Home](README.md) | [Next: Contribution Workflow →](11-contribution-workflow.md)
+[← Previous: Formatting Guide Creation](03-formatting-guide-creation.md) | [🏠 Home](README.md) | [Up: Language Support →](../08-language-support/README.md)
 
 ---
 
@@ -779,4 +779,4 @@ Check:
 
 ---
 
-[← Previous: Architecture](09-architecture.md) | [🏠 Home](README.md) | [Next: Contribution Workflow →](11-contribution-workflow.md)
+[← Previous: Formatting Guide Creation](03-formatting-guide-creation.md) | [🏠 Home](README.md) | [Up: Language Support →](../08-language-support/README.md)

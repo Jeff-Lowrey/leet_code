@@ -17,51 +17,61 @@
 
 The LeetCode Learning Tool is a Flask-based web application designed to help developers learn and practice coding interview problems. It provides an intuitive interface for browsing, viewing, and downloading solutions across 29 algorithm categories.
 
-## Key Components
+## Key Components (Task-Oriented Architecture)
 
-### 1. Flask Application (`src/leet_code/app.py`)
-The main web application providing:
-- Route handlers for all views
-- Solution parsing and rendering
-- Syntax highlighting with Pygments
-- Markdown processing
-- Skeleton code generation
-- Download functionality (skeleton, solution, LeetCode format, ZIP bundles)
+The application is organized around **functional tasks** rather than technical layers. Each module contains all code related to a specific activity.
 
-**Lines of Code**: ~1686 lines
+### 1. Data Module (`src/leet_code/data/`)
+Centralized data models and constants:
+- **`category_data.py`**: Solution/Category dataclasses, CategoryManager with caching
+- **`language_constants.py`**: Language metadata (13+ languages), file extensions, comment styles
+- **`markdown_extraction.py`**: Universal language-agnostic markdown parser
 
-### 2. Category Manager (`src/leet_code/category_data.py`)
-Centralized data management system:
-- `Category` dataclass: Represents solution categories
-- `Solution` dataclass: Represents individual solutions
-- `CategoryManager` class: Manages all categories and solutions
-- Automatic metadata parsing (difficulty, complexity)
-- File system scanning and caching
+**Key Features**: File system scanning, metadata extraction, language detection
 
-**Lines of Code**: ~259 lines
+### 2. Content Module (`src/leet_code/content/`)
+Content extraction and processing:
+- **`content_processing.py`**: Extract problem data, parse explanations, merge content (13 functions)
+- **`syntax_highlighting.py`**: Pygments syntax highlighting with theme support
 
-### 3. LeetCode Converter (`src/leet_code/leetcode_converter.py`)
-Converts Python solutions between formats:
-- Snake_case → camelCase for LeetCode submissions
-- Extracts Solution class for clean downloads
-- Preserves docstrings and comments
+**Key Features**: Markdown to HTML conversion, section parsing, content organization
 
-### 4. Templates Directory
-Jinja2 templates for all views:
+### 3. Code Generation Module (`src/leet_code/code_generation/`)
+Code transformation and generation:
+- **`skeleton_generator.py`**: Generate practice templates for all languages
+- **`leetcode_converter.py`**: Convert Python snake_case to camelCase
+
+**Key Features**: Multi-language skeleton generation, format conversion
+
+### 4. Search Module (`src/leet_code/search/`)
+Search and solution discovery:
+- **`search_engine.py`**: Parse queries, execute searches, filter results (8 functions)
+- **`solution_finder.py`**: Solution lookup, category enrichment, path generation
+
+**Key Features**: Multi-mode search (navigate, name, similar, filter), similarity grouping
+
+### 5. Views Module (`src/leet_code/views/`)
+Flask views (class-based):
+- **`main_views.py`**: Home page, categories, virtual categories
+- **`solution_views.py`**: Solution display, downloads, uploads
+- **`search_views.py`**: Search interface and results
+- **`api_views.py`**: JSON API endpoints
+
+**Key Features**: RESTful routing, template rendering, file handling
+
+### 6. Application Factory (`src/leet_code/factory.py`)
+Flask application initialization:
+- Application factory pattern
+- Blueprint registration
+- Configuration management
+
+### 7. Templates & Static Assets
+Jinja2 templates and frontend:
 - Base layout with navigation
-- Homepage with category grid
-- Category views with solution lists
-- Solution views with code display
-- Download and upload interfaces
+- Category and solution views
+- CSS styling and JavaScript interactivity
 
-### 5. Static Assets
-CSS and JavaScript for:
-- Responsive design
-- Syntax highlighting themes
-- Interactive features
-- Navigation components
-
-## Architecture Overview
+## Architecture Overview (Task-Oriented)
 
 ```
 ┌─────────────┐
@@ -69,66 +79,80 @@ CSS and JavaScript for:
 └──────┬──────┘
        │ HTTP Request
        ↓
-┌─────────────────────────────────────┐
-│         Flask Application           │
-│          (app.py)                   │
-│                                     │
-│  ┌──────────────────────────────┐  │
-│  │  Route Handlers              │  │
-│  │  - index()                   │  │
-│  │  - category_view()           │  │
-│  │  - solution_view()           │  │
-│  │  - download_solution()       │  │
-│  └────────┬─────────────────────┘  │
-│           │                         │
-│           ↓                         │
-│  ┌──────────────────────────────┐  │
-│  │  CategoryManager             │  │
-│  │  - get_categories()          │  │
-│  │  - get_solution()            │  │
-│  │  - read_solution_content()   │  │
-│  └────────┬─────────────────────┘  │
-│           │                         │
-│           ↓                         │
-│  ┌──────────────────────────────┐  │
-│  │  Processing Pipeline         │  │
-│  │  - Parse docstring           │  │
-│  │  - Extract explanation       │  │
-│  │  - Generate skeleton         │  │
-│  │  - Syntax highlight          │  │
-│  └────────┬─────────────────────┘  │
-│           │                         │
-│           ↓                         │
-│  ┌──────────────────────────────┐  │
-│  │  Template Rendering          │  │
-│  │  (Jinja2)                    │  │
-│  └──────────────────────────────┘  │
-└─────────────────────────────────────┘
-       │ HTML Response
-       ↓
-┌──────────────┐
-│   Browser    │
-└──────────────┘
+┌─────────────────────────────────────────────────┐
+│         Flask Views (views/)                    │
+│  ┌──────────────┐  ┌──────────────────────┐    │
+│  │ main_views   │  │ solution_views       │    │
+│  │ search_views │  │ api_views            │    │
+│  └──────┬───────┘  └──────────┬───────────┘    │
+└─────────┼──────────────────────┼────────────────┘
+          │                      │
+          ↓                      ↓
+┌─────────────────────┐  ┌─────────────────────┐
+│  DATA MODULE        │  │  SEARCH MODULE      │
+│  ├─ category_data   │  │  ├─ search_engine   │
+│  ├─ language_const  │  │  └─ solution_finder │
+│  └─ markdown_extract│  └─────────────────────┘
+└──────────┬──────────┘
+           │
+           ↓
+┌──────────────────────────────────────────────┐
+│  CONTENT MODULE                              │
+│  ├─ content_processing (extract, parse)     │
+│  └─ syntax_highlighting (theme, format)     │
+└──────────┬───────────────────────────────────┘
+           │
+           ↓
+┌──────────────────────────────────────────────┐
+│  CODE GENERATION MODULE                      │
+│  ├─ skeleton_generator (multi-lang)         │
+│  └─ leetcode_converter (format convert)     │
+└──────────┬───────────────────────────────────┘
+           │
+           ↓
+┌──────────────────────────────────────────────┐
+│  Template Rendering (Jinja2)                │
+└──────────┬───────────────────────────────────┘
+           │ HTML Response
+           ↓
+       ┌─────────────┐
+       │   Browser   │
+       └─────────────┘
 ```
 
-## Data Flow
+## Data Flow (Task-Oriented Modules)
 
 ### Solution Display Flow
 1. User navigates to solution page
-2. Flask routes request to `solution_view()` handler
-3. `CategoryManager` reads solution file from `docs/solutions/{category}/{filename}.py`
-4. `parse_docstring_explanation()` extracts problem description and explanation
-5. `generate_skeleton()` creates practice template
-6. Pygments highlights code with syntax coloring
+2. Flask routes request to `solution_views.py` handler
+3. `CategoryManager` (data/category_data.py) reads solution file
+4. `extract_all_problem_data()` (content/content_processing.py) extracts:
+   - Uses `extract_markdown_from_code()` (data/markdown_extraction.py)
+   - Parses problem description and explanation sections
+   - Returns clean code + problem data
+5. `generate_skeleton()` (code_generation/skeleton_generator.py) creates practice template
+6. `highlight()` (content/syntax_highlighting.py) applies syntax coloring
 7. Jinja2 renders `solution.html` template
 8. Browser displays formatted solution
 
+### Search Flow
+1. User enters search query
+2. Flask routes to `search_views.py` handler
+3. `execute_search()` (search/search_engine.py):
+   - Parses query to determine mode (navigate, name, similar, filter)
+   - Queries CategoryManager for matching solutions
+   - Groups results by similarity if needed
+4. `enrich_solutions_with_category()` (search/solution_finder.py) adds metadata
+5. Renders search results template
+6. Browser displays matching solutions
+
 ### Download Flow
 1. User clicks download button
-2. Request routes to `download_solution()` with format parameter
-3. For "both" format: Creates ZIP with skeleton + solution + LeetCode format
-4. For single format: Generates appropriate content
-5. Returns file as downloadable response
+2. Request routes to `solution_views.py` with format parameter
+3. `generate_skeleton()` (code_generation/skeleton_generator.py) creates skeleton
+4. `convert_to_leetcode_format()` (code_generation/leetcode_converter.py) for LeetCode version
+5. For "both" format: Creates ZIP with all variants
+6. Returns file as downloadable response
 
 ## Development Workflow
 

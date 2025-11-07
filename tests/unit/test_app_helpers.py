@@ -3,7 +3,7 @@
 import pytest
 from pygments.util import ClassNotFound
 
-from src.leet_code.language_constants import get_file_extension, get_lexer_for_language
+from src.leet_code.data.language_constants import get_file_extension, get_lexer_for_language
 
 
 class TestHelperFunctions:

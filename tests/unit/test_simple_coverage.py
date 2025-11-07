@@ -1,7 +1,7 @@
 """Simple tests to improve coverage without complex mocking."""
 
-from src.leet_code.category_data import CategoryManager, Solution
-from src.leet_code.leetcode_converter import (
+from src.leet_code.data.category_data import CategoryManager, Solution
+from src.leet_code.code_generation.leetcode_converter import (
     convert_params_in_signature,
     convert_snake_case_params,
     extract_solution_class,
