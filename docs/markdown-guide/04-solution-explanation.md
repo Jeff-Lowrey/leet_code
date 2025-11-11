@@ -15,7 +15,7 @@
 
 ## Overview
 
-The solution explanation provides a detailed walkthrough of the approach, algorithm, complexity analysis, and insights. It is wrapped in a `<details>` tag for progressive disclosure.
+The solution explanation provides a detailed walkthrough of the approach, complexity analysis, and insights. It is wrapped in a `<details>` tag for progressive disclosure.
 
 ## Format
 
@@ -233,7 +233,7 @@ Assume the reader is seeing this approach for the first time.
 ```
 
 ### 2. Skipping Intuition
-❌ **Wrong**: Jump straight to algorithm steps
+❌ **Wrong**: Jump straight to implementation steps
 ✅ **Correct**: Start with high-level insight
 
 ### 3. No Concrete Examples
@@ -261,8 +261,8 @@ Dictionary mapping section names to HTML content:
 {
     "intuition": "<p>Use hash map...</p>",
     "approach": "<p>As we iterate...</p>",
-    "algorithm": "<ol><li>Initialize...</li></ol>",
-    "complexity": "<ul><li><strong>Time...</strong></li></ul>"
+    "complexity": "<ul><li><strong>Time...</strong></li></ul>",
+    "edge_cases": "<ul><li>Exactly 2 elements...</li></ul>"
 }
 ```
 

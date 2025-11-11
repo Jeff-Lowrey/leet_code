@@ -7,6 +7,7 @@ including category lookups, enrichment, and path management.
 from pathlib import Path
 from typing import Any
 
+from ..config import SOLUTIONS_DIR
 from ..data.category_data import Solution, category_manager
 from ..data.language_constants import get_file_extension
 
@@ -100,7 +101,7 @@ def get_solution_path(category: str, filename: str, language: str) -> Path:
     # Falls back to lowercase if language not in mapping
     language_dir = SUPPORTED_LANGUAGES.get(language, language.lower())
 
-    return Path(__file__).parent.parent.parent / "solutions" / category / language_dir / solution_filename
+    return SOLUTIONS_DIR / category / language_dir / solution_filename
 
 
 def count_by_difficulty(solutions: list[Solution]) -> dict[str, int]:

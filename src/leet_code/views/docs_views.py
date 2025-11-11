@@ -6,6 +6,7 @@ from pathlib import Path
 import markdown
 from flask import abort, render_template
 
+from ..config import DOCS_DIR
 from .base import BaseView
 
 
@@ -19,7 +20,7 @@ class DocsIndexView(BaseView):
             Rendered template for docs index page
         """
         docs = []
-        docs_path = Path(__file__).parent.parent.parent.parent / "docs"
+        docs_path = DOCS_DIR
 
         if docs_path.exists():
             for category_dir in sorted(docs_path.iterdir()):
@@ -92,7 +93,7 @@ class DocsReadmeView(BaseView):
         Returns:
             Rendered template for README page
         """
-        docs_path = Path(__file__).parent.parent.parent.parent / "docs" / "README.md"
+        docs_path = DOCS_DIR / "README.md"
         if docs_path.exists():
             doc_content = docs_path.read_text()
             doc_html = markdown.markdown(doc_content, extensions=["fenced_code", "tables", "toc"])
@@ -113,7 +114,7 @@ class DocsView(BaseView):
         Returns:
             Rendered template for docs page
         """
-        docs_base = Path(__file__).parent.parent.parent.parent / "docs"
+        docs_base = DOCS_DIR
 
         # Determine which file to load
         if page:
