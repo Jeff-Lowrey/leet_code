@@ -141,7 +141,8 @@ class CategoryManager:
 
     def __init__(self, base_dir: Path | None = None):
         """Initialize the category manager."""
-        self.base_dir = base_dir or Path(__file__).parent.parent.parent
+        # Path: __file__ -> data/ -> leet_code/ -> src/ -> repo_root/
+        self.base_dir = base_dir or Path(__file__).parent.parent.parent.parent
         self.solutions_dir = self.base_dir / "solutions"
         self.docs_dir = self.base_dir / "docs"
         self.data_dir = self.base_dir / "data"
