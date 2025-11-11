@@ -7,7 +7,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from src.leet_code.category_data import Category, Solution
+from src.leet_code.data.category_data import Category, Solution
 from src.leet_code.factory import create_app
 
 
@@ -45,7 +45,7 @@ def mock_categories() -> list[Category]:
 class TestHomeRoute:
     """Test the home page route."""
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.main_views.category_manager")
     def test_home_page(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test home page renders correctly."""
         mock_manager.get_categories.return_value = mock_categories
@@ -61,7 +61,7 @@ class TestHomeRoute:
 class TestCategoryRoute:
     """Test category view route."""
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.main_views.category_manager")
     def test_category_view(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test category view renders correctly."""
         mock_manager.get_category.return_value = mock_categories[0]
@@ -72,7 +72,7 @@ class TestCategoryRoute:
         assert b"Arrays &amp; Hashing" in response.data
         assert b"001-two-sum.py" in response.data or b"Two Sum" in response.data
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.main_views.category_manager")
     def test_category_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test category not found returns 404."""
         mock_manager.get_category.return_value = None
@@ -84,7 +84,7 @@ class TestCategoryRoute:
 class TestSolutionRoute:
     """Test solution view routes."""
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.solution_views.category_manager")
     def test_solution_view(self, mock_manager: Any, client: Any) -> None:
         """Test solution view renders correctly."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
@@ -99,7 +99,7 @@ class Solution:
         assert response.status_code == 200
         assert b"Two Sum" in response.data
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.solution_views.category_manager")
     def test_solution_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test solution not found returns 404."""
         mock_manager.get_solution.return_value = None
@@ -107,7 +107,7 @@ class Solution:
         response = client.get("/solution/arrays-hashing/non-existent.py")
         assert response.status_code == 404
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.solution_views.category_manager")
     def test_solution_leetcode_view(self, mock_manager: Any, client: Any) -> None:
         """Test LeetCode format view."""
         mock_solution = Solution("001-two-sum.py", "Two Sum")
@@ -127,7 +127,7 @@ class Solution:
 class TestAPIRoutes:
     """Test API endpoints."""
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.api_views.category_manager")
     def test_api_categories(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test categories API endpoint."""
         mock_manager.get_categories.return_value = mock_categories
@@ -140,7 +140,7 @@ class TestAPIRoutes:
         assert data[0]["slug"] == "arrays-hashing"
         assert data[0]["count"] == 2
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.api_views.category_manager")
     def test_api_category_solutions(self, mock_manager: Any, client: Any, mock_categories: Any) -> None:
         """Test category solutions API endpoint."""
         mock_manager.get_category.return_value = mock_categories[0]
@@ -152,7 +152,7 @@ class TestAPIRoutes:
         assert len(data) == 2
         assert data[0]["filename"] == "001-two-sum.py"
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.api_views.category_manager")
     def test_api_category_not_found(self, mock_manager: Any, client: Any) -> None:
         """Test API returns 404 for non-existent category."""
         mock_manager.get_category.return_value = None
@@ -170,7 +170,7 @@ class TestDocsRoute:
         assert response.status_code == 200
         assert b"Documentation" in response.data
 
-    @patch("src.leet_code.app.Path")
+    @patch("src.leet_code.views.docs_views.Path")
     def test_docs_readme(self, mock_path: Any, client: Any) -> None:
         """Test docs README renders."""
         mock_file = MagicMock()
@@ -207,7 +207,7 @@ class TestErrorHandlers:
         response = client.get("/non-existent-page")
         assert response.status_code == 404
 
-    @patch("src.leet_code.app.category_manager")
+    @patch("src.leet_code.views.main_views.category_manager")
     def test_500_error(self, mock_manager: Any, client: Any) -> None:
         """Test 500 error handling."""
         # Simulate an internal error
