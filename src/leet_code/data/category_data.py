@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from ..config import BASE_DIR, DATA_DIR, DOCS_DIR, SOLUTIONS_DIR
 from .language_constants import SUPPORTED_LANGUAGES
 from .markdown_extraction import extract_markdown_from_code, parse_metadata_from_markdown
 
@@ -141,11 +142,10 @@ class CategoryManager:
 
     def __init__(self, base_dir: Path | None = None):
         """Initialize the category manager."""
-        # Path: __file__ -> data/ -> leet_code/ -> src/ -> repo_root/
-        self.base_dir = base_dir or Path(__file__).parent.parent.parent.parent
-        self.solutions_dir = self.base_dir / "solutions"
-        self.docs_dir = self.base_dir / "docs"
-        self.data_dir = self.base_dir / "data"
+        self.base_dir = base_dir or BASE_DIR
+        self.solutions_dir = SOLUTIONS_DIR
+        self.docs_dir = DOCS_DIR
+        self.data_dir = DATA_DIR
         self._categories: list[Category] | None = None
         self._problem_tags: dict[str, ProblemTags] | None = None
 
