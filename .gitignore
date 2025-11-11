@@ -121,6 +121,7 @@ logs/
 .tox/
 .nox/
 htmlcov/
+coverage/
 *.cover
 .hypothesis/
 .ruff_cache/
