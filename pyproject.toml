@@ -30,6 +30,8 @@ build-backend = "pdm.backend"
 lint = [ "ruff>=0.1.0", "mypy>=1.0",]
 dev = [
     "pytest>=8.0.0",
+    "pytest-playwright>=0.6.0",
+    "playwright>=1.48.0",
     "types-Markdown>=3.9.0.20250906",
     "types-Pygments>=2.19.0.20250809",
     "bandit>=1.8.6",
@@ -124,6 +126,16 @@ ignore = [ "E501", "N802", "N803",]
 testpaths = [ "tests",]
 python_files = [ "test_*.py", "*_test.py",]
 addopts = ""
+
+[tool.pytest_playwright]
+# Playwright configuration for browser testing
+browser = "webkit"  # Default browser (chromium, firefox, webkit)
+headed = false  # Run headless by default
+slow_mo = 0  # No slowdown (set to 100+ for debugging)
+base_url = "http://localhost:5001"  # Default test server URL
+screenshot = "only-on-failure"  # Screenshots on test failures
+video = "retain-on-failure"  # Videos only for failures
+trace = "retain-on-failure"  # Traces for debugging failures
 
 [tool.bandit]
 targets = ["src"]
