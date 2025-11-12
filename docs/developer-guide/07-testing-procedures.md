@@ -10,6 +10,7 @@
 - [Testing Environment Setup](#testing-environment-setup)
 - [Unit Testing](#unit-testing)
 - [Integration Testing](#integration-testing)
+- [Black Box Testing](#black-box-testing)
 - [Type Checking](#type-checking)
 - [Code Linting](#code-linting)
 - [Security Testing](#security-testing)
@@ -434,6 +435,205 @@ def test_404(client):
     """Test 404 page."""
     rv = client.get('/nonexistent')
     assert rv.status_code == 404
+```
+
+## Black Box Testing
+
+Black box testing validates the application from a user's perspective using browser automation, without knowledge of internal implementation details.
+
+### Setup
+
+**Install Playwright** (WebKit browser for Safari engine testing):
+
+```bash
+# Add to project dependencies
+pdm add -d pytest-playwright playwright
+
+# Install WebKit browser binaries
+pdm run playwright install webkit
+```
+
+**Configuration**: [`pyproject.toml`](../../pyproject.toml)
+
+```toml
+[tool.pytest_playwright]
+browser = "webkit"  # Safari engine
+headed = false
+slow_mo = 0
+base_url = "http://localhost:5001"
+screenshot = "only-on-failure"
+video = "retain-on-failure"
+trace = "retain-on-failure"
+```
+
+### Test Structure
+
+**Directory Organization**:
+```
+tests/
+├── blackbox/                  # Browser automation tests
+│   ├── conftest.py           # Playwright fixtures, live server
+│   ├── test_home_page.py     # Home page tests
+│   ├── test_search.py        # Search functionality tests
+│   ├── test_solution_view.py # Solution view tests
+│   ├── test_documentation_pages.py
+│   ├── test_api_endpoints.py
+│   ├── test_file_operations.py
+│   └── test_data_processing.py
+└── fixtures/                  # Test data
+    ├── sample_solutions/     # Python, JavaScript, Java samples
+    ├── sample_markdown/      # Problem descriptions
+    └── sample_categories/    # Category JSON data
+```
+
+### Live Server Setup
+
+Black box tests require a running Flask application. The test suite automatically starts a Flask server in a background process:
+
+**`tests/blackbox/conftest.py`**:
+
+```python
+import multiprocessing
+from flask import Flask
+import pytest
+from playwright.sync_api import Page
+
+class ServerThread(multiprocessing.Process):
+    """Run Flask server in a separate process for testing."""
+    def __init__(self, app: Flask, port: int = 5001) -> None:
+        super().__init__(daemon=True)
+        self.port = port
+        self.app = app
+
+    def run(self) -> None:
+        self.app.run(host="127.0.0.1", port=self.port, debug=False, use_reloader=False)
+
+@pytest.fixture(scope="session", autouse=True)
+def live_server() -> Generator[None, None, None]:
+    """Start Flask server for black box testing."""
+    from src.leet_code.factory import create_app
+
+    app = create_app()
+    server = ServerThread(app, port=5001)
+    server.start()
+    time.sleep(2)  # Give server time to start
+
+    yield
+
+    server.terminate()
+    server.join(timeout=5)
+
+@pytest.fixture
+def page(page: Page) -> Page:
+    """Configure page with base URL."""
+    return page
+```
+
+### Example Tests
+
+**Home Page Tests** (`test_home_page.py`):
+
+```python
+from playwright.sync_api import Page, expect
+
+def test_home_page_loads(page: Page) -> None:
+    """Test that home page loads successfully."""
+    page.goto("/")
+    expect(page).to_have_title(re.compile("Leet Code"))
+    expect(page.locator("h1, .logo")).to_contain_text("Leet Code")
+
+def test_category_cards_display(page: Page) -> None:
+    """Test that category cards are displayed on home page."""
+    page.goto("/")
+    page.wait_for_selector(".category-card", timeout=5000)
+    cards = page.locator(".category-card")
+    expect(cards).to_have_count(lambda count: count > 0)
+```
+
+**Search Tests** (`test_search.py`):
+
+```python
+def test_navigate_mode_search(page: Page) -> None:
+    """Test search using navigate mode (#number)."""
+    page.goto("/")
+    search_input = page.locator("input.search-input, #search-input").first
+    search_input.fill("#443")
+    search_input.press("Enter")
+    page.wait_for_url(re.compile(r"/(search|solution)"), timeout=5000)
+
+def test_filter_mode_difficulty(page: Page) -> None:
+    """Test search using filter mode (difficulty:easy)."""
+    page.goto("/")
+    search_input = page.locator("input.search-input, #search-input").first
+    search_input.fill("difficulty:easy")
+    search_input.press("Enter")
+    page.wait_for_url(re.compile(r"/search"), timeout=5000)
+```
+
+### Running Black Box Tests
+
+```bash
+# Run all black box tests
+pdm run pytest tests/blackbox/
+
+# Run specific test file
+pdm run pytest tests/blackbox/test_home_page.py
+
+# Run with headed browser (visible)
+pdm run pytest tests/blackbox/ --headed
+
+# Run with slow motion for debugging
+pdm run pytest tests/blackbox/ --slowmo 1000
+
+# Generate screenshots on failure
+pdm run pytest tests/blackbox/ --screenshot only-on-failure
+
+# Generate video recordings
+pdm run pytest tests/blackbox/ --video retain-on-failure
+```
+
+### Test Categories
+
+**Current Coverage** (37 black box tests):
+
+1. **Home Page Functionality** (6 tests)
+   - Page loading, category cards, stats badges, navigation, theme toggle, search input
+
+2. **Search Functionality** (6 tests)
+   - Navigate mode, similar mode, filter modes, name search, error handling
+
+3. **Solution View** (4 tests)
+   - Code display, tabbed interface, download options, problem rendering
+
+4. **Documentation Pages** (6 tests)
+   - Page loading, navigation, markdown rendering, code highlighting, breadcrumbs, TOC
+
+5. **API Endpoints** (7 tests)
+   - Health check, categories, solutions, search, error handling, CORS headers
+
+6. **File Operations** (6 tests)
+   - Downloads, copy functionality, file validation, export, bulk downloads, preview
+
+7. **Data Processing** (8 tests)
+   - Statistics display, difficulty/complexity counts, filtering, sorting, aggregation
+
+### Debugging Tests
+
+**Interactive Mode**:
+
+```bash
+# Run with Playwright inspector
+PWDEBUG=1 pdm run pytest tests/blackbox/test_home_page.py
+```
+
+**Generate Trace**:
+
+```bash
+# Run with trace enabled
+pdm run pytest tests/blackbox/ --tracing on
+
+# View trace in Playwright trace viewer
+pdm run playwright show-trace trace.zip
 ```
 
 ## Complete Quality Check Workflow
