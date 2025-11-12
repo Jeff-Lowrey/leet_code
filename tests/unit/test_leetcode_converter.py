@@ -1,6 +1,10 @@
 """Unit tests for the leetcode_converter module."""
 
-from src.leet_code.code_generation.leetcode_converter import LeetCodeConverter, convert_to_leetcode_format, extract_solution_class
+from src.leet_code.code_generation.leetcode_converter import (
+    LeetCodeConverter,
+    convert_to_leetcode_format,
+    extract_solution_class,
+)
 
 
 class TestLeetCodeConverter:
