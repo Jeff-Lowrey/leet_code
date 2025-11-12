@@ -1,6 +1,7 @@
 """Documentation-related views."""
 
 import re
+from pathlib import Path
 
 import markdown
 from flask import abort, render_template
