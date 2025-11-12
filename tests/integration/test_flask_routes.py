@@ -170,13 +170,13 @@ class TestDocsRoute:
         assert response.status_code == 200
         assert b"Documentation" in response.data
 
-    @patch("src.leet_code.views.docs_views.Path")
-    def test_docs_readme(self, mock_path: Any, client: Any) -> None:
+    @patch("src.leet_code.views.docs_views.DOCS_DIR")
+    def test_docs_readme(self, mock_docs_dir: Any, client: Any) -> None:
         """Test docs README renders."""
         mock_file = MagicMock()
         mock_file.exists.return_value = True
         mock_file.read_text.return_value = "# Documentation"
-        mock_path.return_value = mock_file
+        mock_docs_dir.__truediv__.return_value = mock_file
 
         response = client.get("/docs/README")
         assert response.status_code == 200
