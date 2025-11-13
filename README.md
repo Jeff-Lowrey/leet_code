@@ -277,6 +277,7 @@ Upload alternative language solution
 - **Total Languages Supported**: 13 programming languages
 - **Documentation Pages**: 40+ comprehensive guides
 - **Categories**: All 29 categories have ≥10 problems each for comprehensive coverage
+- **Test Coverage**: 68% overall coverage with 261 tests (211 backend unit + 13 frontend + 37 black box)
 
 ### Solution Categories
 Arrays & Hashing • Two Pointers • Sliding Window • Stacks • Binary Search • Linked Lists • Trees • Tries • Heap/Priority Queue • Backtracking • Graphs • Advanced Graphs • 1-D Dynamic Programming • 2-D Dynamic Programming • Greedy • Intervals • Math & Geometry • Bit Manipulation • and more
@@ -402,9 +403,11 @@ leet_code/
 │   ├── css/
 │   └── js/
 │
-└── tests/                          # Test suite
-    ├── unit/
-    └── integration/
+└── tests/                          # Test suite (261 tests total)
+    ├── unit/                       # Unit tests (211 tests)
+    ├── integration/                # Integration tests (13 tests)
+    ├── blackbox/                   # Black box browser automation tests (37 tests)
+    └── fixtures/                   # Test fixtures (sample solutions, markdown, categories)
 ```
 
 ### Module Responsibilities

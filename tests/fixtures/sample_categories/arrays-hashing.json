@@ -1,0 +1,16 @@
+{
+  "name": "Arrays & Hashing",
+  "slug": "arrays-hashing",
+  "description": "Problems involving arrays and hash tables",
+  "problems": [
+    {
+      "number": 1,
+      "name": "Two Sum",
+      "difficulty": "easy",
+      "filename": "two_sum.py",
+      "languages": ["python", "javascript", "java"],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)"
+    }
+  ]
+}
