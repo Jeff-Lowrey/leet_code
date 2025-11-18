@@ -5,13 +5,14 @@
 echo "Starting Learning Web App for Leet Code problems..."
 
 # Check if virtual environment exists
-if [ ! -d "venv" ]; then
+if [ ! -d ".venv" ]; then
     echo "Creating virtual environment..."
-    python3 -m venv venv
+    python3 -m venv .venv
 fi
 
 # Activate virtual environment
-source venv/bin/activate
+# shellcheck disable=SC1091
+. .venv/bin/activate
 
 # Install dependencies
 echo "Installing dependencies..."
@@ -20,7 +21,8 @@ pip install -q flask markdown pygments
 
 # Run the Flask app
 # Extract host and port from command line args or use defaults
-HOST="127.0.0.1"
+#HOST="127.0.0.1"
+HOST="192.168.0.140"
 PORT="9501"
 
 # Parse command line arguments
@@ -51,6 +53,6 @@ done
 
 echo "Starting server on port $PORT (localhost only)..."
 echo "Server accessible at:"
-echo "  - http://localhost:$PORT"
-echo "  - http://127.0.0.1:$PORT"
-python -m src.leet_code.app "$@"
+echo "  - http://$HOST:$PORT"
+python -m src.leet_code.app --host "$HOST" --port "$PORT"
+
