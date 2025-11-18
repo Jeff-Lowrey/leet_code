@@ -11,6 +11,9 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
 5. [Static Files](05-static-files.md) - CSS, JavaScript, and static asset organization
 6. [Adding Features](06-adding-features.md) - Guidelines for implementing new functionality
 7. [Testing Procedures](07-testing-procedures.md) - Quality checks, testing, and deployment
+   - **[Testing Documentation](../../tests/docs/README.md)** - Complete test suite documentation hub
+   - [Testing Overview](../../tests/docs/01-testing-overview.md) - Test organization, frameworks, and quick start
+   - [Issue #36 Tests](../../tests/docs/issue-36-tests.md) - Example of comprehensive test coverage
 8. [Language Support](08-language-support/README.md) - Complete guide to adding new programming languages
    - [Template Creation](08-language-support/01-template-creation.md) - Creating language-specific templates
    - [Adding Languages](08-language-support/02-adding-languages.md) - Integration procedures and configuration
@@ -49,6 +52,7 @@ Welcome to the LeetCode Learning Tool Developer Guide. This guide provides compr
 - **Syntax Highlighting**: Pygments
 - **Package Manager**: PDM (Python Development Master)
 - **Quality Tools**: mypy, ruff, pytest, bandit
+- **Testing**: pytest (backend), Vitest (frontend), pytest-cov (coverage)
 
 ## Development Environment
 [↑ Back to Table of Contents](#table-of-contents)

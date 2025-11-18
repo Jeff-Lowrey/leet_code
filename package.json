@@ -4,6 +4,10 @@
   "description": "JavaScript quality tools for LeetCode Learning Tool",
   "private": true,
   "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint 'static/js/**/*.js'",
     "lint:fix": "eslint 'static/js/**/*.js' --fix",
     "format": "prettier --check 'static/js/**/*.js'",
@@ -14,10 +18,14 @@
     "quality:fix": "npm run lint:fix && npm run format:fix && npm run security:fix"
   },
   "devDependencies": {
+    "@vitest/ui": "^2.1.8",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-security": "^2.1.1",
-    "prettier": "^3.2.5"
+    "jsdom": "^25.0.1",
+    "prettier": "^3.2.5",
+    "vitest": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.8"
   },
   "keywords": [
     "leetcode",
