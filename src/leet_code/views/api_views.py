@@ -187,22 +187,22 @@ class APIDifficultyByComplexityView(BaseView):
 class APICategoryDifficultyStatsView(BaseView):
     """API endpoint to get difficulty counts for a specific category."""
 
-    def get(self, category_slug: str) -> Response | tuple[Response, int]:
+    def get(self, category: str) -> Response | tuple[Response, int]:
         """Handle GET request for category difficulty stats API.
 
         Args:
-            category_slug: Category slug
+            category: Category slug
 
         Returns:
             JSON response with difficulty counts for category
         """
         from ..search.solution_finder import count_by_difficulty
 
-        category = category_manager.get_category(category_slug)
-        if not category:
+        category_data = category_manager.get_category(category)
+        if not category_data:
             return jsonify({"error": "Category not found"}), 404
 
-        difficulty_counts = count_by_difficulty(category.solutions)
+        difficulty_counts = count_by_difficulty(category_data.solutions)
 
         return jsonify(difficulty_counts)
 
@@ -210,20 +210,20 @@ class APICategoryDifficultyStatsView(BaseView):
 class APICategoryComplexityStatsView(BaseView):
     """API endpoint to get complexity pattern counts for a specific category."""
 
-    def get(self, category_slug: str) -> Response | tuple[Response, int]:
+    def get(self, category: str) -> Response | tuple[Response, int]:
         """Handle GET request for category complexity stats API.
 
         Args:
-            category_slug: Category slug
+            category: Category slug
 
         Returns:
             JSON response with complexity counts for category
         """
         from ..search.solution_finder import count_by_time_complexity
 
-        category = category_manager.get_category(category_slug)
-        if not category:
+        category_data = category_manager.get_category(category)
+        if not category_data:
             return jsonify({"error": "Category not found"}), 404
 
-        complexity_counts = count_by_time_complexity(category.solutions)
+        complexity_counts = count_by_time_complexity(category_data.solutions)
         return jsonify(complexity_counts)

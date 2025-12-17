@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch difficulty stats for this category
     fetchStats(
-      `/api/stats/category/${categorySlug}/difficulty`,
+      `/api/category/${categorySlug}/stats/difficulty`,
       function (difficultyCounts) {
         const easy = difficultyCounts.easy || 0;
         const medium = difficultyCounts.medium || 0;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch complexity stats for this category
     fetchStats(
-      `/api/stats/category/${categorySlug}/complexity`,
+      `/api/category/${categorySlug}/stats/complexity`,
       function (complexityCounts) {
         // Filter out 'Unknown' and get top 3
         const filtered = Object.fromEntries(
