@@ -1,5 +1,9 @@
 # Leet Code Learning Tool
 
+
+> ** 🛑 Notice **
+> This repository is no longer being maintained.
+
 > **⚠️ DISCLAIMER**
 >
 > This is an educational tool provided for learning purposes only. The code and solutions in this repository are provided "AS IS" without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability arising from the use of this software.
